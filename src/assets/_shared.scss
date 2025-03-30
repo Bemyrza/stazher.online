@@ -1,0 +1,54 @@
+.w-full {
+  width: 100%;
+}
+#app {
+  overflow-x: hidden;
+}
+.main-container {
+  padding: 20px;
+  border-radius: 10px;
+  background: $default-white;
+  box-shadow: $box-shadow-default;
+  width: 100%;
+
+  @media (max-width: 700px) {
+    border-radius: 0;
+  }
+
+  &--hover {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    will-change: transform;
+
+    &:hover {
+      background: rgb($default-white, 0.7);
+    }
+
+    &:active {
+      background: rgb($default-white, 0.5);
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+body {
+  // width: calc(100vw - 6px) !important;
+  // padding: 0 !important;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: $mobile-max-width) {
+  .main-container {
+    padding: 16px 8px;
+  }
+}
