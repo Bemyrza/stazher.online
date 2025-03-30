@@ -7,8 +7,10 @@
   <Achievement />
   <Partners />
   <OurPlatform />
-  <OurAreas/> -->
-  <AboutPage />
+  <OurAreas/>
+  <AboutPage /> -->
+  <TaskCase />
+  
   <component :is="currentFooter" v-if="!isLogin" />
 </template>
 
@@ -25,6 +27,7 @@ import Partners from './components/pages/Partners.vue'
 import OurPlatform from './components/pages/OurPlatform.vue'
 import OurAreas from './components/pages/OurAreas.vue'
 import AboutPage from './components/pages/AboutPage.vue'
+import TaskCase from "./components/pages/TaskCase.vue"
 
 
 
