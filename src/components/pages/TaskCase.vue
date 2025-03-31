@@ -9,71 +9,41 @@
         </p>
       </div>
       <div>
-        <button @click="prevSlide">
+        <button>
           <img :src="prevIcon" alt="Назад" />
         </button>
-        <button class="flexBtn" @click="nextSlide">
+        <button class="flexBtn">
           <img :src="nextIcon" alt="Вперед" />
         </button>
       </div>
     </div>
     <div class="sliderFlex">
-      <div v-for="(slide, index) in visibleSlides" :key="index" class="slideBloick">
-        <img class="imgSlide" :src="slide.img" alt="" />
-        <h3 class="titleImage">{{ slide.title }}</h3>
-        <p class="titleTxt">{{ slide.description }}</p>
+      <div class="slideBlock">
+        <img class="imgSlide" src="../../assets/media/img/oneSlide.png" alt="" />
+        <h3 class="titleImage">Название проекта</h3>
+        <p class="titleTxt">
+          Кейс-менеджеры помогают сформулировать задачу, а дизайнеры оформляют ее в фирменном стиле
+          компании.
+        </p>
         <button class="btnCase">Посмотреть проект</button>
       </div>
+      <div class="slideBlock">
+        <img class="imgSlide" src="../../assets/media/img/twoSlide.png" alt="" />
+        <h3 class="titleImage">Название проекта</h3>
+        <p class="titleTxt">
+          Кейс-менеджеры помогают сформулировать задачу, а дизайнеры оформляют ее в фирменном стиле
+          компании.
+        </p>
+        <button class="btnCase">Посмотреть проект</button>
+      </div>
+      
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
 import prevIcon from '@/assets/media/icons/prevIcon.svg'
 import nextIcon from '@/assets/media/icons/nextIcon.svg'
-
-const slides = ref([
-  {
-    img: '../../assets/media/img/oneSlide.png',
-    title: 'Название проекта 1',
-    description:
-      'Кейс-менеджеры помогают сформулировать задачу, а дизайнеры оформляют ее в фирменном стиле компании.'
-  },
-  {
-    img: '@/assets/media/img/twoSlide.png',
-    title: 'Название проекта 2',
-    description:
-      'Кейс-менеджеры помогают сформулировать задачу, а дизайнеры оформляют ее в фирменном стиле компании.'
-  },
-  {
-    img: '@/assets/media/img/threeSlide.png',
-    title: 'Название проекта 3',
-    description:
-      'Кейс-менеджеры помогают сформулировать задачу, а дизайнеры оформляют ее в фирменном стиле компании.'
-  },
-  {
-    img: '@/assets/media/img/fourSlide.png',
-    title: 'Название проекта 4',
-    description:
-      'Кейс-менеджеры помогают сформулировать задачу, а дизайнеры оформляют ее в фирменном стиле компании.'
-  }
-])
-
-const currentIndex = ref(0)
-
-const prevSlide = () => {
-  currentIndex.value = (currentIndex.value - 1 + slides.value.length) % slides.value.length
-}
-
-const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % slides.value.length
-}
-
-// Вычисляем только два слайда для отображения
-const visibleSlides = computed(() => {
-  return slides.value.slice(currentIndex.value, currentIndex.value + 2)
-})
 </script>
 
 <style>
@@ -112,8 +82,11 @@ const visibleSlides = computed(() => {
   border-radius: 10px;
 }
 
-.slideBloick {
+/* .slideBloick {
   width: 100%;
+} */
+
+.slideBlock {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
