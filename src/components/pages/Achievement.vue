@@ -39,31 +39,31 @@
 
 .achievements-container {
     text-align: center;
-    padding: 40px;
-    max-width: 100%;    
+    padding: 40px 20px;
+    max-width: 1500px;
     margin: 0 auto;
     font-family: "Inter", sans-serif;
 }
 
 .title {
-    font-size: 48px;
+    font-size: 42px;
     font-weight: 700;
     line-height: 1.2;
-    max-width: 480px;
-    margin: 0 auto 50px;
+    max-width: 600px;
+    margin: 0 auto 40px;
 }
 
 .description {
     font-size: 18px;
     color: #555;
-    line-height: 1.4;
+    line-height: 1.5;
     max-width: 800px;
     margin: 0 auto 40px;
 }
 
 .cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
     width: 100%;
@@ -75,13 +75,16 @@
     border-radius: 16px;
     width: calc(33.33% - 20px);
     text-align: center;
-    min-height: 450px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+
 
 .number {
     font-size: 4rem;
@@ -102,17 +105,83 @@ p {
     max-width: 100%;
     font-size: 1rem;
     color: #555;
-    line-height: 1.4;
+    line-height: 1.5;
     margin-top: 10px;
 }
 
+/* Адаптивность */
 @media (max-width: 1024px) {
+    .cards {
+        justify-content: center;
+    }
+    
+    .card {
+        width: calc(50% - 20px);
+        min-height: 350px;
+    }
+
+    .title {
+        font-size: 38px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
     .cards {
         flex-direction: column;
         align-items: center;
     }
+
     .card {
-        width: 90%;
+        width: 100%;
+        min-height: 300px;
+        padding: 30px;
+    }
+
+    .number {
+        font-size: 3.5rem;
+        top: 15px;
+        left: 15px;
+    }
+
+    .title {
+        font-size: 34px;
+    }
+
+    .description {
+        font-size: 15px;
     }
 }
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    .number {
+        font-size: 3rem;
+        top: 10px;
+        left: 10px;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+}
+
 </style>

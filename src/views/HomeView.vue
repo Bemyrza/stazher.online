@@ -48,7 +48,7 @@ onMounted(() => {
   text-align: center;
   line-height: 1.1;
   max-width: 1000px;
-  font-size: 70px;
+  font-size: 4px;
   margin-bottom: 32px; 
   margin: 0 auto;
 }
@@ -108,39 +108,82 @@ onMounted(() => {
   background-repeat: no-repeat;
 }
 
+.title {
+  font-size: 4.375rem; /* 70px */
+  max-width: 1000px;
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 2rem; /* 32px */
+  margin: 0 auto;
+}
+
+.subtitle {
+  font-size: 1.125rem; /* 18px */
+  max-width: 600px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 3.125rem; /* 50px */
+  margin: 0 auto;
+}
+
+/* --- Адаптивная версия --- */
 
 @media (max-width: 1024px) {
   .title {
-    font-size: 50px;
+    font-size: 3.125rem; /* 50px */
     max-width: 90%;
   }
 
   .subtitle {
-    font-size: 16px;
+    font-size: 1rem; /* 16px */
     max-width: 80%;
   }
+}
 
-  .primary, .secondary {
-    padding: 16px 40px;
-    font-size: 16px;
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem; /* 40px */
+    max-width: 100%;
+  }
+
+  .subtitle {
+    font-size: 0.9375rem; /* 15px */
+    max-width: 90%;
   }
 }
 
 @media (max-width: 600px) {
   .title {
-    font-size: 36px;
+    font-size: 2rem; /* 32px */
+    max-width: 100%;
   }
 
   .subtitle {
-    font-size: 14px;
-  }
-
-  .buttons {
-    flex-direction: column;
-  }
-
-  .primary, .secondary {
-    width: 100%;
+    font-size: 0.875rem; /* 14px */
+    max-width: 90%;
   }
 }
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem; /* 28px */
+  }
+
+  .subtitle {
+    font-size: 0.8125rem; /* 13px */
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.5rem; /* 24px */
+  }
+
+  .subtitle {
+    font-size: 0.75rem; /* 12px */
+  }
+}
+
+
+
 </style>

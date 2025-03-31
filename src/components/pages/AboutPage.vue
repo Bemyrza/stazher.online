@@ -1,10 +1,15 @@
 <template>
     <main class="container">
-        <h1 class="title">Экосистема для взаимодействия работодателей и молодых специалистов через КЕЙС-МЕТОД</h1>
+        <h1 class="title">
+            Экосистема для взаимодействия работодателей и молодых специалистов через КЕЙС-МЕТОД
+        </h1>
         <p class="description">
-            Привлекайте студентов из лучших вузов, проверяйте их навыки в реальных задачах и находите мотивированных сотрудников.
+            Привлекайте студентов из лучших вузов, проверяйте их навыки в реальных задачах и находите мотивированных
+            сотрудников.
         </p>
-        <img :src="interaction" alt="Взаимодействие" class="image">
+        <div class="image-wrapper">
+            <img :src="interaction" alt="Взаимодействие" class="image">
+        </div>
     </main>
 </template>
 
@@ -27,23 +32,36 @@ export default {
     align-items: center;
     text-align: center;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .title {
-    font-size: 4.5rem;
+    font-size: 4rem;
     line-height: 100%;
-    width: 900px;
-    margin-bottom: 10px;
+    width: 95%;
+    font-family: "Inter", sans-serif;
+
+    margin-bottom: 30px;
 }
 
 .description {
-    font-size: 18px;
-    max-width: 600px;
-    margin-bottom: 20px;
+    font-size: 1.1rem;
+    max-width: 480px;
+    margin-top: 30px;
+    font-family: "Inter", sans-serif;
+
+    margin-bottom: 50px;
+}
+
+.image-wrapper {
+    width: 100vw;
+    overflow: hidden;
 }
 
 .image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    display: block;
 }
 </style>

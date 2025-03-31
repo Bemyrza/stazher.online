@@ -6,11 +6,27 @@
   <!-- <Platform />
   <Achievement />
   <Partners />
+
+  <OurAreas/> -->
+  <AboutPage />
+  {{ console.log('Business is rendering...') }}
+  <Business />
+  <SolveProblems />
+  <Benefits />
+  <BenefitsBusiness />
+  <RealBenefits />
+  <SocialMission />
+  <OurPlatform />
+  <Achievement />
+  <PartnerCase />
+  <OurContact />
+
   <OurPlatform />
   <OurAreas/>
   <AboutPage /> -->
   <TaskCase />
   
+
   <component :is="currentFooter" v-if="!isLogin" />
 </template>
 
@@ -23,11 +39,26 @@ import PageFooter from '@/components/pages/PageFooter.vue'
 import AltPageFooter from '@/components/pages/AltPageFooter.vue'
 import Platform from '@/components/pages/Platform.vue'
 import Achievement from '@/components/pages/Achievement.vue'
+
+import Partners from '@/components/pages/Partners.vue'
+import OurPlatform from '@/components/pages/OurPlatform.vue'
+import OurAreas from '@/components/pages/OurAreas.vue'
+import AboutPage from '@/components/pages/AboutPage.vue'
+import Business from '@/components/pages/Business.vue'
+import SolveProblems from './components/pages/SolveProblems.vue'
+import Benefits from './components/pages/Benefits.vue'
+import BenefitsBusiness from './components/pages/BenefitsBusiness.vue'
+import RealBenefits from './components/pages/RealBenefits.vue'
+import SocialMission from './components/pages/SocialMission.vue'
+import OurContact from './components/pages/OurContact.vue'
+import PartnerCase from './components/pages/PartnerCase.vue'
+
 import Partners from './components/pages/Partners.vue'
 import OurPlatform from './components/pages/OurPlatform.vue'
 import OurAreas from './components/pages/OurAreas.vue'
 import AboutPage from './components/pages/AboutPage.vue'
 import TaskCase from "./components/pages/TaskCase.vue"
+
 
 
 
@@ -45,16 +76,15 @@ watch(
   }
 )
 
-const currentHeader = computed(() => (mainRoutes.includes(route.path) ? AltHeaderBar : HeaderBar ))
-const currentFooter = computed(() => (mainRoutes.includes(route.path) ?  AltPageFooter:  PageFooter))
-const is_bg = computed(() => (mainRoutes.includes(route.path) ?  true:  false))
+const currentHeader = computed(() => (mainRoutes.includes(route.path) ? AltHeaderBar : HeaderBar))
+const currentFooter = computed(() => (mainRoutes.includes(route.path) ? AltPageFooter : PageFooter))
+const is_bg = computed(() => (mainRoutes.includes(route.path) ? true : false))
 
 </script>
 
 <style scoped lang="scss">
-.main-router-2{
-  
-}
+.main-router-2 {}
+
 .main-router {
   display: flex;
   gap: 15px;
@@ -67,6 +97,7 @@ const is_bg = computed(() => (mainRoutes.includes(route.path) ?  true:  false))
     padding: 0;
   }
 }
+
 @media (max-width: $mobile-max-width) {
   .main-router {
     padding: 12px 0;
