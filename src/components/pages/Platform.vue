@@ -64,7 +64,8 @@
 .title {
     width: 700px;
     font-size: 45px;
-    font-weight: bold;
+    font-family: "Inter", sans-serif;
+
     color: #000;
 }
 

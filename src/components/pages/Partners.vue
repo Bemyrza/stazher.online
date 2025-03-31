@@ -1,5 +1,5 @@
 <template>
-    <div class="p-6">
+    <div class="container">
       <h2 class="text-center">Партнеры и кейсы:</h2>
       <div class="grid grid-cols-3 gap-4">
         <a href="#" class="case-card">
@@ -31,13 +31,15 @@
   </template>
   
   <style scoped>
+  .container{
+    width: 100%;
+    max-width: 1500px;
+  }
   .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     width: 100%;
-    max-width: 1450px;
-    margin: auto;
+    margin: 0 auto;
   }
   .text-center{
     font-size: 48px;
@@ -62,7 +64,8 @@
   .case-card h3 {
     margin-top: 80px;
     font-size: 32px;
-    font-weight: bold;
+    font-family: "Inter", sans-serif;
+
   }
   
   .case-card p {

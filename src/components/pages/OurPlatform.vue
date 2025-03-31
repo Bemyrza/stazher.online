@@ -57,7 +57,7 @@ export default {
 
 <style scoped>
 .container {
-    width: 100% ;
+    width: 100%;
     max-width: 1500px;
     padding: 1.5rem;
     margin-top: 50px;
@@ -66,18 +66,23 @@ export default {
 
 .text-font {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .font-bold {
     font-size: 2.5rem;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
 }
+
 .text-description {
-    margin-left: 22.5%;
-    color: #4B5563; 
-    margin-top: 0.5rem; 
-    max-width: 42rem; 
-}   
+    color: #4B5563;
+    margin-top: 0.5rem;
+    max-width: 42rem;
+    text-align: center;
+}
 
 .accordion-item {
     background-color: #F3EEFF;
@@ -96,7 +101,7 @@ export default {
 }
 
 .accordion-number {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #888;
     position: absolute;
     top: 0.5rem;
@@ -109,21 +114,18 @@ export default {
 }
 
 .accordion-title {
-    width: 350px;
-    font-size: 1.7rem;
-    line-height: 100%;
-    margin-left: 50%;
-    font-weight: bold;
+    font-size: 1.5rem;
     color: #333;
+    width: 100%;
+    max-width: 350px;
 }
 
 .accordion-description {
-    width: 450px;
     font-size: 1rem;
     color: #666;
     margin-top: 1.5rem;
-    margin-left: 50%;
-
+    width: 100%;
+    max-width: 450px;
 }
 
 .accordion-toggle {
@@ -146,7 +148,6 @@ export default {
 
 .accordion-toggle.active-icon .icon-circle {
     background-color: #8857FF;
-
 }
 
 .accordion-toggle .icon {
@@ -170,20 +171,23 @@ export default {
     margin-top: 1.25rem;
 }
 
-.floating-icon {
-    position: absolute;
-    bottom: 3.125rem;
-    right: 3.125rem;
-    background: #FF50D8;
-    color: white;
-    width: 3.125rem;
-    height: 3.125rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+@media (max-width: 768px) {
+    .accordion-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .accordion-title,
+    .accordion-description {
+        margin-left: 0;
+    }
+    .text-font {
+        text-align: center;
+    }
+    .accordion-number {
+        font-size: 1.5rem;
+    }
+    .register-btn {
+        font-size: 1rem;
+    }
 }
 </style>
