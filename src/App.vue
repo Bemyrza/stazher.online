@@ -6,6 +6,7 @@
   <!-- <Platform />
   <Achievement />
   <Partners />
+
   <OurAreas/> -->
   <AboutPage />
   {{ console.log('Business is rendering...') }}
@@ -20,6 +21,12 @@
   <PartnerCase />
   <OurContact />
 
+  <OurPlatform />
+  <OurAreas/>
+  <AboutPage /> -->
+  <TaskCase />
+  
+
   <component :is="currentFooter" v-if="!isLogin" />
 </template>
 
@@ -32,6 +39,7 @@ import PageFooter from '@/components/pages/PageFooter.vue'
 import AltPageFooter from '@/components/pages/AltPageFooter.vue'
 import Platform from '@/components/pages/Platform.vue'
 import Achievement from '@/components/pages/Achievement.vue'
+
 import Partners from '@/components/pages/Partners.vue'
 import OurPlatform from '@/components/pages/OurPlatform.vue'
 import OurAreas from '@/components/pages/OurAreas.vue'
@@ -44,6 +52,15 @@ import RealBenefits from './components/pages/RealBenefits.vue'
 import SocialMission from './components/pages/SocialMission.vue'
 import OurContact from './components/pages/OurContact.vue'
 import PartnerCase from './components/pages/PartnerCase.vue'
+
+import Partners from './components/pages/Partners.vue'
+import OurPlatform from './components/pages/OurPlatform.vue'
+import OurAreas from './components/pages/OurAreas.vue'
+import AboutPage from './components/pages/AboutPage.vue'
+import TaskCase from "./components/pages/TaskCase.vue"
+
+
+
 
 const route = useRoute()
 const isLogin = ref<boolean>(false)
