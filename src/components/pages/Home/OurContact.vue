@@ -1,66 +1,52 @@
 <template>
-    <div class="contacts-container">
-        <h2 class="contacts-title">Наши контакты</h2>
-        <div class="contacts-cards">
-            <div class="contacts-card" v-for="contact in contacts" :key="contact.id">
-                <div class="contacts-icon-wrapper">
-                    <img :src="contact.icon" alt="icon" class="contacts-icon" />
-                </div>
-                <div class="contacts-text-wrapper">
-                    <p class="contacts-text">{{ contact.text }}</p>
-                    <a :href="contact.link" target="_blank" class="contacts-link">{{ contact.link }}</a>
-                </div>
-                <a :href="contact.link" target="_blank" class="contacts-button">
-                    <img :src="transitionIcon" alt="Перейти" class="transition-icon" />
-                </a>
-            </div>
+  <Container class="contacts-container">
+    <TitleSection class="contacts-title">Наши контакты</TitleSection>
+    <div class="contacts-cards">
+      <div class="contacts-card" v-for="contact in contacts" :key="contact.id">
+        <div class="contacts-icon-wrapper">
+          <img :src="contact.icon" alt="icon" class="contacts-icon" />
         </div>
+        <div class="contacts-text-wrapper">
+          <p class="contacts-text">{{ contact.text }}</p>
+          <a :href="contact.link" target="_blank" class="contacts-link">{{ contact.link }}</a>
+        </div>
+        <a :href="contact.link" target="_blank" class="contacts-button">
+          <img :src="transitionIcon" alt="Перейти" class="transition-icon" />
+        </a>
+      </div>
     </div>
+  </Container>
 </template>
 
-<script>
+<script setup>
 import stasherIcon from "@/assets/media/icons/stasherIcon.svg";
 import telegramIcon from "@/assets/media/icons/telegramIcon.svg";
 import WKicon from "@/assets/media/icons/WkIcon.svg";
 import transitionIcon from "@/assets/media/icons/transition.svg";
+import { ref } from "vue";
+import Container from "@/components/common/Container.vue";
+import TitleSection from "@/components/common/TitleSection.vue";
+const contacts = ref([
+  { id: 1, icon: stasherIcon, text: "Наша платформа", link: "https://stazher.online" },
+  { id: 2, icon: telegramIcon, text: "ТГ канал", link: "https://t.me/stazheronline" },
+  { id: 3, icon: WKicon, text: "VKontakte", link: "https://vk.com/stazheronline" },
+  { id: 4, icon: telegramIcon, text: "ТГ Бот", link: "https://t.me/Stazher_online_bot" }
+]);
 
-export default {
-    data() {
-        return {
-            contacts: [
-                { id: 1, icon: stasherIcon, text: "Наша платформа", link: "https://stazher.online" },
-                { id: 2, icon: telegramIcon, text: "ТГ канал", link: "https://t.me/stazheronline" },
-                { id: 3, icon: WKicon, text: "VKontakte", link: "https://vk.com/stazheronline" },
-                { id: 4, icon: telegramIcon, text: "ТГ Бот", link: "https://t.me/Stazher_online_bot" }
-            ],
-            transitionIcon
-        };
-    }
-};
+const transitionIconRef = ref(transitionIcon);
 </script>
 
-<style scoped>
-.contacts-container {
-  text-align: center;
-  padding: 30px;
-  width: 100%;
-  max-width: 1500px;
-  margin: 0 auto;
-}
 
-.contacts-title {
-  font-size: 2.7rem;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
+<style scoped>
+
 
 .contacts-cards {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
   width: 100%;
+  margin-top: 30px;
 }
 
 .contacts-card {
@@ -184,5 +170,4 @@ export default {
     font-size: 0.9rem;
   }
 }
-
 </style>

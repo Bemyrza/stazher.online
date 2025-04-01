@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <h2 class="title">Преимущества для студентов</h2>
+  <Container>
+    <TitleSection>Преимущества для <br> студентов</TitleSection>
     <div class="cards">
       <div class="card" v-for="benefit in benefits" :key="benefit.id">
         <div class="icon-wrapper">
@@ -13,44 +13,27 @@
         </div>
       </div>
     </div>
-  </div>
+  </Container>
 </template>
 
-<script>
+<script setup>
 import backpackIcon from "@/assets/media/img/backpack.png";
 import laptop from "@/assets/media/img/laptop.png";
 import student from "@/assets/media/img/student.png";
 import sputnick from "@/assets/media/img/sputnick.png";
+import Container from "@/components/common/Container.vue";
+import TitleSection from "@/components/common/TitleSection.vue";
 
-export default {
-  data() {
-    return {
-      benefits: [
+const benefits = [
         { id: 1, icon: backpackIcon, text: 'Возможность прокачать навыки и добавить кейсы в портфолио.' },
         { id: 2, icon: laptop, text: 'Получение стажировки или работы без типичного отбора через резюме.' },
         { id: 3, icon: student, text: 'Новые знакомства и работа в команде.' },
         { id: 4, icon: sputnick, text: 'Обратная связь от ведущих работодателей.' }
       ]
-    };
-  }
-};
+
 </script>
 
 <style scoped>
-.container {
-  text-align: center;
-  padding: 20px;
-  width: 100%;
-  max-width: 1500px;
-}
-
-.title {
-  width: 500px;
-  font-size: 2.7rem;
-  text-align: start;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
 
 .cards {
   display: flex;
@@ -58,6 +41,7 @@ export default {
   gap: 20px;
   flex-wrap: wrap;
   width: 100%;
+  margin-top: 30px;
 }
 
 .card {

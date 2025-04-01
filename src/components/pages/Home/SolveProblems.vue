@@ -1,6 +1,6 @@
 <template>
-  <section class="solutions">
-    <h2 class="solutions-title">Как мы решаем проблемы на рынке труда</h2>
+  <Container class="solutions">
+    <TitleSection class="solutions-title">Как мы решаем проблемы <br> на рынке труда</TitleSection>
     <div class="solution-item" v-for="(item, index) in solutions" :key="index">
       <div class="solution-header">
         <span class="solution-number">{{ item.number }}</span>
@@ -14,11 +14,13 @@
         <p class="solution-description">{{ item.solutionDescription }}</p>
       </div>
     </div>
-  </section>
+  </Container>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import TitleSection from "@/components/common/TitleSection.vue";
+import Container from "@/components/common/Container.vue";
 
 const solutions = ref([
   {
@@ -46,20 +48,8 @@ const solutions = ref([
 </script>
 
 <style scoped>
-.solutions {
-  max-width: 1700px;
-  margin: 0 auto;
-  font-family: "Inter", sans-serif;
-  padding: 25px;
-}
 
-.solutions-title {
-  width: 600px;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  line-height: 100%;
-}
+
 
 .solution-item {
   text-align: center;

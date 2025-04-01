@@ -1,6 +1,6 @@
 <template>
-    <section class="achievements-container">
-        <h2 class="title">Наши достижения и партнеры</h2>
+    <Container>
+        <TitleSection align="center">Наши достижения <br> и партнеры</TitleSection>
         <p class="description">
             Компании размещают кейсы — реальные задачи из бизнеса. 
             Студенты решают кейсы и отправляют решения работодателям. 
@@ -9,7 +9,7 @@
         </p>
         <div class="cards">
             <div class="card">
-                <span class="number">50 000</span>
+                <span class="number">>50 000</span>
                 <h3>Количество пользователей платформы (студентов и компаний)</h3>
                 <p>
                     На нашей платформе зарегистрировано более 50 000 пользователей, 
@@ -24,41 +24,33 @@
                 </p>
             </div>
             <div class="card">
-                <span class="number">+500</span>
+                <span class="number">>500</span>
                 <h3>Компании, уже размещающие свои кейсы у нас на платформе.</h3>
                 <p>
                     С нами сотрудничают более 500 компаний, включая Sberbank, X5 Retail Group и Siemens.
                 </p>
             </div>
         </div>
-    </section>
+    </Container>
 </template>
+
+<script setup>
+    import Container from '@/components/common/Container.vue';
+    import TitleSection from '@/components/common/TitleSection.vue';
+</script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-.achievements-container {
-    text-align: center;
-    padding: 40px 20px;
-    max-width: 1500px;
-    margin: 0 auto;
-    font-family: "Inter", sans-serif;
-}
-
-.title {
-    font-size: 42px;
-    font-weight: 700;
-    line-height: 1.2;
-    max-width: 600px;
-    margin: 0 auto 40px;
-}
 
 .description {
+    text-align: center;
     font-size: 18px;
     color: #555;
     line-height: 1.5;
     max-width: 800px;
     margin: 0 auto 40px;
+    margin-top: 20px;
 }
 
 .cards {

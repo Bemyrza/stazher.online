@@ -5,7 +5,7 @@ import Achievement from '@/components/pages/Home/Achievement.vue'
 import Partners from '@/components/pages/Home/Partners.vue'
 import OurAreas from '@/components/pages/Home/OurAreas.vue'
 import OurPlatform from '@/components/pages/Home/OurPlatform.vue'
-import AboutPage from '@/components/pages/Home/AboutPage.vue' 
+import AboutPage from '@/components/pages/Home/AboutPage.vue'
 import Business from '@/components/pages/Home/Business.vue'
 import SolveProblems from '@/components/pages/Home/SolveProblems.vue'
 import Benefits from '@/components/pages/Home/Benefits.vue'
@@ -18,27 +18,18 @@ import PartnerCase from '@/components/pages/Home/PartnerCase.vue'
 
 <template>
   <AboutPage />
-  <!-- <Platform /> -->
   <Business />
   <SolveProblems />
-  
   <Benefits />
   <BenefitsBusiness />
   <RealBenefits />
   <SocialMission />
   <OurPlatform />
-
-  <Achievement />
-  <Partners />
-  <OurAreas/> 
   <Achievement />
   <PartnerCase />
-  <OurContact /> 
+  <OurContact />
 
 
 </template>
 
-<style scoped>
-
-
-</style>
+<style scoped></style>
