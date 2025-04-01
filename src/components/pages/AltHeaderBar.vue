@@ -1,40 +1,54 @@
 <template>
     <header id="header" class="header">
-        <nav class="header__nav-left">
+        <nav class="header__nav header__nav-left">
             <router-link to="/cases" class="header__nav-link">ВСЕ КЕЙСЫ</router-link>
-
             <router-link to="/cases" class="header__nav-link">О НАС</router-link>
-            <router-link to="/students" class="header__nav-link">СТУДЕНТАМ </router-link>
+            <router-link to="/students" class="header__nav-link">СТУДЕНТАМ</router-link>
         </nav>
 
         <router-link to="/" class="header__logo">
             <icon-logo />
         </router-link>
 
-        <nav class="header__nav-right">
+        <nav class="header__nav header__nav-right">
             <router-link to="/partners" class="header__nav-link">ПАРТНЕРАМ</router-link>
             <router-link to="/contacts" class="header__nav-link">КОНТАКТЫ</router-link>
             <router-link to="/login" class="header__nav-link">ВОЙТИ</router-link>
+        </nav>
+
+        <button class="header__burger" @click="toggleMenu">☰</button>
+        <nav v-if="isMenuOpen" class="header__mobile-nav">
+            <router-link to="/cases" class="header__nav-link" @click="toggleMenu">ВСЕ КЕЙСЫ</router-link>
+            <router-link to="/cases" class="header__nav-link" @click="toggleMenu">О НАС</router-link>
+            <router-link to="/students" class="header__nav-link" @click="toggleMenu">СТУДЕНТАМ</router-link>
+            <router-link to="/partners" class="header__nav-link" @click="toggleMenu">ПАРТНЕРАМ</router-link>
+            <router-link to="/contacts" class="header__nav-link" @click="toggleMenu">КОНТАКТЫ</router-link>
+            <router-link to="/login" class="header__nav-link" @click="toggleMenu">ВОЙТИ</router-link>
         </nav>
     </header>
 </template>
 
 <script setup lang="ts">
-import IconLogo from '@/components/icons/IconLogo.vue'
-import { ref, watch } from 'vue'
-import { type RouteRecordName, useRouter } from 'vue-router'
+import IconLogo from '@/components/icons/IconLogo.vue';
+import { ref, watch } from 'vue';
+import { type RouteRecordName, useRouter } from 'vue-router';
 
-const router = useRouter()
-const activeRouteName = ref<RouteRecordName | null | undefined>()
-const isRegistration = ref<boolean>(false)
+const router = useRouter();
+const activeRouteName = ref<RouteRecordName | null | undefined>();
+const isRegistration = ref<boolean>(false);
+const isMenuOpen = ref<boolean>(false);
 
 watch(
     () => router.currentRoute.value,
     () => {
-        activeRouteName.value = router.currentRoute.value.name
-        isRegistration.value = router.currentRoute.value.name === 'registration'
+        activeRouteName.value = router.currentRoute.value.name;
+        isRegistration.value = router.currentRoute.value.name === 'registration';
     }
-)
+);
+
+const toggleMenu = () => {
+    isMenuOpen.value = !isMenuOpen.value;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -45,7 +59,7 @@ watch(
     justify-content: space-between;
     align-items: center;
     background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
 
     &__logo {
         display: flex;
@@ -70,6 +84,45 @@ watch(
         &:hover {
             background: #f5f7fa;
         }
+    }
+
+    &__burger {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    &__mobile-nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 20px;
+
+        &__nav-left,
+        &__nav-right {
+            display: none;
+        }
+
+        &__burger {
+            display: block;
+        }
+    }
+
+    .header__mobile-nav {
+        display: flex;
     }
 }
 </style>
