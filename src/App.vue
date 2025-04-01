@@ -25,7 +25,13 @@
   <OurAreas/>
   <AboutPage /> -->
   <TaskCase />
-  
+  <ReviewsManager />
+  <CompanyUs/>
+  <BestCandidates/>
+  <CaseChampion />
+  <ClientForm/>
+
+
 
   <component :is="currentFooter" v-if="!isLogin" />
 </template>
@@ -54,12 +60,15 @@ import OurContact from './components/pages/OurContact.vue'
 import PartnerCase from './components/pages/PartnerCase.vue'
 
 import Partners from './components/pages/Partners.vue'
-import OurPlatform from './components/pages/OurPlatform.vue'
-import OurAreas from './components/pages/OurAreas.vue'
-import AboutPage from './components/pages/AboutPage.vue'
-import TaskCase from "./components/pages/TaskCase.vue"
-
-
+// import OurPlatform from './components/pages/OurPlatform.vue'
+// import OurAreas from './components/pages/OurAreas.vue'
+// import AboutPage from './components/pages/AboutPage.vue'
+// import TaskCase from "./components/pages/TaskCase.vue"
+import ReviewsManager from './components/pages/ReviewsManager.vue'
+import CompanyUs from "./components/pages/CompanyUS.vue"
+import BestCandidates from "./components/pages/BestCandidates.vue"
+import CaseChampion from "./components/pages/caseChampion.vue"
+import ClientForm from "./components/pages/ClientForm.vue"
 
 
 const route = useRoute()
@@ -83,8 +92,8 @@ const is_bg = computed(() => (mainRoutes.includes(route.path) ? true : false))
 </script>
 
 <style scoped lang="scss">
-.main-router-2 {}
-
+.main-router-2 {
+}
 .main-router {
   display: flex;
   gap: 15px;
