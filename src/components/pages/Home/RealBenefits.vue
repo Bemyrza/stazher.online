@@ -17,9 +17,9 @@
   </template>
   
   <script>
-  import setting from "../../assets/media/img/settings.png";
-  import building from "../../assets/media/img/building.png";
-  import backpack from "../../assets/media/img/backpack.png";
+  import setting from "@/assets/media/img/settings.png";
+  import building from "@/assets/media/img/building.png";
+  import backpack from "@/assets/media/img/backpack.png";
   
   export default {
     data() {

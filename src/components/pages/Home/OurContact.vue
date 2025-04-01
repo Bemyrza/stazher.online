@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import stasherIcon from "../icons/stasherIcon.svg";
-import telegramIcon from "../icons/telegramIcon.svg";
-import WKicon from "../icons/WkIcon.svg";
-import transitionIcon from "../icons/transition.svg";
+import stasherIcon from "@/assets/media/icons/stasherIcon.svg";
+import telegramIcon from "@/assets/media/icons/telegramIcon.svg";
+import WKicon from "@/assets/media/icons/WkIcon.svg";
+import transitionIcon from "@/assets/media/icons/transition.svg";
 
 export default {
     data() {

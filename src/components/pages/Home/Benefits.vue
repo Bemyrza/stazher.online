@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import backpackIcon from "../../assets/media/img/backpack.png";
-import laptop from "../../assets/media/img/laptop.png";
-import student from "../../assets/media/img/student.png";
-import sputnick from "../../assets/media/img/sputnick.png";
+import backpackIcon from "@/assets/media/img/backpack.png";
+import laptop from "@/assets/media/img/laptop.png";
+import student from "@/assets/media/img/student.png";
+import sputnick from "@/assets/media/img/sputnick.png";
 
 export default {
   data() {

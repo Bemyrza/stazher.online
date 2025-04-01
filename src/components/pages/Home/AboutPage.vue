@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import interaction from "../../assets/media/img/Взаимодействие.png";
+import interaction from "@/assets/media/img/Взаимодействие.png";
 
 export default {
     data() {

@@ -32,7 +32,8 @@
 </template>
 
 <script>
-import plus from "../icons/plus.svg";
+import plus from "@/assets/media/icons/plus.svg";
+
 
 export default {
     data() {

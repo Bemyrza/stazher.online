@@ -17,10 +17,10 @@
   </template>
   
   <script>
-  import hourglassIcon from "../../assets/media/img/watch.png";
-  import graduateIcon from "../../assets/media/img/FeStudent.png";
-  import briefcaseIcon from "../../assets/media/img/backpack.png";
-  import starIcon from "../../assets/media/img/star.png";
+  import hourglassIcon from "@/assets/media/img/watch.png";
+  import graduateIcon from "@/assets/media/img/FeStudent.png";
+  import briefcaseIcon from "@/assets/media/img/backpack.png";
+  import starIcon from "@/assets/media/img/star.png";
   export default {
     data() {
       return {

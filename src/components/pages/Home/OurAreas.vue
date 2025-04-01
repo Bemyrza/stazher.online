@@ -34,7 +34,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .container {
     padding: 1.5rem;
     width: 100%;
