@@ -15,9 +15,9 @@
   </template>
   
   <script>
-  import student from "../../assets/media/img/FeStudent.png"
-  import teacher from "../../assets/media/img/tarcher.png"
-  import track from "../../assets/media/img/track.png"
+  import student from "@/assets/media/img/FeStudent.png"
+  import teacher from "@/assets/media/img/tarcher.png"
+  import track from "@/assets/media/img/track.png"
   export default {
     data() {
       return {
@@ -40,7 +40,7 @@
   };
   </script>
   
-  <style>
+  <style scoped>
   .container {
     padding: 2rem;
   }

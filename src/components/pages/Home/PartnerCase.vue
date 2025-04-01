@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import PartnersBlock from "@/components/pages/Partners.vue";
-import CTAbutton from "../common/CTAbutton.vue";
+import PartnersBlock from "@/components/pages/Home/Partners.vue";
+import CTAbutton from "@/components/common/CTAbutton.vue";
 
 export default {
     components: {
