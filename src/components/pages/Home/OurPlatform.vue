@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
+    <Container>
         <div>
             <div class="text-font">
-                <h2 class="font-bold">Как работает наша платформа?</h2>
+                <TitleSection class="font-bold">Как работает наша платформа?</TitleSection>
                 <p class="text-description ">
                     Компании размещают кейсы — реальные задачи из бизнеса.
                     Студенты решают кейсы и отправляют решения работодателям.
@@ -28,42 +28,30 @@
             </div>
             <button class="register-btn">Зарегистрироваться</button>
         </div>
-    </div>
+    </Container>
 </template>
-
-<script>
+<script setup>
+import { ref } from 'vue';
 import plus from "@/assets/media/icons/plus.svg";
+import TitleSection from "@/components/common/TitleSection.vue";
+import Container from '@/components/common/Container.vue';
 
+const activeIndex = ref(null);
 
-export default {
-    data() {
-        return {
-            activeIndex: null,
-            plus,
-            items: [
-                { number: "01", title: "Публикация кейсов в боте и на платформе.", description: "Мы публикуем уникальные кейс-задачи в наших ботах и на платформе..." },
-                { number: "02", title: "Разработка кейсов на заказ", description: "Создаем кастомные кейсы под запросы бизнеса." },
-                { number: "03", title: "Проведение кейс-чемпионатов", description: "Организуем соревнования среди участников для поиска талантов." },
-                { number: "04", title: "Сотрудничество с университетами", description: "Работаем с вузами, чтобы студенты могли решать реальные задачи." }
-            ]
-        };
-    },
-    methods: {
-        toggle(index) {
-            this.activeIndex = this.activeIndex === index ? null : index;
-        }
-    }
+const items = ref([
+    { number: "01", title: "Публикация кейсов в боте и на платформе.", description: "Мы публикуем уникальные кейс-задачи в наших ботах и на платформе..." },
+    { number: "02", title: "Разработка кейсов на заказ", description: "Создаем кастомные кейсы под запросы бизнеса." },
+    { number: "03", title: "Проведение кейс-чемпионатов", description: "Организуем соревнования среди участников для поиска талантов." },
+    { number: "04", title: "Сотрудничество с университетами", description: "Работаем с вузами, чтобы студенты могли решать реальные задачи." }
+]);
+
+const toggle = (index) => {
+    activeIndex.value = activeIndex.value === index ? null : index;
 };
 </script>
 
 <style scoped>
-.container {
-    width: 100%;
-    max-width: 1500px;
-    padding: 1.5rem;
-    margin-top: 50px;
-    background-color: #fff;
-}
+
 
 .text-font {
     display: flex;
@@ -177,16 +165,20 @@ export default {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .accordion-title,
     .accordion-description {
         margin-left: 0;
     }
+
     .text-font {
         text-align: center;
     }
+
     .accordion-number {
         font-size: 1.5rem;
     }
+
     .register-btn {
         font-size: 1rem;
     }

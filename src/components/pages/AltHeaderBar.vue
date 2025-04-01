@@ -7,7 +7,7 @@
         </nav>
 
         <router-link to="/" class="header__logo">
-            <icon-logo />
+            <img src="../../assets//media/icons/stasherIcon.svg" alt="">
         </router-link>
 
         <nav class="header__nav header__nav-right">
@@ -29,7 +29,6 @@
 </template>
 
 <script setup lang="ts">
-import IconLogo from '@/components/icons/IconLogo.vue';
 import { ref, watch } from 'vue';
 import { type RouteRecordName, useRouter } from 'vue-router';
 
@@ -60,6 +59,8 @@ const toggleMenu = () => {
     align-items: center;
     background: white;
     position: relative;
+    border-bottom: none;  /* Убирает возможную границу снизу */
+    box-shadow: none; 
 
     &__logo {
         display: flex;
@@ -103,7 +104,6 @@ const toggleMenu = () => {
         width: 100%;
         background: white;
         padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 }
 

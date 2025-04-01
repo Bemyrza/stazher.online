@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <h2 class="title">Наши направления работы</h2>
+    <Container>
+        <TitleSection>Наши направления работы</TitleSection>
         <div class="top-section">
             <div v-for="(item, index) in topDirections" :key="index" class="card">
                 <span class="card-badge">{{ item.id }}</span>
@@ -13,42 +13,27 @@
                 <p class="card-text">{{ item.text }}</p>
             </div>
         </div>
-    </div>
+    </Container>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            topDirections: [
-                { id: '01', text: 'Публикация кейсов в боте и на платформе.' },
-                { id: '02', text: 'Мы создаем структурированные и визуально оформленные кейс-задачи для компаний.' }
-            ],
-            bottomDirections: [
-                { id: '03', text: 'Проведение кейс-чемпионатов.' },
-                { id: '04', text: 'Организуем онлайн и офлайн мероприятия.' },
-                { id: '05', text: 'Организуем онлайн и офлайн мероприятия, помогающие выявить перспективных кандидатов.' },
-            ]
-        };
-    }
-};
+<script setup>
+import { ref } from "vue";
+import Container from "@/components/common/Container.vue";
+import TitleSection from "@/components/common/TitleSection.vue";
+
+const topDirections = ref([
+    { id: '01', text: 'Публикация кейсов в боте и на платформе.' },
+    { id: '02', text: 'Мы создаем структурированные и визуально оформленные кейс-задачи для компаний.' }
+]);
+
+const bottomDirections = ref([
+    { id: '03', text: 'Проведение кейс-чемпионатов.' },
+    { id: '04', text: 'Организуем онлайн и офлайн мероприятия.' },
+    { id: '05', text: 'Организуем онлайн и офлайн мероприятия, помогающие выявить перспективных кандидатов.' }
+]);
 </script>
 
 <style scoped>
-.container {
-    padding: 1.5rem;
-    width: 100%;
-    max-width: 1500px;
-    min-height: 100vh;
-    margin-top: 50px;
-}
-
-.title {
-    font-size: 2.5rem;
-    font-family: "Inter", sans-serif;
-    margin-bottom: 24px;
-}
-
 .top-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -90,7 +75,7 @@ export default {
     font-size: 1.5rem;
     color: #374151;
     margin-top: 30%;
-    word-wrap: break-word; 
+    word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
 }

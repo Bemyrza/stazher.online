@@ -1,53 +1,33 @@
 <template>
-    <div class="partners-container">
+    <Container class="partners-container">
         <PartnersBlock />
         <div class="register-button-container">
             <CTAbutton class="register-button">Зарегистрироваться</CTAbutton>
         </div>
-    </div>
+    </Container>
 </template>
 
-<script>
+<script setup>
 import PartnersBlock from "@/components/pages/Home/Partners.vue";
 import CTAbutton from "@/components/common/CTAbutton.vue";
+import Container from "@/components/common/Container.vue";
 
-export default {
-    components: {
-        PartnersBlock,
-        CTAbutton
-    }
-};
+
 </script>
 
 
 
 <style scoped>
-.partners-container {
-  text-align: center;
-  padding: 8px;
-  width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
-}
 
-/* Для заголовка, если он понадобится */
-.partners-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
 
-/* Контейнер для кнопки */
 .register-button-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-/* Основная кнопка */
 .register-button {
   width: 100%;
-  max-width: 1430px;
   background-color: #8857FF;
   color: white;
   font-size: 1.5rem;
@@ -62,7 +42,6 @@ export default {
   background-color: #7747E3;
 }
 
-/* Адаптивность */
 @media (max-width: 1200px) {
   .register-button {
     font-size: 1.3rem;

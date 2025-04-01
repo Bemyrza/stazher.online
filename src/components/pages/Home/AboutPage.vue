@@ -1,8 +1,8 @@
 <template>
-    <main class="container">
-        <h1 class="title">
-            Экосистема для взаимодействия работодателей и молодых специалистов через КЕЙС-МЕТОД
-        </h1>
+    <Container class="wrap">
+        <TitleSection align="center">
+            Экосистема для взаимодействия <br> работодателей и молодых <br> специалистов через КЕЙС-МЕТОД
+        </TitleSection>
         <p class="description">
             Привлекайте студентов из лучших вузов, проверяйте их навыки в реальных задачах и находите мотивированных
             сотрудников.
@@ -10,52 +10,35 @@
         <div class="image-wrapper">
             <img :src="interaction" alt="Взаимодействие" class="image">
         </div>
-    </main>
+    </Container>
 </template>
 
-<script>
+<script setup>
 import interaction from "@/assets/media/img/Взаимодействие.png";
-
-export default {
-    data() {
-        return {
-            interaction
-        };
-    }
-};
+import Container from "@/components/common/Container.vue";
+import TitleSection from "@/components/common/TitleSection.vue";
 </script>
 
 <style scoped>
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+.wrap{
+    margin-top: 55px;
 }
-
-.title {
-    font-size: 4rem;
-    line-height: 100%;
-    width: 95%;
-    font-family: "Inter", sans-serif;
-
-    margin-bottom: 30px;
-}
-
 .description {
+    text-align: center;
     font-size: 1.1rem;
     max-width: 480px;
     margin-top: 30px;
     font-family: "Inter", sans-serif;
-
     margin-bottom: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .image-wrapper {
-    width: 100vw;
     overflow: hidden;
 }
 

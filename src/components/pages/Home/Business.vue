@@ -4,9 +4,8 @@
             <div class="hero-content">
                 <div class="text-block">
                     <div class="title-wrapper">
-                        <!-- <h1 class="title">Стажер.online — платформа, где таланты встречаются с бизнесом</h1> -->
                          <TitleSection align="left">
-                            Стажер.online — платформа, <br> где таланты встречаются с бизнесом
+                            Стажер.online — платформа, <br> где таланты встречаются<br> с бизнесом
                         </TitleSection>
                     </div>
                     <p class="description">
@@ -94,12 +93,7 @@ const cards = ref([
     display: flex;
 }
 
-/* .title {
-    width: 600px;
-    font-size: 2.5rem;
-    font-family: "Inter", sans-serif;
-    line-height: 120%;
-} */
+
 
 .description {
     font-size: 1.1rem;
@@ -107,7 +101,7 @@ const cards = ref([
     color: #666;
     line-height: 140%;
     width: 500px;
-    margin-left: 19%;
+    margin-left: 12%;
 }
 
 .important-block {
