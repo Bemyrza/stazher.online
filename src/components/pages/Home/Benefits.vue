@@ -45,9 +45,15 @@ const benefits = [
 
 .card {
   background: #F3EEFF;
+<<<<<<< HEAD
   padding: 40px;
   border-radius: 10px;
   width: calc(25% - 20px);
+=======
+  padding: 30px;
+  border-radius: 20px;
+  width: 375px;
+>>>>>>> origin/master
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -76,8 +82,14 @@ const benefits = [
 
 
 .text {
+<<<<<<< HEAD
   max-width: 300px;
   font-size: 1.5rem;
+=======
+  font-size: 1.875rem;
+  font-weight: 400;
+  line-height: 120%;
+>>>>>>> origin/master
   text-align: start;
   margin: 0;
 }

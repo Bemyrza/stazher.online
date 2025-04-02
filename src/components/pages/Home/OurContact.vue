@@ -38,7 +38,9 @@ const transitionIconRef = ref(transitionIcon);
 
 
 <style scoped>
-
+.contacts-title{
+  margin-left: 30px;
+}
 
 .contacts-cards {
   display: flex;
@@ -46,13 +48,15 @@ const transitionIconRef = ref(transitionIcon);
   gap: 20px;
   width: 100%;
   margin-top: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
 .contacts-card {
   padding: 40px;
   border: 1px solid #ccc;
   border-radius: 20px;
-  width: 355px;
+  width: 340px;
   height: 360px;
   display: flex;
   flex-direction: column;
@@ -86,9 +90,10 @@ const transitionIconRef = ref(transitionIcon);
 }
 
 .contacts-text {
+  
   font-size: 1.2rem;
   text-align: start;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .contacts-link {
