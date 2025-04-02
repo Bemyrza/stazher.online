@@ -23,7 +23,6 @@ import Container from "@/components/common/Container.vue";
 .register-button-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
 }
 
 .register-button {

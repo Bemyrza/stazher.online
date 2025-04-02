@@ -39,17 +39,15 @@ const benefits = [
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  flex-wrap: wrap;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .card {
   background: #F3EEFF;
   padding: 40px;
   border-radius: 10px;
-  width: calc(25% - 20px);
-  min-width: 350px;
+  width: 375px;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -78,8 +76,9 @@ const benefits = [
 
 
 .text {
-  width: 300px;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 120%;
   text-align: start;
   margin: 0;
 }

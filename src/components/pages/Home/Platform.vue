@@ -1,7 +1,7 @@
 <template>
-    <section class="platform-container">
+    <Container class="platform-container">
         <div class="text-content">
-            <h1 class="title">Стажер.online — платформа, где таланты встречаются с бизнесом</h1>
+            <TitleSection class="title">Стажер.online — платформа, где таланты встречаются с бизнесом</TitleSection>
             <p class="description">
                 Современное образование не всегда соответствует требованиям рынка: выпускникам не хватает
                 практических навыков, а работодателям — удобного инструмента для отбора стажеров. Стажер.online решает
@@ -43,8 +43,17 @@
                 </form>
             </div>
         </di>
-    </section>
+    </Container>
 </template>
+
+<script setup>
+
+import Container from '@/components/common/Container.vue';
+import TitleSection from '@/components/common/TitleSection.vue';
+import CTAbutton from '@/components/common/CTAbutton.vue';
+
+
+</script>
 
 <style scoped>
 .platform-container {
@@ -61,20 +70,14 @@
     text-align: start;
 }
 
-.title {
-    width: 700px;
-    font-size: 45px;
-    font-family: "Inter", sans-serif;
-
-    color: #000;
-}
 
 .description {
     width: 500px;
-    font-size: 16px;
+    font-size: 1rem;
     color: #555;
     margin-top: 12px;
-    margin-left: 2%
+    margin-left: 1%;
+    line-height: 120%;
 }
 
 .cards-and-form {
