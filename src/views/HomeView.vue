@@ -28,8 +28,6 @@ import PartnerCase from '@/components/pages/Home/PartnerCase.vue'
   <Achievement />
   <PartnerCase />
   <OurContact />
-
-
 </template>
 
 <style scoped></style>

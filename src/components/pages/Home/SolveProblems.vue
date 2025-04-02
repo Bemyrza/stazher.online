@@ -5,13 +5,15 @@
       <div class="solution-header">
         <span class="solution-number">{{ item.number }}</span>
         <span class="problem-text">{{ item.problem }}</span>
+      </div>
+      <div class="solution-text">
         <div class="solution-icon-wrapper">
           <img class="solution-icon" src="/src/components/icons/point.svg" alt="Arrow Icon" />
         </div>
-      </div>
-      <div class="solution-text">
-        <span class="solution-title">{{ item.solutionTitle }}</span>
-        <p class="solution-description">{{ item.solutionDescription }}</p>
+        <div class="solution-text-wrap">
+          <span class="solution-title">{{ item.solutionTitle }}</span>
+          <p class="solution-description">{{ item.solutionDescription }}</p>
+        </div>
       </div>
     </div>
   </Container>
@@ -52,10 +54,10 @@ const solutions = ref([
 
 
 .solution-item {
-  text-align: center;
   text-align: start;
+  align-items: start;
   border-top: 2px solid #ccc;
-  padding: 25px 0;
+  padding: 30px 0 ;
   display: flex;
   flex-direction: row;
   gap: 15px;
@@ -63,13 +65,14 @@ const solutions = ref([
 
 .solution-header {
   display: flex;
-  align-items: center;
-  gap: 15px;
+  align-items: start;
+  gap: 40px;
 }
 
 .solution-number {
   font-size: 3rem;
   color: #666;
+  line-height: 90%;
 }
 
 .problem-text {
@@ -78,7 +81,11 @@ const solutions = ref([
   line-height: 100%;
   font-weight: bold;
   color: black;
-  margin-left: 25px;
+}
+
+.solution-text-wrap {
+  display: flex;
+  flex-direction: column;
 }
 
 .solution-icon-wrapper {
@@ -90,22 +97,23 @@ const solutions = ref([
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-bottom: 50px;
 }
 
 .solution-icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .solution-text {
   display: flex;
-  flex-direction: column;
+  gap: 20px;
 }
 
 .solution-title {
   font-size: 2rem;
   font-weight: bold;
+  line-height: 100%;
+  margin-bottom: 20px;
 }
 
 .solution-description {
@@ -113,6 +121,9 @@ const solutions = ref([
   font-size: 0.9rem;
   color: #666;
   margin-top: 5px;
+}
+.solutions-title{
+  margin-bottom: 40px;
 }
 
 @media (max-width: 1024px) {
@@ -145,6 +156,7 @@ const solutions = ref([
   .solution-icon-wrapper {
     width: 28px;
     height: 28px;
+    padding: 5px;
   }
 
   .solution-icon {
@@ -161,6 +173,11 @@ const solutions = ref([
 
   .solution-item {
     padding: 15px 0;
+    flex-direction: column;
+  }
+
+  .solution-text{
+    margin-left: 42px;
   }
 
   .solution-number {
@@ -195,19 +212,16 @@ const solutions = ref([
 @media (max-width: 500px) {
   .solutions-title {
     font-size: 1.25rem;
-    text-align: center;
   }
 
   .solution-item {
     padding: 15px 0;
     flex-direction: column;
-    align-items: center;
   }
 
   .solution-header {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: start;
   }
 
   .solution-number {
@@ -221,13 +235,11 @@ const solutions = ref([
 
   .solution-title {
     font-size: 1.3rem;
-    text-align: center;
   }
 
   .solution-description {
     width: 100%;
     font-size: 0.75rem;
-    text-align: center;
   }
 
   .solution-icon-wrapper {
@@ -240,14 +252,13 @@ const solutions = ref([
     height: 16px;
   }
 
-  /* Reorder elements for small screens */
-  .solution-text {
+  /* .solution-text {
     order: 2;
   }
 
   .solution-number,
   .problem-text {
     order: 1;
-  }
+  } */
 }
 </style>

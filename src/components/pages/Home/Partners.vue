@@ -40,6 +40,7 @@
 import Container from '@/components/common/Container.vue';
 import TitleSection from '@/components/common/TitleSection.vue';
 import sber from "@/assets/media/icons/SBER.svg"
+
 </script>
 
 <style scoped>

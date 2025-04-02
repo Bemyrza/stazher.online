@@ -47,4 +47,11 @@ import TitleSection from "@/components/common/TitleSection.vue";
     height: auto;
     display: block;
 }
+
+@media (max-width: 768px) {
+    .title{
+        font-size: 2rem;
+    }
+    
+}
 </style>

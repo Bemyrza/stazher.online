@@ -1,4 +1,4 @@
-<template>
+  <template>
   <Container>
     <TitleSection>Преимущества для <br> студентов</TitleSection>
     <div class="cards">
@@ -49,12 +49,11 @@ const benefits = [
   padding: 40px;
   border-radius: 10px;
   width: calc(25% - 20px);
-  min-width: 350px;
   height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-start;
+  align-items: flex-start;  
   position: relative;
 }
 
@@ -78,9 +77,20 @@ const benefits = [
 
 
 .text {
-  width: 300px;
+  max-width: 300px;
   font-size: 1.5rem;
   text-align: start;
   margin: 0;
+}
+@media (max-width:1280px) {
+    .card{
+      width: calc(50% - 10px);
+    }
+}
+
+@media (max-width:768px) {
+    .card{
+      width:100%;
+    }
 }
 </style>

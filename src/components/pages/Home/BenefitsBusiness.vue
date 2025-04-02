@@ -1,6 +1,6 @@
 <template>
   <Container>
-    <TitleSection class="title">Преимущества для <br> бизнеса</TitleSection>
+    <TitleSection>Преимущества для <br> бизнеса</TitleSection>
     <div class="cards">
       <div class="card" v-for="benefit in benefits" :key="benefit.id">
         <div class="text-wrapper">
@@ -55,7 +55,7 @@ const benefits = [
 }
 
 .icon-wrapper {
-  width: 100px;
+  min-width: 100px;
   height: 100px;
   display: flex;
   justify-content: center;
@@ -72,16 +72,20 @@ const benefits = [
 }
 
 .card-title {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   font-size: 1.7rem;
   font-weight: bold;
+  line-height: 1;
   margin: 0;
+  margin-bottom: 20px;
 }
 
 .card-text {
-  width: 500px;
+  max-width: 500px;
   font-size: 1rem;
   margin: 5px 0 0;
+  list-style: 1;
 }
 
 .cta-button {
@@ -97,12 +101,7 @@ const benefits = [
 }
 
 /* Адаптивность */
-@media (max-width: 24px) {
-  .title {
-    font-size: 2rem;
-    text-align: center;
-  }
-
+@media (max-width: 1024px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
     /* 2 карточки в ряду */
@@ -117,10 +116,6 @@ const benefits = [
     width: 100%;
   }
 
-  .card-text {
-    font-size: 1rem;
-    width: 100%;
-  }
 
   .cta-button {
     font-size: 1.2rem;
@@ -129,9 +124,6 @@ const benefits = [
 }
 
 @media (max-width: 768px) {
-  .title {
-    font-size: 1.8rem;
-  }
 
   .cards {
     grid-template-columns: 1fr;
@@ -147,9 +139,6 @@ const benefits = [
     font-size: 1.4rem;
   }
 
-  .card-text {
-    font-size: 1rem;
-  }
 
   .cta-button {
     font-size: 1.1rem;
@@ -158,10 +147,6 @@ const benefits = [
 }
 
 @media (max-width: 480px) {
-  .title {
-    font-size: 1.6rem;
-  }
-
   .cards {
     grid-template-columns: 1fr;
     /* 1 карточка в ряду */
@@ -174,10 +159,6 @@ const benefits = [
 
   .card-title {
     font-size: 1.3rem;
-  }
-
-  .card-text {
-    font-size: 0.9rem;
   }
 
   .cta-button {

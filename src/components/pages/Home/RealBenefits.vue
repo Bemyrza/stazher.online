@@ -47,8 +47,7 @@ const benefits = [
   background: #F3EEFF;
   padding: 40px;
   border-radius: 10px;
-  width: calc(25% - 20px);
-  min-width: 350px;
+  width:calc(25% - 20px);
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -82,98 +81,38 @@ const benefits = [
 }
 
 .text {
-  width: 320px;
+  max-width: 320px;
   font-size: 1.5rem;
+  width: 100%;
   text-align: start;
   margin: 0;
   word-wrap: break-word;
-  /* Разрыв длинных слов */
   overflow: hidden;
-  /* Прячем переполненный текст */
   text-overflow: ellipsis;
-  /* Многоточие в случае переполнения */
 }
 
 .wide-card {
   width: calc(50% - 10px);
-  /* Увеличиваем ширину третьего блока */
 }
 
-/* Адаптивность */
+
 @media (max-width: 1500px) {
-  .title {
-    font-size: 2.2rem;
-    width: 100%;
-    text-align: center;
-  }
-
-  .cards {
-    justify-content: center;
-  }
-
-  .card {
-    width: calc(33% - 20px);
-    /* 3 карточки в ряд на экранах средних размеров */
-  }
 }
 
-@media (max-width: 768px) {
-  .title {
-    font-size: 2rem;
+@media (max-width: 1300px) {
+  .card{
+    width: calc(50% - 10px);
   }
-
-  .cards {
-    justify-content: center;
-  }
-
-  .card {
-    width: calc(50% - 20px);
-    /* 2 карточки в ряд на экранах маленьких размеров */
-    margin-bottom: 20px;
-  }
-
-  .icon-wrapper {
-    width: 70px;
-    height: 70px;
-  }
-
-  .icon img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .text {
-    font-size: 1.3rem;
+  .wide-card{
+    width: 100%;
   }
 }
-
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.8rem;
-  }
-
-  .cards {
-    justify-content: center;
-  }
-
-  .card {
+@media (max-width:768px) {
+  .card{
     width: 100%;
-    /* 1 карточка в ряд на самых маленьких экранах */
-    margin-bottom: 20px;
   }
-
-  .icon-wrapper {
-    width: 60px;
-    height: 60px;
-  }
-
-  .icon img {
-    width: 35px;
-    height: 35px;
-  }
-
-  .text {
-    font-size: 1.1rem;
+  .wide-card{
+    width: 100%;
   }
 }
 </style>

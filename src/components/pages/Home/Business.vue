@@ -246,8 +246,7 @@ const cards = ref([
     .text-block {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: start;
         width: 100%;
     }
 
@@ -257,9 +256,9 @@ const cards = ref([
     }
 
     .description {
-        font-size: 0.9rem;
-        width: 90%;
-        margin-top: 10px; /* Добавляет отступ между title и description */
+        font-size: 0.8rem; 
+        margin-top: 20px;
+        text-align: start;
     }
 }
 

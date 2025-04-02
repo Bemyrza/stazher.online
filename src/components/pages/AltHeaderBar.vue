@@ -59,7 +59,7 @@ const toggleMenu = () => {
     align-items: center;
     background: white;
     position: relative;
-    border-bottom: none;  /* Убирает возможную границу снизу */
+    border-bottom: none;
     box-shadow: none; 
 
     &__logo {
@@ -107,7 +107,7 @@ const toggleMenu = () => {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 865px) {
     .header {
         padding: 10px 20px;
 
