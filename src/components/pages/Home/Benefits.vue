@@ -39,9 +39,8 @@ const benefits = [
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  flex-wrap: wrap;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .card {

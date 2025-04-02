@@ -1,5 +1,5 @@
 <template>
-    <Container class="partners-container">
+    <Container >
         <PartnersBlock />
         <div class="register-button-container">
             <CTAbutton class="register-button">Зарегистрироваться</CTAbutton>
@@ -22,7 +22,6 @@ import Container from "@/components/common/Container.vue";
 .register-button-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
 }
 
 .register-button {

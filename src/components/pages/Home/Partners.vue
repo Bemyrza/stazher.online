@@ -49,18 +49,19 @@ import sber from "@/assets/media/icons/SBER.svg"
   gap: 16px;
   width: 100%;
   margin: 0 auto;
+  margin-top: 30px;
 }
 
 .text-center {
-  font-size: 48px;
+  font-size: 3rem;
   margin-top: 30px;
 }
 
 .case-card {
-  margin-top: 20px;
+
   background-color: #F3EEFF;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 20px;
   text-align: center;
   text-decoration: none;
   color: inherit;

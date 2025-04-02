@@ -9,9 +9,9 @@
                         </TitleSection>
                     </div>
                     <p class="description">
-                        Современное образование не всегда соответствует требованиям рынка: выпускникам не хватает
-                        практических навыков, а работодателям — удобного инструмента для отбора стажеров.
-                        Стажер.online решает эту проблему с помощью кейс-метода.
+                        Современное образование не всегда соответствует <br> требованиям рынка: выпускникам не хватает <br>
+                        практических навыков, а работодателям — удобного <br> инструмента для отбора стажеров.
+                        Стажер.online <br> решает эту проблему с помощью кейс-метода.
                     </p>
                 </div>
             </div>
@@ -98,10 +98,10 @@ const cards = ref([
 .description {
     font-size: 1.1rem;
     font-family: "Inter", sans-serif;
-    color: #666;
-    line-height: 140%;
-    width: 500px;
-    margin-left: 12%;
+    color: #00000099;
+    font-weight: 400;
+    margin-left: 6%;
+    line-height: 120%;
 }
 
 .important-block {
@@ -111,6 +111,7 @@ const cards = ref([
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-top: 120px;
 }
 
 .cards {
@@ -122,8 +123,10 @@ const cards = ref([
 
 .card {
     background: #F3EEFF;
-    padding: 37px;
-    border-radius: 12px;
+    padding: 25px;
+    border-radius: 20px;
+    height: 516px;
+    min-width: 375px;
     text-align: center;
     position: relative;
 }
@@ -133,13 +136,13 @@ const cards = ref([
     top: 10px;
     left: 10px;
     font-size: 3rem;
-    color: #000000;
+    color: #00000099;
 }
 
 .avatar-container {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     width: 80px;
     height: 80px;
     background-color: #8857FF;
@@ -155,9 +158,9 @@ const cards = ref([
 }
 
 .card-text {
-    font-size: 1.2rem;
-    color: #333;
-    margin-top: 50%;
+    font-size: 1.5rem;
+    color: #000000;
+    margin-top: 70%;
     text-align: start;
 }
 
@@ -166,21 +169,23 @@ const cards = ref([
 }
 
 .hero-image {
-    height: 420px;
+    width: 770px;
+    height: 516px;
 }
 
 .register-button {
     display: block;
     width: 100%;
-    padding: 15px;
+    padding: 20px;
     margin: 20px auto;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: "Inter", sans-serif;
     color: white;
-    background: #7b61ff;
+    background: #8857FF;
     border: none;
     border-radius: 25px;
     cursor: pointer;
+    margin-top: 40px;
 }
 
 .register-button:hover {

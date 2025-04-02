@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <button class="cta-button">Доступ к базе мотивированных студентов, заинтересованных в сфере компании.</button>
+    <button class="cta-button">Доступ к базе мотивированных студентов, <br> заинтересованных в сфере компании.</button>
   </Container>
 </template>
 
@@ -35,8 +35,6 @@ const benefits = [
 </script>
 
 <style scoped>
-
-
 .cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -45,6 +43,8 @@ const benefits = [
 }
 
 .card {
+  width: 100%;
+  height: 162px;
   background: #F3EEFF;
   padding: 20px;
   border-radius: 12px;
@@ -60,7 +60,7 @@ const benefits = [
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #8857FF;
+  background-color: #C8B2FF;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -94,8 +94,9 @@ const benefits = [
   background: #8857FF;
   color: white;
   border: none;
-  padding: 15px;
-  font-size: 1.5rem;
+  padding: 25px;
+  font-size: 2rem;
+  line-height: 100%;
   border-radius: 10px;
   cursor: pointer;
 }
