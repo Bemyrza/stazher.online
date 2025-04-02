@@ -13,7 +13,7 @@
     </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import interaction from "@/assets/media/img/Взаимодействие.png";
 import Container from "@/components/common/Container.vue";
 import TitleSection from "@/components/common/TitleSection.vue";

@@ -34,7 +34,7 @@
     </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import Container from "@/components/common/Container.vue";
 import TitleSection from "@/components/common/TitleSection.vue";
@@ -94,7 +94,6 @@ const cards = ref([
 }
 
 
-
 .description {
     font-size: 1.1rem;
     font-family: "Inter", sans-serif;
@@ -102,6 +101,7 @@ const cards = ref([
     font-weight: 400;
     margin-left: 6%;
     line-height: 120%;
+    text-align: start;
 }
 
 .important-block {
@@ -118,15 +118,17 @@ const cards = ref([
     display: grid;
     grid-template-columns: repeat(2, minmax(280px, 1fr));
     gap: 20px;
-    max-width: 850px;
+    max-width: 900px;
 }
 
 .card {
     background: #F3EEFF;
-    padding: 25px;
+    padding: 20px 20px 54px 20px;
     border-radius: 20px;
     height: 516px;
-    min-width: 375px;
+    max-width: 375px;
+    display: flex;
+    align-items: end;
     text-align: center;
     position: relative;
 }
@@ -160,7 +162,7 @@ const cards = ref([
 .card-text {
     font-size: 1.4rem;
     color: #000000;
-    margin-top: 70%;
+    /* margin-top: 70%; */
     text-align: start;
 }
 
@@ -171,6 +173,7 @@ const cards = ref([
 .hero-image {
     width: 770px;
     height: 516px;
+    /* object-fit: cover; */
 }
 
 .register-button {
@@ -192,15 +195,36 @@ const cards = ref([
     background: #634dff;
 }
 
+@media (max-width:1280px) {
+    .important-block{
+        flex-direction: column;
+    }
+    .card{
+        max-width: 100%;
+    }
+    .cards{
+        max-width: 100%;
+    }
+    .image-block{
+        width: 100%;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
 @media (max-width: 1000px) {
+    .important-block{
+        margin-top: 40px;
+    }
     .hero-content {
         flex-direction: column;
         text-align: center;
     }
 
     .text-block {
-        text-align: center;
-        align-items: center;
         width: 100%;
     }
 
@@ -214,7 +238,6 @@ const cards = ref([
         width: 90%;
         font-size: 1rem;
         margin-left: 0;
-        text-align: center;
     }
 
     .cards {
@@ -223,7 +246,7 @@ const cards = ref([
 
     .card-text {
         font-size: 1.1rem;
-        margin-top: 55%;
+        /* margin-top: 55%; */
     }
 
     .important-block {
@@ -263,7 +286,6 @@ const cards = ref([
     .description {
         font-size: 0.8rem; 
         margin-top: 20px;
-        text-align: start;
     }
 }
 

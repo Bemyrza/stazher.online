@@ -36,7 +36,7 @@
   </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Container from '@/components/common/Container.vue';
 import TitleSection from '@/components/common/TitleSection.vue';
 import sber from "@/assets/media/icons/SBER.svg"
@@ -58,7 +58,6 @@ import sber from "@/assets/media/icons/SBER.svg"
 }
 
 .case-card {
-
   background-color: #F3EEFF;
   padding: 30px;
   border-radius: 20px;
@@ -92,4 +91,16 @@ import sber from "@/assets/media/icons/SBER.svg"
   font-size: 14px;
   margin-top: 8px;
 }
+
+@media (max-width:1000px) {
+    .grid{
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width:768px) {
+    .grid{
+      grid-template-columns:repeat(1, minmax(0, 1fr));
+    }
+}
+
 </style>

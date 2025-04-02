@@ -19,4 +19,9 @@ defineProps<{
         font-weight: 700;
         line-height: 1;
     }
+    @media (max-width:768px) {
+        .title{
+            font-size: 2rem;
+        }
+    }
 </style>

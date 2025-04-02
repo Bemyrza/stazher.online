@@ -18,7 +18,7 @@
   </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import stasherIcon from "@/assets/media/icons/stasherIcon.svg";
 import telegramIcon from "@/assets/media/icons/telegramIcon.svg";
 import WKicon from "@/assets/media/icons/WkIcon.svg";
@@ -145,33 +145,4 @@ const transitionIconRef = ref(transitionIcon);
   }
 }
 
-@media (max-width: 480px) {
-  .contacts-title {
-    font-size: 1.8rem;
-  }
-
-  .contacts-card {
-    width: 100%;
-    height: auto;
-    padding: 30px;
-  }
-
-  .contacts-icon-wrapper {
-    width: 50px;
-    height: 50px;
-  }
-
-  .contacts-icon {
-    width: 25px;
-    height: 25px;
-  }
-
-  .contacts-text {
-    font-size: 1rem;
-  }
-
-  .contacts-link {
-    font-size: 0.9rem;
-  }
-}
 </style>

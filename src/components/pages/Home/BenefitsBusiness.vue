@@ -16,7 +16,7 @@
   </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import hourglassIcon from "@/assets/media/img/watch.png";
 import graduateIcon from "@/assets/media/img/FeStudent.png";
 import briefcaseIcon from "@/assets/media/img/backpack.png";
@@ -147,24 +147,17 @@ const benefits = [
   }
 }
 
-@media (max-width: 480px) {
-  .cards {
-    grid-template-columns: 1fr;
-    /* 1 карточка в ряду */
-  }
 
-  .card {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .card-title {
-    font-size: 1.3rem;
-  }
-
-  .cta-button {
-    font-size: 1rem;
-    padding: 10px;
-  }
+@media (max-width: 550px) {
+    .card{
+      flex-direction: column-reverse;
+      align-items: start;
+      height: auto;
+    }
+    .icon-wrapper{
+      min-height: 60px;
+      max-width: 60px;
+    }
 }
+
 </style>

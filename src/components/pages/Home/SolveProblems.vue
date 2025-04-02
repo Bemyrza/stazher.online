@@ -19,7 +19,7 @@
   </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import TitleSection from "@/components/common/TitleSection.vue";
 import Container from "@/components/common/Container.vue";
@@ -127,11 +127,6 @@ const solutions = ref([
 }
 
 @media (max-width: 1024px) {
-  .solutions-title {
-    font-size: 2rem;
-    width: 100%;
-  }
-
   .solution-item {
     padding: 20px 0;
   }
@@ -166,10 +161,6 @@ const solutions = ref([
 }
 
 @media (max-width: 768px) {
-  .solutions-title {
-    font-size: 1.5rem;
-    width: 100%;
-  }
 
   .solution-item {
     padding: 15px 0;
@@ -209,56 +200,5 @@ const solutions = ref([
   }
 }
 
-@media (max-width: 500px) {
-  .solutions-title {
-    font-size: 1.25rem;
-  }
 
-  .solution-item {
-    padding: 15px 0;
-    flex-direction: column;
-  }
-
-  .solution-header {
-    flex-direction: column;
-    align-items: start;
-  }
-
-  .solution-number {
-    font-size: 1.8rem;
-  }
-
-  .problem-text {
-    font-size: 1.3rem;
-    margin-left: 0;
-  }
-
-  .solution-title {
-    font-size: 1.3rem;
-  }
-
-  .solution-description {
-    width: 100%;
-    font-size: 0.75rem;
-  }
-
-  .solution-icon-wrapper {
-    width: 22px;
-    height: 22px;
-  }
-
-  .solution-icon {
-    width: 16px;
-    height: 16px;
-  }
-
-  /* .solution-text {
-    order: 2;
-  }
-
-  .solution-number,
-  .problem-text {
-    order: 1;
-  } */
-}
 </style>

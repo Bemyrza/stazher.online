@@ -14,7 +14,7 @@
   </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import student from "@/assets/media/img/FeStudent.png"
 import teacher from "@/assets/media/img/tarcher.png"
 import track from "@/assets/media/img/track.png"
@@ -43,7 +43,7 @@ const missionItems = [
 <style scoped>
 .contain {
   display: flex;
-  gap: 14.5rem;
+  justify-content: space-between;
   padding-top: 1rem;
 }
 
@@ -97,56 +97,21 @@ const missionItems = [
   color: #4b5563;
 }
 
-@media (max-width: 768px) {
-  .contain {
+@media (max-width: 1280px) {
+  .contain{
     flex-direction: column;
-    align-items: center;
   }
-
-  .title {
-    width: 100%;
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
+  .title{
+    margin-bottom: 100px;
   }
-
-  .content {
+  .content{
     width: 100%;
   }
-
-  .mission-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid #d1d5db;
-  }
-
-  .icon-container {
-    width: 4rem;
-    height: 4rem;
-  }
-
-  .icon {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .text {
-    width: 100%;
-    text-align: center;
+  .text{
     margin-left: 0;
   }
-}
-
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.8rem;
-  }
-
-  .text {
-    font-size: 0.9rem;
+  .mission-item{
+    gap: 40px;
   }
 }
 </style>

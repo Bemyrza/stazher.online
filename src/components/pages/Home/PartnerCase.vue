@@ -7,7 +7,7 @@
     </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import PartnersBlock from "@/components/pages/Home/Partners.vue";
 import CTAbutton from "@/components/common/CTAbutton.vue";
 import Container from "@/components/common/Container.vue";

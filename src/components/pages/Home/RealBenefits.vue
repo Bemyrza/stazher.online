@@ -16,7 +16,7 @@
   </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import setting from "@/assets/media/img/settings.png";
 import building from "@/assets/media/img/building.png";
 import backpack from "@/assets/media/img/backpack.png";
@@ -45,8 +45,8 @@ const benefits = [
 
 .card {
   background: #F3EEFF;
-  padding: 40px;
-  border-radius: 10px;
+  padding: 30px;
+  border-radius: 20px;
   width:calc(25% - 20px);
   height: 400px;
   display: flex;

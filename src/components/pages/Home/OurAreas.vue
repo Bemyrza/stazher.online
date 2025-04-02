@@ -16,7 +16,7 @@
     </Container>
 </template>
 
-<script setup>
+<script setup  lang="ts">
 import { ref } from "vue";
 import Container from "@/components/common/Container.vue";
 import TitleSection from "@/components/common/TitleSection.vue";

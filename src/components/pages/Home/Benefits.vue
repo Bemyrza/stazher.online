@@ -1,4 +1,4 @@
-  <template>
+<template>
   <Container>
     <TitleSection>Преимущества для <br> студентов</TitleSection>
     <div class="cards">
@@ -16,7 +16,7 @@
   </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import backpackIcon from "@/assets/media/img/backpack.png";
 import laptop from "@/assets/media/img/laptop.png";
 import student from "@/assets/media/img/student.png";
@@ -45,15 +45,9 @@ const benefits = [
 
 .card {
   background: #F3EEFF;
-<<<<<<< HEAD
-  padding: 40px;
-  border-radius: 10px;
-  width: calc(25% - 20px);
-=======
   padding: 30px;
   border-radius: 20px;
   width: 375px;
->>>>>>> origin/master
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -82,20 +76,19 @@ const benefits = [
 
 
 .text {
-<<<<<<< HEAD
-  max-width: 300px;
-  font-size: 1.5rem;
-=======
   font-size: 1.875rem;
   font-weight: 400;
   line-height: 120%;
->>>>>>> origin/master
   text-align: start;
   margin: 0;
 }
 @media (max-width:1280px) {
     .card{
       width: calc(50% - 10px);
+      max-width: 100%;
+    }
+    .cards{
+      flex-wrap: wrap;
     }
 }
 
@@ -103,5 +96,6 @@ const benefits = [
     .card{
       width:100%;
     }
+
 }
 </style>
