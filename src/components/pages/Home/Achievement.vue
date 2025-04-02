@@ -2,17 +2,17 @@
     <Container>
         <TitleSection align="center">Наши достижения <br> и партнеры</TitleSection>
         <p class="description">
-            Компании размещают кейсы — реальные задачи из бизнеса. 
-            Студенты решают кейсы и отправляют решения работодателям. 
-            Работодатели оценивают решения, выбирают лучших кандидатов 
+            Компании размещают кейсы — реальные задачи из бизнеса.
+            Студенты решают кейсы и отправляют решения работодателям.
+            Работодатели оценивают решения, выбирают лучших кандидатов
             и приглашают на стажировки или работу.
         </p>
         <div class="cards">
             <div class="card">
-                <span class="number">>50 000</span>
+                <span class="number">> 50 000</span>
                 <h3>Количество пользователей платформы (студентов и компаний)</h3>
                 <p>
-                    На нашей платформе зарегистрировано более 50 000 пользователей, 
+                    На нашей платформе зарегистрировано более 50 000 пользователей,
                     включая 30 000 студентов и 20 000 компаний, активно решающих кейс-задания.
                 </p>
             </div>
@@ -24,7 +24,7 @@
                 </p>
             </div>
             <div class="card">
-                <span class="number">>500</span>
+                <span class="number">> 500</span>
                 <h3>Компании, уже размещающие свои кейсы у нас на платформе.</h3>
                 <p>
                     С нами сотрудничают более 500 компаний, включая Sberbank, X5 Retail Group и Siemens.
@@ -35,8 +35,8 @@
 </template>
 
 <script setup>
-    import Container from '@/components/common/Container.vue';
-    import TitleSection from '@/components/common/TitleSection.vue';
+import Container from '@/components/common/Container.vue';
+import TitleSection from '@/components/common/TitleSection.vue';
 </script>
 
 <style scoped>
@@ -45,11 +45,14 @@
 
 .description {
     text-align: center;
-    font-size: 18px;
+    font-size: 1rem;
     color: #555;
-    line-height: 1.5;
-    max-width: 800px;
+    line-height: 100%;
+    font-weight: 500;
+    max-width: 550px;
     margin: 0 auto 40px;
+    font-family: "Inter", sans-serif;
+
     margin-top: 20px;
 }
 
@@ -67,7 +70,7 @@
     border-radius: 16px;
     width: calc(33.33% - 20px);
     text-align: center;
-    min-height: 400px;
+    min-height: 440px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,6 +82,9 @@
 
 
 .number {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 100%;
     font-size: 4rem;
     color: #8857FF;
     position: absolute;
@@ -94,19 +100,20 @@ h3 {
 }
 
 p {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
     max-width: 100%;
     font-size: 1rem;
     color: #555;
-    line-height: 1.5;
-    margin-top: 10px;
+    line-height: 120%;
+    margin-top: 30px;
 }
 
-/* Адаптивность */
 @media (max-width: 1024px) {
     .cards {
         justify-content: center;
     }
-    
+
     .card {
         width: calc(50% - 20px);
         min-height: 350px;
@@ -175,5 +182,4 @@ p {
         font-size: 0.95rem;
     }
 }
-
 </style>

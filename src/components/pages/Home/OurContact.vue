@@ -42,9 +42,8 @@ const transitionIconRef = ref(transitionIcon);
 
 .contacts-cards {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 20px;
   width: 100%;
   margin-top: 30px;
 }
@@ -52,9 +51,9 @@ const transitionIconRef = ref(transitionIcon);
 .contacts-card {
   padding: 40px;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  width: 345px;
-  height: 300px;
+  border-radius: 20px;
+  width: 355px;
+  height: 360px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

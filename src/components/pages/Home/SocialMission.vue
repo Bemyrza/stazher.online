@@ -41,17 +41,29 @@ const missionItems = [
 </script>
 
 <style scoped>
-
 .contain {
   display: flex;
-  gap: 2rem;
+  gap: 14.5rem;
+  padding-top: 1rem;
 }
+
 
 .content {
   width: 50%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  position: relative; 
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  top: -30px; 
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #d1d5db; 
 }
 
 .mission-item {
@@ -85,7 +97,6 @@ const missionItems = [
   color: #4b5563;
 }
 
-/* Мобильная адаптивность */
 @media (max-width: 768px) {
   .contain {
     flex-direction: column;
