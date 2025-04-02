@@ -45,8 +45,8 @@ const benefits = [
 
 .card {
   background: #F3EEFF;
-  padding: 40px;
-  border-radius: 10px;
+  padding: 30px;
+  border-radius: 20px;
   width: 375px;
   height: 400px;
   display: flex;
@@ -76,7 +76,7 @@ const benefits = [
 
 
 .text {
-  font-size: 1.8rem;
+  font-size: 1.875rem;
   font-weight: 400;
   line-height: 120%;
   text-align: start;
