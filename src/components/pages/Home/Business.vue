@@ -105,7 +105,7 @@ const cards = ref([
 }
 
 .important-block {
-    display: flex;
+    display: flex;  
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
@@ -135,7 +135,7 @@ const cards = ref([
     position: absolute;
     top: 10px;
     left: 10px;
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: #00000099;
 }
 
@@ -143,8 +143,8 @@ const cards = ref([
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 80px;
-    height: 80px;
+    width: 96px;
+    height: 96px;
     background-color: #8857FF;
     border-radius: 50%;
     display: flex;
@@ -153,12 +153,12 @@ const cards = ref([
 }
 
 .avatar {
-    width: 70px;
-    height: 70px;
+    width: 85px;
+    height: 85px;
 }
 
 .card-text {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #000000;
     margin-top: 70%;
     text-align: start;
