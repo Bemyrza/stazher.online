@@ -2,7 +2,7 @@
   <Container class="container">
     <div class="contain">
       <TitleSection class="title">Социальная миссия:</TitleSection>
-      <div class="content">
+      <div class="content content-gsap-1">
         <div v-for="(item, index) in missionItems" :key="index" class="mission-item">
           <div class="icon-container">
             <img :src="item.icon" alt="icon" class="icon" />
@@ -20,8 +20,10 @@ import teacher from "@/assets/media/img/tarcher.png"
 import track from "@/assets/media/img/track.png"
 import TitleSection from "@/components/common/TitleSection.vue"
 import Container from "@/components/common/Container.vue"
-
-
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { onMounted } from "vue"
+gsap.registerPlugin(ScrollTrigger)
 const missionItems = [
   {
     icon: student,
@@ -37,6 +39,22 @@ const missionItems = [
   }
 ]
 
+onMounted(() => {
+  gsap.from(".mission-item", {
+    opacity: 0,
+    y: 100,
+    filter: "blur(10px)", 
+    duration: 1,
+    ease: "power3.out",
+    stagger: 0.3, 
+    scrollTrigger: {
+      trigger: ".content-gsap-1",
+      start: "top 70%",
+      end: "bottom top",
+      toggleActions: "play none none none"
+    }
+  });
+});
 
 </script>
 

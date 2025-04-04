@@ -1,8 +1,8 @@
 <template>
   <Container>
     <TitleSection>Реальная польза для вузов:</TitleSection>
-    <div class="cards">
-      <div class="card" v-for="(benefit, index) in benefits" :key="benefit.id" :class="{ 'wide-card': index === 2 }">
+    <div class="cards cards-gsap-6">
+      <div class="card card-gsap-6" v-for="(benefit, index) in benefits" :key="benefit.id" :class="{ 'wide-card': index === 2 }">
         <div class="icon-wrapper">
           <div class="icon">
             <img :src="benefit.icon" alt="icon" />
@@ -22,14 +22,31 @@ import building from "@/assets/media/img/building.png";
 import backpack from "@/assets/media/img/backpack.png";
 import Container from "@/components/common/Container.vue";
 import TitleSection from "@/components/common/TitleSection.vue";
-
-
+import { onMounted } from "vue";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 const benefits = [
   { id: 1, icon: setting, text: 'Практико-ориентированный образовательный процесс.' },
   { id: 2, icon: building, text: 'Укрепление связей с бизнесом.' },
   { id: 3, icon: backpack, text: 'Улучшение показателей трудоустройства выпускников.' },
 ]
-
+onMounted(() => {
+  gsap.from(".card-gsap-6", {
+    opacity: 0,
+    y: 100,
+    filter: "blur(10px)", 
+    duration: 1,
+    ease: "power3.out",
+    stagger: 0.3, 
+    scrollTrigger: {
+      trigger: ".cards-gsap-6",
+      start: "top 70%",
+      end: "bottom top",
+      toggleActions: "play none none none"
+    }
+  });
+});
 
 </script>
 

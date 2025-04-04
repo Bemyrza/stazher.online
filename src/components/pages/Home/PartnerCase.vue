@@ -8,9 +8,9 @@
 </template>
 
 <script setup lang="ts">
-import PartnersBlock from "@/components/pages/Home/Partners.vue";
 import CTAbutton from "@/components/common/CTAbutton.vue";
 import Container from "@/components/common/Container.vue";
+import PartnersBlock from "@/components/pages/Home/Partners.vue";
 
 </script>
 
@@ -22,6 +22,7 @@ import Container from "@/components/common/Container.vue";
 .register-button-container {
   display: flex;
   justify-content: center;
+  margin-top: 120px;
 }
 
 .register-button {

@@ -10,17 +10,17 @@
                     и приглашают на стажировки или работу.
                 </p>
             </div>
-            <div class="mt-6 space-y-3">
+            <div class="mt-6 space-y-3 accordion-gsap-1">
                 <div v-for="(item, index) in items" :key="index" class="accordion-item">
                     <div class="accordion-header flex items-start p-6 cursor-pointer" @click="toggle(index)">
                         <span class="accordion-number">{{ item.number }}</span>
                         <div class="accordion-content flex-1">
                             <h3 class="accordion-title">{{ item.title }}</h3>
-                            <transition name="accordion">
+                            <!-- <transition name="accordion">
                                 <p v-if="activeIndex === index" class="accordion-description">
                                     {{ item.description }}
                                 </p>
-                            </transition>
+                            </transition> -->
 
                         </div>
                         <button class="accordion-toggle" :class="{ 'active-icon': activeIndex === index }">
@@ -40,6 +40,21 @@ import { ref } from 'vue';
 import plus from "@/assets/media/icons/plus.svg";
 import TitleSection from "@/components/common/TitleSection.vue";
 import Container from '@/components/common/Container.vue';
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { onMounted } from 'vue';
+
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+  gsap.from(".accordion-gsap-1", {
+    opacity: 0,       
+    filter: "blur(10px)",  
+    duration: 1,        
+    ease: "power3.out",  
+  });
+})
+
 
 const activeIndex = ref(null);
 
@@ -199,4 +214,16 @@ const toggle = (index:any) => {
         flex-direction: column;
     }
 }
+
+@media (max-width: 1000px) {
+    .accordion-title{
+        font-size: 1.3rem;
+    }
+    .text-description{
+        br{
+            display: none;
+        }
+    }
+}
+
 </style>

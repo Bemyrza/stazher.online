@@ -17,7 +17,7 @@
         </nav>
 
         <button class="header__burger" @click="toggleMenu">☰</button>
-        <nav v-if="isMenuOpen" class="header__mobile-nav">
+        <nav :class="isMenuOpen?'':'close'" class="header__mobile-nav">
             <router-link to="/cases" class="header__nav-link" @click="toggleMenu">ВСЕ КЕЙСЫ</router-link>
             <router-link to="/cases" class="header__nav-link" @click="toggleMenu">О НАС</router-link>
             <router-link to="/students" class="header__nav-link" @click="toggleMenu">СТУДЕНТАМ</router-link>
@@ -31,7 +31,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { type RouteRecordName, useRouter } from 'vue-router';
-
 const router = useRouter();
 const activeRouteName = ref<RouteRecordName | null | undefined>();
 const isRegistration = ref<boolean>(false);
@@ -51,6 +50,11 @@ const toggleMenu = () => {
 </script>
 
 <style lang="scss" scoped>
+.close{
+    visibility:hidden;
+    opacity: 0 !important;
+}
+
 .header {
     height: 80px;
     padding: 20px 40px;
@@ -58,10 +62,11 @@ const toggleMenu = () => {
     justify-content: space-between;
     align-items: center;
     background: white;
-    position: relative;
+    position: sticky;
+    left: 0px;
+    top: 0px;
     border-bottom: none;
     box-shadow: none; 
-
     &__logo {
         display: flex;
         justify-content: center;
@@ -104,6 +109,8 @@ const toggleMenu = () => {
         width: 100%;
         background: white;
         padding: 20px;
+        transition: 0.5s;
+        opacity: 1;
     }
 }
 

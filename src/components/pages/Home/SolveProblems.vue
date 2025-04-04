@@ -1,7 +1,14 @@
 <template>
   <Container class="solutions">
     <TitleSection class="solutions-title">Как мы решаем проблемы <br> на рынке труда</TitleSection>
-    <div class="solution-item" v-for="(item, index) in solutions" :key="index">
+    <div
+      class="solution-item"
+      v-for="(item, index) in solutions"
+      :key="index"
+      ref="solutionItems"
+      :class="{ 'visible': item.visible }"
+      :style="{ '--delay': `${index * 0.2}s` }"
+    >
       <div class="solution-header">
         <span class="solution-number">{{ item.number }}</span>
         <span class="problem-text">{{ item.problem }}</span>
@@ -20,9 +27,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import TitleSection from "@/components/common/TitleSection.vue";
 import Container from "@/components/common/Container.vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
+gsap.registerPlugin(ScrollTrigger);
+
 
 const solutions = ref([
   {
@@ -30,34 +43,83 @@ const solutions = ref([
     problem: "Сложно найти заинтересованных специалистов",
     solutionTitle: "Размещение кейс-задач",
     solutionDescription:
-      "Вы публикуете кейс-задачи, которые решают только талантливые, амбициозные студенты. На основе их решений отбираете лучших к себе в команду."
+      "Вы публикуете кейс-задачи, которые решают только талантливые, амбициозные студенты. На основе их решений отбираете лучших к себе в команду.",
+    visible: false
   },
   {
     number: "02",
     problem: "Нехватка практико-ориентированного подхода в обучении",
     solutionTitle: "Интеграция кейсов в образование",
     solutionDescription:
-      "Кейсы публикуются на платформе, используются преподавателями в процессе обучения студентов. Вы можете вырастить специалистов для своей компании ещё до их выхода на работу."
+      "Кейсы публикуются на платформе, используются преподавателями в процессе обучения студентов. Вы можете вырастить специалистов для своей компании ещё до их выхода на работу.",
+    visible: false
   },
   {
     number: "03",
     problem: "Низкая узнаваемость компании среди студентов",
     solutionTitle: "Прямой доступ к студентам РФ",
     solutionDescription:
-      "Студенты из разных городов и вузов участвуют в наших кейс-чемпионатах и решают кейсы компаний."
+      "Студенты из разных городов и вузов участвуют в наших кейс-чемпионатах и решают кейсы компаний.",
+    visible: false
   }
 ]);
+
+
+const solutionItems = ref<HTMLElement[]>([]);
+
+onMounted(() => {
+  
+  solutionItems.value.forEach((item, index) => {
+    gsap.fromTo(
+      item,
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.95,
+        filter: "blur(8px)"
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        filter: "blur(0)",
+        duration: 0.5,
+        delay: index * 0.2,
+        scrollTrigger: {
+          trigger: item,
+          start: "top 100%",
+          end: "bottom top",
+          toggleActions: "play none none none",
+          markers: false,
+          
+        }
+      }
+    );
+  });
+});
 </script>
 
 <style scoped>
+.solution-item {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  filter: blur(8px);
+  transition: opacity 0.8s ease-out, transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease-out;
+  transition-delay: var(--delay, 0s);
+}
 
+.solution-item.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
 
-
+/* Основные стили */
 .solution-item {
   text-align: start;
   align-items: start;
   border-top: 2px solid #ccc;
-  padding: 30px 0 ;
+  padding: 30px 0;
   display: flex;
   flex-direction: row;
   gap: 15px;
@@ -122,7 +184,8 @@ const solutions = ref([
   color: #666;
   margin-top: 5px;
 }
-.solutions-title{
+
+.solutions-title {
   margin-bottom: 40px;
 }
 
@@ -161,13 +224,12 @@ const solutions = ref([
 }
 
 @media (max-width: 768px) {
-
   .solution-item {
     padding: 15px 0;
     flex-direction: column;
   }
 
-  .solution-text{
+  .solution-text {
     margin-left: 42px;
   }
 
@@ -199,6 +261,4 @@ const solutions = ref([
     height: 18px;
   }
 }
-
-
 </style>

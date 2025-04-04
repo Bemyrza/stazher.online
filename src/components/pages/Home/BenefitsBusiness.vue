@@ -1,8 +1,8 @@
 <template>
   <Container>
     <TitleSection>Преимущества для <br> бизнеса</TitleSection>
-    <div class="cards">
-      <div class="card" v-for="benefit in benefits" :key="benefit.id">
+    <div class="cards cards-gsap-5">
+      <div class="card card-gsap-5" v-for="benefit in benefits" :key="benefit.id">
         <div class="text-wrapper">
           <h3 class="card-title">{{ benefit.title }}</h3>
           <p class="card-text">{{ benefit.text }}</p>
@@ -23,7 +23,9 @@ import briefcaseIcon from "@/assets/media/img/backpack.png";
 import starIcon from "@/assets/media/img/star.png";
 import Container from "@/components/common/Container.vue";
 import TitleSection from "@/components/common/TitleSection.vue";
-
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { onMounted } from "vue";
 const benefits = [
   { id: 1, icon: hourglassIcon, title: 'Экономия времени и средств на поиск сотрудников.', text: 'Процесс поиска и отбора действительно заинтересованного сотрудника сокращается в 2 раза!' },
   { id: 3, icon: briefcaseIcon, title: 'Формирование HR-бренда среди молодежи.', text: 'Размещая кейсы для студентов, вы показываете себя как инновационную компанию, которая заботится о профессиональном развитии молодежи.' },
@@ -31,6 +33,26 @@ const benefits = [
   { id: 4, icon: starIcon, title: 'Оценка soft и hard skills кандидатов в реальных рабочих задачах.', text: 'Благодаря кейсам вы можете оценить и профессиональные навыки, и навыки коммуникации, работы в команде.' }
 ]
 
+gsap.registerPlugin(ScrollTrigger);
+
+
+onMounted(() => {
+  gsap.from(".card-gsap-5", {
+    opacity: 0,
+    y: 100,
+    filter: "blur(10px)",
+    duration: 1,
+    ease: "power3.out",
+    stagger: 0.3, 
+    scrollTrigger: {
+      trigger: ".cards-gsap-5",
+      start: "top 50%",
+      end: "bottom top",
+      toggleActions: "play none none none"
+
+    }
+  })
+});
 
 </script>
 
@@ -100,12 +122,15 @@ const benefits = [
   border-radius: 10px;
   cursor: pointer;
 }
+@media (max-width: 1280px) {
+  .card{
+    height: 270px;
+  }
+}
 
-/* Адаптивность */
 @media (max-width: 1024px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
-    /* 2 карточки в ряду */
   }
 
   .card {
