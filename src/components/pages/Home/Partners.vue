@@ -46,7 +46,7 @@ gsap.registerPlugin(ScrollTrigger)
 onMounted(() => {
   gsap.from(".card-gsap-8", {
     opacity: 0,
-    y: 100,
+    // y: 100,
     filter: "blur(10px)", 
     duration: 1,
     ease: "power3.out",

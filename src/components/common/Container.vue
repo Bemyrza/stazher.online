@@ -17,4 +17,10 @@ defineProps<{ custom_class?: string }>();
         padding: 0 20px !important;
         margin-bottom: 120px;
     }
+    @media (max-width:768px) {
+        .container {
+            margin-bottom: 60px;
+        }
+        
+    }
 </style>

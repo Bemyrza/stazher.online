@@ -16,11 +16,11 @@
                         <span class="accordion-number">{{ item.number }}</span>
                         <div class="accordion-content flex-1">
                             <h3 class="accordion-title">{{ item.title }}</h3>
-                            <!-- <transition name="accordion">
+                            <transition name="accordion">
                                 <p v-if="activeIndex === index" class="accordion-description">
                                     {{ item.description }}
                                 </p>
-                            </transition> -->
+                            </transition>
 
                         </div>
                         <button class="accordion-toggle" :class="{ 'active-icon': activeIndex === index }">
@@ -59,10 +59,10 @@ onMounted(() => {
 const activeIndex = ref(null);
 
 const items = ref([
-    { number: "01", title: "Публикация кейсов в боте и на платформе.", description: "Мы публикуем уникальные кейс-задачи в наших ботах и на платформе..." },
-    { number: "02", title: "Разработка кейсов на заказ", description: "Создаем кастомные кейсы под запросы бизнеса." },
-    { number: "03", title: "Проведение кейс-чемпионатов", description: "Организуем соревнования среди участников для поиска талантов." },
-    { number: "04", title: "Сотрудничество с университетами", description: "Работаем с вузами, чтобы студенты могли решать реальные задачи." }
+    { number: "01", title: "Публикация кейсов в боте и на платформе.", description: " Компании публикуют кейсы, студенты решают их и получают обратную связь, а вузы используют эти задачи в обучении. Плюсы для бизнеса – доступ к талантам и новые идеи. Студенты прокачивают навыки, вузы – усиливают практику в образовании. Всё просто и полезно! 🚀" },
+    { number: "02", title: "Разработка кейсов на заказ", description: "Мы создаем реалистичные кейс-задачи на основе вашего запроса — для обучения, оценки сотрудников,HR-брендинга и, конечно, привлечения таланто! Польза для компаний: готовая методичка для стажёров и сотрудников + привлечение талантливых студентов через нашу платформу. Экономия времени и усилий с гарантией качества! ✨" },
+    { number: "03", title: "Проведение кейс-чемпионатов", description: "Мы берем на себя всю организацию: договариваемся с вузом, продумываем программу и раскручиваем ваше мероприятие среди студентов. Ваш бренд получит максимум внимания, а участники — реальный опыт решения бизнес-задач. Никакой головной боли, только яркий и полезный ивент! 💡" },
+    { number: "04", title: "Сотрудничество с университетами", description: "Мы интегрируем кейсы в образовательный процесс вузов! Дайте студентам решать ваши реальные задачи уже во время учебы — и получите готовых специалистов, идеально подходящих вашей компании. Никаких лишних расходов на поиск и адаптацию, только целевая подготовка кадров." }
 ]);
 
 const toggle = (index:any) => {
@@ -79,8 +79,8 @@ const toggle = (index:any) => {
 <style scoped>
 .accordion-enter-active,
 .accordion-leave-active {
-    transition: opacity 0.3s ease, max-height 0.3s ease-in-out;
-    max-height: 200px;
+    transition: opacity 1s ease, max-height 1s ease-in-out;
+    max-height: 270px;
 }
 
 .accordion-enter-from,
@@ -92,7 +92,7 @@ const toggle = (index:any) => {
 .text-font {
     display: flex;
     text-align: start;
-    justify-content: space-between;
+    justify-content: start;
 }
 
 .font-bold {
@@ -106,6 +106,7 @@ const toggle = (index:any) => {
     margin-top: 0.5rem;
     max-width: 600px;
     text-align: start;
+    margin-left: 23.8%;
 }
 
 .accordion-item {
@@ -139,7 +140,7 @@ const toggle = (index:any) => {
     margin-left: 3rem;
     display: flex;
     justify-content: end;
-
+    flex-direction: column;
 }
 
 .accordion-title {
@@ -150,7 +151,8 @@ const toggle = (index:any) => {
     font-weight: 500;
     max-width: 350px;
     line-height: 100%;
-    margin-right: 5.7%;
+    margin-left: 50%;
+    
 }
 
 .accordion-description {
@@ -158,12 +160,11 @@ const toggle = (index:any) => {
     color: #666;
     margin-top: 1.5rem;
     width: 100%;
-    max-width: 450px;
+    max-width: 350px;
     margin-left: 50%;
     font-weight: 400;
     font-family: "Inter", sans-serif;
-
-
+    overflow: hidden;
 }
 
 .accordion-toggle {
@@ -182,7 +183,7 @@ const toggle = (index:any) => {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 1s ease-in-out;
 }
 
 .accordion-toggle.active-icon .icon-circle {
@@ -192,7 +193,7 @@ const toggle = (index:any) => {
 .accordion-toggle .icon {
     width: 20px;
     height: 20px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 1s ease-in-out;
 }
 
 .accordion-toggle.active-icon .icon {
@@ -213,17 +214,27 @@ const toggle = (index:any) => {
     .text-font{
         flex-direction: column;
     }
-}
-
-@media (max-width: 1000px) {
     .accordion-title{
         font-size: 1.3rem;
+        margin-left: 5%;
+    }
+    .accordion-description{
+        margin-left: 5%;
     }
     .text-description{
+        margin-left: 0;
         br{
             display: none;
         }
     }
+
 }
+@media (max-width:480px) {
+    .accordion-title{
+        font-size: 1rem;
+        max-width: 90%;
+    }
+}
+
 
 </style>

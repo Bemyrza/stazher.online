@@ -115,6 +115,8 @@ onMounted(() => {
 @media (max-width:768px) {
     .card{
       width:100%;
+      height: auto;
+      padding-top: 140px;
     }
     .text{
       font-size: 1.5rem;
