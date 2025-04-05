@@ -7,36 +7,60 @@
             Работодатели оценивают решения, выбирают лучших кандидатов
             и приглашают на стажировки или работу.
         </p>
-        <div class="cards">
-            <div class="card">
-                <span class="number">> 50 000</span>
-                <h3>Количество пользователей платформы (студентов и компаний)</h3>
+        <div class="cards cards-gsap-7">
+            <div class="card card-gsap-7">
+                <span class="number">> 500</span>
+                <h3>Количество студентов решающих кейсы</h3>
                 <p>
-                    На нашей платформе зарегистрировано более 50 000 пользователей,
-                    включая 30 000 студентов и 20 000 компаний, активно решающих кейс-задания.
+                    На нашей платформе зарегистрировано более 500 студентов, активно решающих кейс-задачи и развивающих свои профессиональные навыки, составляющих себе сильное портфолио и выбирающих действительно 
+                    <br>
+                    <a>
+                        ИНТЕРЕСНОЕ МЕСТО РАБОТЫ
+                    </a>
                 </p>
             </div>
-            <div class="card">
-                <span class="number">+100</span>
+            <div class="card card-gsap-7">
+                <span class="number">+10</span>
                 <h3>Университеты-партнеры, участвующие в кейс-чемпионатах.</h3>
                 <p>
-                    В кейс-чемпионатах участвуют более 100 университетов, включая МГУ, СПбГУ и ВШЭ.
+                    В рамках наших кейс-чемпионатов участвуют более 10 университетов-партнеров, среди которых такие вузы, как РЭУ, МГУ, ВАВТ, ГУУ, РАНХиГС  и другие ведущие учебные заведения, интегрирующие кейс-метод в учебный процесс.
                 </p>
             </div>
-            <div class="card">
-                <span class="number">> 500</span>
+            <div class="card card-gsap-7">
+                <span class="number">> 15</span>
                 <h3>Компании, уже размещающие свои кейсы у нас на платформе.</h3>
                 <p>
-                    С нами сотрудничают более 500 компаний, включая Sberbank, X5 Retail Group и Siemens.
+                    Мы сотрудничаем с компаниями любого профиля и размера, которые регулярно размещают свои кейсы на платформе. Среди них такие известные бренды, как Sberbank, X5 Retail Group, L'Oréal, Siemens и другие, предоставляющие студентам уникальные бизнес-задачи.
                 </p>
             </div>
         </div>
     </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Container from '@/components/common/Container.vue';
 import TitleSection from '@/components/common/TitleSection.vue';
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { onMounted } from 'vue';
+gsap.registerPlugin(ScrollTrigger)
+
+onMounted(() => {
+  gsap.from(".card-gsap-7", {
+    opacity: 0,
+    y: 100,
+    filter: "blur(10px)", 
+    duration: 1,
+    ease: "power3.out",
+    stagger: 0.3, 
+    scrollTrigger: {
+      trigger: ".cards-gsap-7",
+      start: "top 70%",
+      end: "bottom top",
+      toggleActions: "play none none none"
+    }
+  });
+});
 </script>
 
 <style scoped>
@@ -66,11 +90,11 @@ import TitleSection from '@/components/common/TitleSection.vue';
 
 .card {
     background: #F3EEFF;
-    padding: 40px;
-    border-radius: 16px;
+    padding: 20px;
+    border-radius: 20px;
     width: calc(33.33% - 20px);
     text-align: center;
-    min-height: 440px;
+    min-height: 460px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,7 +109,7 @@ import TitleSection from '@/components/common/TitleSection.vue';
     font-family: "Inter", sans-serif;
     font-weight: 400;
     line-height: 100%;
-    font-size: 4rem;
+    font-size: 5rem;
     color: #8857FF;
     position: absolute;
     top: 10px;
@@ -93,9 +117,9 @@ import TitleSection from '@/components/common/TitleSection.vue';
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
-    margin: 100px 0 20px;
+    margin: 85px 0 20px;
     line-height: 1.2;
 }
 
@@ -107,6 +131,9 @@ p {
     color: #555;
     line-height: 120%;
     margin-top: 30px;
+    a{
+        color: #5864F5;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -154,7 +181,7 @@ p {
         font-size: 15px;
     }
 }
-
+/* 
 @media (max-width: 480px) {
     .title {
         font-size: 28px;
@@ -181,5 +208,5 @@ p {
     p {
         font-size: 0.95rem;
     }
-}
+} */
 </style>

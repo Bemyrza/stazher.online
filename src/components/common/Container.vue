@@ -14,6 +14,7 @@ defineProps<{ custom_class?: string }>();
     .container {
         max-width: 1550px;
         margin: 0 auto;
+        padding: 0 20px !important;
         margin-bottom: 120px;
     }
 </style>

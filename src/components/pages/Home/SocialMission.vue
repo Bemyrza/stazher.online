@@ -2,7 +2,7 @@
   <Container class="container">
     <div class="contain">
       <TitleSection class="title">Социальная миссия:</TitleSection>
-      <div class="content">
+      <div class="content content-gsap-1">
         <div v-for="(item, index) in missionItems" :key="index" class="mission-item">
           <div class="icon-container">
             <img :src="item.icon" alt="icon" class="icon" />
@@ -14,14 +14,16 @@
   </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import student from "@/assets/media/img/FeStudent.png"
 import teacher from "@/assets/media/img/tarcher.png"
 import track from "@/assets/media/img/track.png"
 import TitleSection from "@/components/common/TitleSection.vue"
 import Container from "@/components/common/Container.vue"
-
-
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { onMounted } from "vue"
+gsap.registerPlugin(ScrollTrigger)
 const missionItems = [
   {
     icon: student,
@@ -37,13 +39,29 @@ const missionItems = [
   }
 ]
 
+onMounted(() => {
+  gsap.from(".mission-item", {
+    opacity: 0,
+    y: 100,
+    filter: "blur(10px)", 
+    duration: 1,
+    ease: "power3.out",
+    stagger: 0.3, 
+    scrollTrigger: {
+      trigger: ".content-gsap-1",
+      start: "top 70%",
+      end: "bottom top",
+      toggleActions: "play none none none"
+    }
+  });
+});
 
 </script>
 
 <style scoped>
 .contain {
   display: flex;
-  gap: 14.5rem;
+  justify-content: space-between;
   padding-top: 1rem;
 }
 
@@ -97,56 +115,21 @@ const missionItems = [
   color: #4b5563;
 }
 
-@media (max-width: 768px) {
-  .contain {
+@media (max-width: 1280px) {
+  .contain{
     flex-direction: column;
-    align-items: center;
   }
-
-  .title {
-    width: 100%;
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
+  .title{
+    margin-bottom: 100px;
   }
-
-  .content {
+  .content{
     width: 100%;
   }
-
-  .mission-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid #d1d5db;
-  }
-
-  .icon-container {
-    width: 4rem;
-    height: 4rem;
-  }
-
-  .icon {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .text {
-    width: 100%;
-    text-align: center;
+  .text{
     margin-left: 0;
   }
-}
-
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.8rem;
-  }
-
-  .text {
-    font-size: 0.9rem;
+  .mission-item{
+    gap: 40px;
   }
 }
 </style>

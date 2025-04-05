@@ -46,7 +46,7 @@
     </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 import Container from '@/components/common/Container.vue';
 import TitleSection from '@/components/common/TitleSection.vue';

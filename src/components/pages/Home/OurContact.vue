@@ -18,7 +18,7 @@
   </Container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import stasherIcon from "@/assets/media/icons/stasherIcon.svg";
 import telegramIcon from "@/assets/media/icons/telegramIcon.svg";
 import WKicon from "@/assets/media/icons/WkIcon.svg";
@@ -26,6 +26,29 @@ import transitionIcon from "@/assets/media/icons/transition.svg";
 import { ref } from "vue";
 import Container from "@/components/common/Container.vue";
 import TitleSection from "@/components/common/TitleSection.vue";
+
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { onMounted } from 'vue';
+gsap.registerPlugin(ScrollTrigger)
+
+onMounted(() => {
+  gsap.from(".contacts-card", {
+    opacity: 0,
+    y: 100,
+    filter: "blur(10px)", 
+    duration: 1,
+    ease: "power3.out",
+    stagger: 0.3, 
+    scrollTrigger: {
+      trigger: ".contacts-cards",
+      start: "top 70%",
+      end: "bottom top",
+      toggleActions: "play none none reverse",
+    }
+  });
+});
+
 const contacts = ref([
   { id: 1, icon: stasherIcon, text: "Наша платформа", link: "https://stazher.online" },
   { id: 2, icon: telegramIcon, text: "ТГ канал", link: "https://t.me/stazheronline" },
@@ -38,17 +61,13 @@ const transitionIconRef = ref(transitionIcon);
 
 
 <style scoped>
-.contacts-title{
-  margin-left: 30px;
-}
-
 .contacts-cards {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   width: 100%;
   margin-top: 30px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -56,7 +75,7 @@ const transitionIconRef = ref(transitionIcon);
   padding: 40px;
   border: 1px solid #ccc;
   border-radius: 20px;
-  width: 340px;
+  width: calc(25% - 20px);
   height: 360px;
   display: flex;
   flex-direction: column;
@@ -145,33 +164,4 @@ const transitionIconRef = ref(transitionIcon);
   }
 }
 
-@media (max-width: 480px) {
-  .contacts-title {
-    font-size: 1.8rem;
-  }
-
-  .contacts-card {
-    width: 100%;
-    height: auto;
-    padding: 30px;
-  }
-
-  .contacts-icon-wrapper {
-    width: 50px;
-    height: 50px;
-  }
-
-  .contacts-icon {
-    width: 25px;
-    height: 25px;
-  }
-
-  .contacts-text {
-    font-size: 1rem;
-  }
-
-  .contacts-link {
-    font-size: 0.9rem;
-  }
-}
 </style>

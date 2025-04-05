@@ -13,6 +13,9 @@ export default defineConfig(({ mode }) => {
     preview: {
       host: '0.0.0.0',
       port: 80
+    },    
+    server:{
+      allowedHosts: ['cd44-185-117-148-70.ngrok-free.app'],
     },
     css: {
       postcss: {

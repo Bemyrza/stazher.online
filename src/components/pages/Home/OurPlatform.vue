@@ -10,17 +10,17 @@
                     и приглашают на стажировки или работу.
                 </p>
             </div>
-            <div class="mt-6 space-y-3">
+            <div class="mt-6 space-y-3 accordion-gsap-1">
                 <div v-for="(item, index) in items" :key="index" class="accordion-item">
                     <div class="accordion-header flex items-start p-6 cursor-pointer" @click="toggle(index)">
                         <span class="accordion-number">{{ item.number }}</span>
                         <div class="accordion-content flex-1">
                             <h3 class="accordion-title">{{ item.title }}</h3>
-                            <transition name="accordion">
+                            <!-- <transition name="accordion">
                                 <p v-if="activeIndex === index" class="accordion-description">
                                     {{ item.description }}
                                 </p>
-                            </transition>
+                            </transition> -->
 
                         </div>
                         <button class="accordion-toggle" :class="{ 'active-icon': activeIndex === index }">
@@ -35,11 +35,26 @@
         </div>
     </Container>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import plus from "@/assets/media/icons/plus.svg";
 import TitleSection from "@/components/common/TitleSection.vue";
 import Container from '@/components/common/Container.vue';
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { onMounted } from 'vue';
+
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+  gsap.from(".accordion-gsap-1", {
+    opacity: 0,       
+    filter: "blur(10px)",  
+    duration: 1,        
+    ease: "power3.out",  
+  });
+})
+
 
 const activeIndex = ref(null);
 
@@ -50,7 +65,7 @@ const items = ref([
     { number: "04", title: "Сотрудничество с университетами", description: "Работаем с вузами, чтобы студенты могли решать реальные задачи." }
 ]);
 
-const toggle = (index) => {
+const toggle = (index:any) => {
     if (activeIndex.value === index) {
         activeIndex.value = null;
     } else {
@@ -76,8 +91,8 @@ const toggle = (index) => {
 
 .text-font {
     display: flex;
-    align-items: center;
     text-align: start;
+    justify-content: space-between;
 }
 
 .font-bold {
@@ -89,9 +104,8 @@ const toggle = (index) => {
 .text-description {
     color: #4B5563;
     margin-top: 0.5rem;
-    max-width: 42rem;
+    max-width: 600px;
     text-align: start;
-    margin-left: 23.5%;
 }
 
 .accordion-item {
@@ -109,7 +123,6 @@ const toggle = (index) => {
     width: 100%;
     position: relative;
     transition: all 1s ease-in-out;
-
 }
 
 .accordion-number {
@@ -124,6 +137,8 @@ const toggle = (index) => {
 .accordion-content {
     flex: 1;
     margin-left: 3rem;
+    display: flex;
+    justify-content: end;
 
 }
 
@@ -135,7 +150,7 @@ const toggle = (index) => {
     font-weight: 500;
     max-width: 350px;
     line-height: 100%;
-    margin-left: 50%;
+    margin-right: 5.7%;
 }
 
 .accordion-description {
@@ -194,28 +209,21 @@ const toggle = (index) => {
     font-size: 1.125rem;
     margin-top: 1.25rem;
 }
-
-@media (max-width: 768px) {
-    .accordion-header {
+@media (max-width: 1000px) {
+    .text-font{
         flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .accordion-title,
-    .accordion-description {
-        margin-left: 0;
-    }
-
-    .text-font {
-        text-align: center;
-    }
-
-    .accordion-number {
-        font-size: 1.5rem;
-    }
-
-    .register-btn {
-        font-size: 1rem;
     }
 }
+
+@media (max-width: 1000px) {
+    .accordion-title{
+        font-size: 1.3rem;
+    }
+    .text-description{
+        br{
+            display: none;
+        }
+    }
+}
+
 </style>

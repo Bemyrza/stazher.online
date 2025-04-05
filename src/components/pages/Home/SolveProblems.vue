@@ -1,26 +1,41 @@
 <template>
   <Container class="solutions">
     <TitleSection class="solutions-title">Как мы решаем проблемы <br> на рынке труда</TitleSection>
-    <div class="solution-item" v-for="(item, index) in solutions" :key="index">
+    <div
+      class="solution-item"
+      v-for="(item, index) in solutions"
+      :key="index"
+      ref="solutionItems"
+      :class="{ 'visible': item.visible }"
+      :style="{ '--delay': `${index * 0.2}s` }"
+    >
       <div class="solution-header">
         <span class="solution-number">{{ item.number }}</span>
         <span class="problem-text">{{ item.problem }}</span>
+      </div>
+      <div class="solution-text">
         <div class="solution-icon-wrapper">
           <img class="solution-icon" src="/src/components/icons/point.svg" alt="Arrow Icon" />
         </div>
-      </div>
-      <div class="solution-text">
-        <span class="solution-title">{{ item.solutionTitle }}</span>
-        <p class="solution-description">{{ item.solutionDescription }}</p>
+        <div class="solution-text-wrap">
+          <span class="solution-title">{{ item.solutionTitle }}</span>
+          <p class="solution-description">{{ item.solutionDescription }}</p>
+        </div>
       </div>
     </div>
   </Container>
 </template>
 
-<script setup>
-import { ref } from "vue";
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
 import TitleSection from "@/components/common/TitleSection.vue";
 import Container from "@/components/common/Container.vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
+gsap.registerPlugin(ScrollTrigger);
+
 
 const solutions = ref([
   {
@@ -28,34 +43,83 @@ const solutions = ref([
     problem: "Сложно найти заинтересованных специалистов",
     solutionTitle: "Размещение кейс-задач",
     solutionDescription:
-      "Вы публикуете кейс-задачи, которые решают только талантливые, амбициозные студенты. На основе их решений отбираете лучших к себе в команду."
+      "Вы публикуете кейс-задачи, которые решают только талантливые, амбициозные студенты. На основе их решений отбираете лучших к себе в команду.",
+    visible: false
   },
   {
     number: "02",
     problem: "Нехватка практико-ориентированного подхода в обучении",
     solutionTitle: "Интеграция кейсов в образование",
     solutionDescription:
-      "Кейсы публикуются на платформе, используются преподавателями в процессе обучения студентов. Вы можете вырастить специалистов для своей компании ещё до их выхода на работу."
+      "Кейсы публикуются на платформе, используются преподавателями в процессе обучения студентов. Вы можете вырастить специалистов для своей компании ещё до их выхода на работу.",
+    visible: false
   },
   {
     number: "03",
     problem: "Низкая узнаваемость компании среди студентов",
     solutionTitle: "Прямой доступ к студентам РФ",
     solutionDescription:
-      "Студенты из разных городов и вузов участвуют в наших кейс-чемпионатах и решают кейсы компаний."
+      "Студенты из разных городов и вузов участвуют в наших кейс-чемпионатах и решают кейсы компаний.",
+    visible: false
   }
 ]);
+
+
+const solutionItems = ref<HTMLElement[]>([]);
+
+onMounted(() => {
+  
+  solutionItems.value.forEach((item, index) => {
+    gsap.fromTo(
+      item,
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.95,
+        filter: "blur(8px)"
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        filter: "blur(0)",
+        duration: 0.5,
+        delay: index * 0.2,
+        scrollTrigger: {
+          trigger: item,
+          start: "top 100%",
+          end: "bottom top",
+          toggleActions: "play none none none",
+          markers: false,
+          
+        }
+      }
+    );
+  });
+});
 </script>
 
 <style scoped>
-
-
-
 .solution-item {
-  text-align: center;
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  filter: blur(8px);
+  transition: opacity 0.8s ease-out, transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease-out;
+  transition-delay: var(--delay, 0s);
+}
+
+.solution-item.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Основные стили */
+.solution-item {
   text-align: start;
+  align-items: start;
   border-top: 2px solid #ccc;
-  padding: 25px 0;
+  padding: 30px 0;
   display: flex;
   flex-direction: row;
   gap: 15px;
@@ -63,13 +127,14 @@ const solutions = ref([
 
 .solution-header {
   display: flex;
-  align-items: center;
-  gap: 15px;
+  align-items: start;
+  gap: 40px;
 }
 
 .solution-number {
   font-size: 3rem;
   color: #666;
+  line-height: 90%;
 }
 
 .problem-text {
@@ -78,7 +143,11 @@ const solutions = ref([
   line-height: 100%;
   font-weight: bold;
   color: black;
-  margin-left: 25px;
+}
+
+.solution-text-wrap {
+  display: flex;
+  flex-direction: column;
 }
 
 .solution-icon-wrapper {
@@ -90,22 +159,23 @@ const solutions = ref([
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-bottom: 50px;
 }
 
 .solution-icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .solution-text {
   display: flex;
-  flex-direction: column;
+  gap: 20px;
 }
 
 .solution-title {
   font-size: 2rem;
   font-weight: bold;
+  line-height: 100%;
+  margin-bottom: 20px;
 }
 
 .solution-description {
@@ -115,12 +185,11 @@ const solutions = ref([
   margin-top: 5px;
 }
 
-@media (max-width: 1024px) {
-  .solutions-title {
-    font-size: 2rem;
-    width: 100%;
-  }
+.solutions-title {
+  margin-bottom: 40px;
+}
 
+@media (max-width: 1024px) {
   .solution-item {
     padding: 20px 0;
   }
@@ -145,6 +214,7 @@ const solutions = ref([
   .solution-icon-wrapper {
     width: 28px;
     height: 28px;
+    padding: 5px;
   }
 
   .solution-icon {
@@ -154,13 +224,13 @@ const solutions = ref([
 }
 
 @media (max-width: 768px) {
-  .solutions-title {
-    font-size: 1.5rem;
-    width: 100%;
-  }
-
   .solution-item {
     padding: 15px 0;
+    flex-direction: column;
+  }
+
+  .solution-text {
+    margin-left: 42px;
   }
 
   .solution-number {
@@ -189,65 +259,6 @@ const solutions = ref([
   .solution-icon {
     width: 18px;
     height: 18px;
-  }
-}
-
-@media (max-width: 500px) {
-  .solutions-title {
-    font-size: 1.25rem;
-    text-align: center;
-  }
-
-  .solution-item {
-    padding: 15px 0;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .solution-header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .solution-number {
-    font-size: 1.8rem;
-  }
-
-  .problem-text {
-    font-size: 1.3rem;
-    margin-left: 0;
-  }
-
-  .solution-title {
-    font-size: 1.3rem;
-    text-align: center;
-  }
-
-  .solution-description {
-    width: 100%;
-    font-size: 0.75rem;
-    text-align: center;
-  }
-
-  .solution-icon-wrapper {
-    width: 22px;
-    height: 22px;
-  }
-
-  .solution-icon {
-    width: 16px;
-    height: 16px;
-  }
-
-  /* Reorder elements for small screens */
-  .solution-text {
-    order: 2;
-  }
-
-  .solution-number,
-  .problem-text {
-    order: 1;
   }
 }
 </style>
