@@ -16,12 +16,9 @@
                         <span class="accordion-number">{{ item.number }}</span>
                         <div class="accordion-content flex-1">
                             <h3 class="accordion-title">{{ item.title }}</h3>
-                            <transition name="accordion">
-                                <p v-if="activeIndex === index" class="accordion-description">
+                                <p :class="{'hide-accordion':activeIndex !== index}" class="accordion-description">
                                     {{ item.description }}
                                 </p>
-                            </transition>
-
                         </div>
                         <button class="accordion-toggle" :class="{ 'active-icon': activeIndex === index }">
                             <div class="icon-circle">
@@ -80,7 +77,7 @@ const toggle = (index:any) => {
 .accordion-enter-active,
 .accordion-leave-active {
     transition: opacity 1s ease, max-height 1s ease-in-out;
-    max-height: 270px;
+    height: 270px;
 }
 
 .accordion-enter-from,
@@ -163,16 +160,19 @@ const toggle = (index:any) => {
     max-width: 350px;
     margin-left: 50%;
     font-weight: 400;
-    font-family: "Inter", sans-serif;
+    max-height: 500px; 
     overflow: hidden;
+    transition: max-height 1s ease;
 }
 
+.hide-accordion {
+    max-height: 0;
+}
 .accordion-toggle {
     border: none;
     background: transparent;
     cursor: pointer;
     transition: all 1s ease-in-out;
-
 }
 
 .icon-circle {
@@ -229,7 +229,7 @@ const toggle = (index:any) => {
     }
 
 }
-@media (max-width:480px) {
+@media (max-width:550px) {
     .accordion-title{
         font-size: 1rem;
         max-width: 90%;
