@@ -1,11 +1,15 @@
 <template>
-    <Container>
-    <TitleSection>Зачем компаниям Стажер.онлайн?</TitleSection>
+  <Container>
+    <TitleSection align="center">Зачем компаниям Стажер.онлайн?</TitleSection>
+
     <div class="flexChamp">
       <div class="video-wrap">
-        <div class="video-player" @click="clickplay"><img src="../../../assets/media/icons/play-icon.svg" alt=""></div>
+        <div class="video-player" @click="clickplay">
+          <img src="../../../assets/media/icons/play-icon.svg" alt="play" />
+        </div>
         <video ref="videoRef" src="../../../assets/media/video/IMG_6075.MP4"></video>
       </div>
+
       <div class="flexdis">
         <div class="txtChamp">
           <p>Организация соревнований среди студентов для поиска талантов.</p>
@@ -13,43 +17,67 @@
         <div class="txtChamp">
           <p>
             Возможность для компаний провести мастер-классы, лекции и познакомиться с
-            будущимиспециалистами.
+            будущими специалистами.
           </p>
         </div>
       </div>
     </div>
-    </Container>
+  </Container>
 </template>
-<script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import Container from '@/components/common/Container.vue';
-import TitleSection from '@/components/common/TitleSection.vue';
 
-const videoRef = ref<HTMLVideoElement | null>(null);
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import Container from '@/components/common/Container.vue'
+import TitleSection from '@/components/common/TitleSection.vue'
+
+const videoRef = ref<HTMLVideoElement | null>(null)
 
 const clickplay = (event: MouseEvent) => {
   event.stopPropagation()
-  const target = event.currentTarget as HTMLElement;
-  target.classList.add('hidden');
+  const target = event.currentTarget as HTMLElement
+  target.classList.add('hidden')
 
   if (videoRef.value) {
-    videoRef.value.controls = true;
-    videoRef.value.play();
+    videoRef.value.controls = true
+    videoRef.value.play()
   }
-
-  console.log(videoRef.value?.children);
-};
-
-
-</script>
-<style scoped>
-
-.champImg {
-  border-radius: 20px;
-  width: 100%;
-  object-fit: cover;
 }
 
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  gsap.from('.txtChamp', {
+    opacity: 0,
+    y: 50,
+    duration: 1.5,
+    ease: 'power3.out',
+    stagger: 0.3,
+    scrollTrigger: {
+      trigger: '.flexChamp',
+      start: 'top 80%',
+      end: 'bottom top',
+      toggleActions: 'play none none none',
+    }
+  });
+
+  gsap.from('.video-player', {
+    opacity: 0,
+    scale: 0.5,
+    duration: 1.5,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.flexChamp',
+      start: 'top 80%',
+      end: 'bottom top',
+      toggleActions: 'play none none none',
+    }
+  });
+})
+</script>
+
+<style scoped>
 .flexChamp {
   margin-top: 40px;
   display: flex;
@@ -74,6 +102,7 @@ const clickplay = (event: MouseEvent) => {
   font-size: 30px;
   line-height: 120%;
 }
+
 .flexdis {
   display: flex;
   flex-direction: column;
@@ -89,41 +118,90 @@ const clickplay = (event: MouseEvent) => {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 100px;
-  z-index: 1; 
   background: rgb(255, 255, 255);
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  letter-spacing: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 2;
-  img{
-    width: 50%;
-    height: 50%;
-  }
 }
 
-
-.video-wrap{
+.video-wrap {
   height: 658px;
   width: 50%;
   position: relative;
-  video{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    position: relative;
-    z-index: 0;
-  }
 }
+
+.video-wrap video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  position: relative;
+  z-index: 0;
+}
+
 .hidden {
   width: 0;
   height: 0;
   opacity: 0;
   overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .txtChamp p {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .flexChamp {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .video-wrap {
+    width: 100%;
+    height: auto;
+  }
+
+  .video-wrap video {
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+
+  .flexdis {
+    width: 100%;
+  }
+
+  .txtChamp {
+    height: auto;
+    padding: 16px;
+  }
+
+  .txtChamp p {
+    font-size: 20px;
+  }
+
+  .video-player {
+    width: 90px;
+    height: 90px;
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .txtChamp p {
+    font-size: 18px;
+  }
+
+  .video-player {
+    width: 70px;
+    height: 70px;
+    font-size: 50px;
+  }
 }
 </style>

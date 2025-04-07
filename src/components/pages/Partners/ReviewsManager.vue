@@ -3,49 +3,13 @@
     <div class="flexBlock">
       <TitleSection>Отзывы HR-менеджеров</TitleSection>
       <div class="reviewsSection">
-        <div class="reviewsBlocks">
+        <div v-for="(review, index) in reviews" :key="index" class="reviewsBlocks">
           <div class="flexDetails">
-            <img class="profilImg" src="../../assets/media/img/profilImg.png" alt="profilImg" />
+            <img class="profilImg" :src="review.img" alt="profilImg" />
             <div class="infoProf">
-              <h3 class="name">Анна Андреева</h3>
-              <p class="text">
-                Хочу выразить большую благодарность Петру! Курсы прошли на высшем уровне. Занятия
-                всегда проходили очень круто и качественно. Петр всегда был отзывчив и всегда
-                помогал!
-              </p>
-              <p class="date">24.03.2025</p>
-            </div>
-          </div>
-        </div>
-        <div class="reviewsBlocks">
-          <div class="flexDetails">
-            <img class="profilImg" src="../../assets/media/img/twoProfilImg.png" alt="profilImg" />
-            <div class="infoProf">
-              <h3 class="name">Бальжинимаева Оюна</h3>
-              <p class="text">
-                Благодарю за обучение! Очень интересно. Отдельное спасибо преподавателю Марине
-                Семеновне! Очень много жизненных примеров, ориентация на человека, много что
-                получила для себя лично.
-              </p>
-              <p class="date">24.03.2025</p>
-            </div>
-          </div>
-        </div>
-        <div class="reviewsBlocks">
-          <div class="flexDetails">
-            <img
-              class="profilImg"
-              src="../../assets/media/img/threeProfilImg.png"
-              alt="profilImg"
-            />
-            <div class="infoProf">
-              <h3 class="name">Коллектив СПб ГУП "Горэлектротранс"</h3>
-              <p class="text">
-                Хотим выразить благодарность за объем и подачу материала. Уверены, что переданные
-                знания и навыки будут отличным подспорьем в работе и в понимании логики
-                автоматизации бизнес-процессов средаствами Ms Excel
-              </p>
-              <p class="date">24.03.2025</p>
+              <h3 class="name">{{ review.name }}</h3>
+              <p class="text">{{ review.text }}</p>
+              <p class="date">{{ review.date }}</p>
             </div>
           </div>
         </div>
@@ -54,33 +18,100 @@
     </div>
     <button class="btn">Разместить кейс бесплатно</button>
   </Container>
-    
 </template>
 
 <script setup lang="ts">
-
+import { onMounted } from 'vue';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import Container from '@/components/common/Container.vue';
 import TitleSection from '@/components/common/TitleSection.vue';
 
+const reviews = [
+  {
+    img: new URL('@/assets/media/img/profilImg.png', import.meta.url).href,
+    name: 'Анна Андреева',
+    text: 'Хочу выразить большую благодарность Петру! Курсы прошли на высшем уровне. Занятия всегда проходили очень круто и качественно. Петр всегда был отзывчив и всегда помогал!',
+    date: '24.03.2025',
+  },
+  {
+    img: new URL('@/assets/media/img/twoProfilImg.png', import.meta.url).href,
+    name: 'Бальжинимаева Оюна',
+    text: 'Благодарю за обучение! Очень интересно. Отдельное спасибо преподавателю Марине Семеновне! Очень много жизненных примеров, ориентация на человека, много что получила для себя лично.',
+    date: '24.03.2025',
+  },
+  {
+    img: new URL('@/assets/media/img/threeProfilImg.png', import.meta.url).href,
+    name: 'Коллектив СПб ГУП "Горэлектротранс"',
+    text: 'Хотим выразить благодарность за объем и подачу материала. Уверены, что переданные знания и навыки будут отличным подспорьем в работе и в понимании логики автоматизации бизнес-процессов средствами Ms Excel',
+    date: '24.03.2025',
+  },
+];
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('.reviewsBlocks', {
+    opacity: 0,
+    y: 50,
+    duration: 1.5,
+    ease: 'power3.out',
+    stagger: 0.3,
+    scrollTrigger: {
+      trigger: '.reviewsSection',
+      start: 'top 80%',
+      end: 'bottom top',
+      toggleActions: 'play none none none',
+    },
+  });
+
+  gsap.from('.line', {
+    opacity: 0,
+    y: 50,
+    duration: 1.5,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.reviewsSection',
+      start: 'top 80%',
+      end: 'bottom top',
+      toggleActions: 'play none none none',
+    },
+  });
+
+  gsap.from('.btn', {
+    opacity: 0,
+    y: 50,
+    duration: 1.5,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.btn',
+      start: 'top 80%',
+      end: 'bottom top',
+      toggleActions: 'play none none none',
+    },
+  });
+});
 </script>
 
-<style>
+<style scoped>
 .section {
   margin: 50px 20px;
 }
+
 .mainTitle {
   font-size: 48px;
   font-weight: 600;
   line-height: 100%;
   color: #000000;
 }
+
 .flexBlock {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   font-family: 'Inter';
-  /* margin: 50px 40px; */
 }
+
 .reviewsBlocks {
   width: 100%;
   background-color: #f3eeff;
@@ -108,8 +139,9 @@ import TitleSection from '@/components/common/TitleSection.vue';
   height: 131px;
   border-radius: 50%;
   overflow: hidden;
-  object-fit: cover;
+  object-fit: cover;  
 }
+
 .name {
   font-weight: 600;
   font-size: 20px;
@@ -130,6 +162,7 @@ import TitleSection from '@/components/common/TitleSection.vue';
   line-height: 120%;
   color: #000000;
 }
+
 .reviewsSection {
   width: 770px;
   display: flex;
@@ -154,5 +187,121 @@ import TitleSection from '@/components/common/TitleSection.vue';
   line-height: 80%;
   color: #ffffff;
   border-radius: 50px;
+}
+
+@media (max-width: 1024px) {
+  .reviewsSection {
+    width: 90%;
+    margin-top: 50px;
+  }
+
+  .reviewsBlocks {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+
+  .profilImg {
+    width: 110px;
+    height: 110px;
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .date {
+    font-size: 14px;
+  }
+
+  .line {
+    margin-top: 20px;
+  }
+
+  .btn {
+    width: 80%;
+    height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .flexBlock {
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mainTitle {
+    margin-top: 50px;
+  }
+
+  .reviewsSection {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .reviewsBlocks {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .flexDetails {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profilImg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .date {
+    font-size: 14px;
+  }
+
+  .btn {
+    width: 90%;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviewsBlocks {
+    padding: 10px;
+  }
+
+  .profilImg {
+    width: 90px;
+    height: 90px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .text {
+    font-size: 12px;
+  }
+
+  .date {
+    font-size: 12px;
+  }
+
+  .btn {
+    height: 50px;
+    font-size: 16px;
+  }
 }
 </style>
