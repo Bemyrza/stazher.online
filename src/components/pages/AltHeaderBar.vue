@@ -67,6 +67,7 @@ const toggleMenu = () => {
     top: 0px;
     border-bottom: none;
     box-shadow: none; 
+    z-index: 9999;
     &__logo {
         display: flex;
         justify-content: center;

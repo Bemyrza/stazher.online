@@ -135,6 +135,8 @@ onMounted(() => {
   font-size: 3rem;
   color: #666;
   line-height: 90%;
+  width: 40px;
+  min-width: 40px;
 }
 
 .problem-text {
@@ -230,7 +232,7 @@ onMounted(() => {
   }
 
   .solution-text {
-    margin-left: 42px;
+    margin-left: 50px;
   }
 
   .solution-number {

@@ -72,7 +72,7 @@ onMounted(() => {
   align-items: flex-start;
   position: relative;
   overflow: hidden;
-  /* Обрезка контента, если он выходит за пределы блока */
+  
 }
 
 .icon-wrapper {
@@ -127,6 +127,8 @@ onMounted(() => {
 @media (max-width:768px) {
   .card{
     width: 100%;
+    height: auto;
+    padding-top: 120px;
   }
   .wide-card{
     width: 100%;

@@ -48,7 +48,7 @@ gsap.registerPlugin(ScrollTrigger)
 onMounted(() => {
   gsap.from(".card-gsap-7", {
     opacity: 0,
-    y: 100,
+    y: 0,
     filter: "blur(10px)", 
     duration: 1,
     ease: "power3.out",
@@ -76,7 +76,6 @@ onMounted(() => {
     max-width: 550px;
     margin: 0 auto 40px;
     font-family: "Inter", sans-serif;
-
     margin-top: 20px;
 }
 
@@ -156,6 +155,10 @@ p {
 }
 
 @media (max-width: 768px) {
+    h3{
+        font-size: 1.4rem;
+        margin: 65px 0 0 ;
+    }
     .cards {
         flex-direction: column;
         align-items: center;

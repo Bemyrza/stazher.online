@@ -46,7 +46,6 @@ gsap.registerPlugin(ScrollTrigger)
 onMounted(() => {
   gsap.from(".card-gsap-8", {
     opacity: 0,
-    y: 100,
     filter: "blur(10px)", 
     duration: 1,
     ease: "power3.out",
@@ -100,13 +99,14 @@ onMounted(() => {
 }
 
 .case-card h3 {
-  font-size: 32px;
+  font-size: 2rem;
   font-family: "Inter", sans-serif;
+  font-weight: 700;
 }
 
 .case-card p {
   color: #555;
-  font-size: 14px;
+  font-size: 1rem;
   margin-top: 8px;
 }
 
@@ -118,6 +118,9 @@ onMounted(() => {
 @media (max-width:768px) {
     .grid{
       grid-template-columns:repeat(1, minmax(0, 1fr));
+    }
+    .case-card h3{
+      font-size: 1.4rem;
     }
 }
 
