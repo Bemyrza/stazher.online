@@ -187,8 +187,16 @@ onMounted(() => {
     margin-bottom: 20px;
   }
 
+  .bestBlock:hover {
+    height: auto;
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(136, 87, 255, 0.4);
+  }
+  .topflex{
+    font-size: 2rem;
+  }
   .bestPrice {
-    font-size: 48px;
+    font-size: 4rem;
   }
 
   .bestList {
@@ -197,7 +205,8 @@ onMounted(() => {
   }
 
   .bestServise {
-    font-size: 18px;
+    font-size: 1.5rem;
+    margin-top: 5px;
   }
 
   .bestBtn {
@@ -216,21 +225,18 @@ onMounted(() => {
   }
 
   .bestBlock {
-    width: 90%;
+    width: 100%;
     padding: 15px;
   }
 
   .statusPlan {
-    font-size: 28px;
+    font-size: 2.5rem;
   }
 
   .conuntPublic {
     font-size: 14px;
   }
 
-  .bestPrice {
-    font-size: 40px;
-  }
 
   .bestList {
     margin-top: 30px;
@@ -238,7 +244,8 @@ onMounted(() => {
   }
 
   .bestServise {
-    font-size: 16px;
+    font-size: 1.3rem;
+    margin-top: 10px;
   }
 
   .bestBtn {
@@ -256,21 +263,21 @@ onMounted(() => {
   }
 
   .bestBlock {
-    width: 90%;
+    width: 100%;
     padding: 15px;
     margin-bottom: 15px;
   }
 
   .statusPlan {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   .conuntPublic {
-    font-size: 14px;
+    font-size: 0.75rem;
   }
 
   .bestPrice {
-    font-size: 32px;
+    font-size: 3rem;
   }
 
   .bestList {
@@ -278,7 +285,7 @@ onMounted(() => {
   }
 
   .bestServise {
-    font-size: 14px;
+    font-size: 0.90rem;
   }
 
   .bestBtn {

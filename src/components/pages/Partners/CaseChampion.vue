@@ -5,7 +5,7 @@
     <div class="flexChamp">
       <div class="video-wrap">
         <div class="video-player" @click="clickplay">
-          <img src="../../../assets/media/icons/play-icon.svg" alt="play" />
+          <img src="../../../assets/media/icons/play-icon.svg" alt="play" class="imgPhoto" />
         </div>
         <video ref="videoRef" src="../../../assets/media/video/IMG_6075.MP4"></video>
       </div>
@@ -144,16 +144,14 @@ onMounted(() => {
   z-index: 0;
 }
 
-.hidden {
-  width: 0;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-}
+
 
 @media (max-width: 1024px) {
   .txtChamp p {
     font-size: 24px;
+  }
+  .imgPhoto {
+    height: 101px;
   }
 }
 
@@ -161,6 +159,10 @@ onMounted(() => {
   .flexChamp {
     flex-direction: column;
     height: auto;
+  }
+
+  .imgPhoto {
+    height: 61px;
   }
 
   .video-wrap {
@@ -203,5 +205,16 @@ onMounted(() => {
     height: 70px;
     font-size: 50px;
   }
+}
+
+.imgPhoto {
+  height: 41px;
+}
+
+.hidden {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
 }
 </style>

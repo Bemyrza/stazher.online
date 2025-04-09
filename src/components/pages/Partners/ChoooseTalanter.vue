@@ -30,7 +30,9 @@
                     </div>
                 </div>
             </div>
-            <InputForm />
+            <div class="form-container">
+                <InputForm />
+            </div>
 
         </div>
     </div>
@@ -60,6 +62,11 @@ const submitForm = () => {
 };
 </script>
 <style scoped>
+.form-container{
+    padding: 28px;
+    background: #1E1E1E;
+    border-radius: 30px;
+}
 .container {
     position: relative;
     width: 100%;
@@ -241,13 +248,20 @@ const submitForm = () => {
 }
 
 @media (max-width: 1224px) {
+    .form-container{
+        margin-top: 30px;
+    }
+    .container {
+
+        margin-top: 30px;
+    }
+
     .content {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 20px;
     }
 
     .text-block {
@@ -261,7 +275,7 @@ const submitForm = () => {
     .main-title,
     .back-title,
     .description {
-        text-align: center;
+        text-align: start;
         margin: 0 auto;
         margin-top: 20px;
     }
@@ -278,14 +292,14 @@ const submitForm = () => {
     }
 
     .avatar-floating {
-        position: static;
+        position: relative;
         transform: none;
-        margin-bottom: 20px;
+        bottom: -20px;
         margin: 0 auto;
     }
 
     .info-box {
-        text-align: center;
+        text-align: start;
         margin: 0 auto;
     }
 
@@ -303,14 +317,14 @@ const submitForm = () => {
 @media (max-width: 768px) {
     .description {
 
-        text-align: center;
+        text-align: start;
         font-size: 0.95rem;
         line-height: 140%;
     }
 
     .main-title,
     .back-title {
-        text-align: center;
+        text-align: start;
         font-size: 2rem;
     }
 }

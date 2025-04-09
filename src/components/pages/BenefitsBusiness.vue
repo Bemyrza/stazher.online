@@ -153,7 +153,6 @@ onMounted(() => {
 
   .cards {
     grid-template-columns: 1fr;
-    /* 1 карточка в ряду */
   }
 
   .card {

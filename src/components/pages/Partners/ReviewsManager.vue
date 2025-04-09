@@ -99,7 +99,7 @@ onMounted(() => {
 }
 
 .mainTitle {
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 600;
   line-height: 100%;
   color: #000000;
@@ -114,6 +114,7 @@ onMounted(() => {
 
 .reviewsBlocks {
   width: 100%;
+  /* height: auto; */
   background-color: #f3eeff;
   border-radius: 20px;
   padding: 20px;
@@ -139,26 +140,26 @@ onMounted(() => {
   height: 131px;
   border-radius: 50%;
   overflow: hidden;
-  object-fit: cover;  
+  object-fit: cover;
 }
 
 .name {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 100%;
   color: #000000;
 }
 
 .text {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 120%;
   color: #00000099;
 }
 
 .date {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 120%;
   color: #000000;
 }
@@ -183,20 +184,21 @@ onMounted(() => {
   height: 68px;
   background-color: #8857ff;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 80%;
   color: #ffffff;
   border-radius: 50px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1424px) {
   .reviewsSection {
-    width: 90%;
+    width: 100%;
     margin-top: 50px;
   }
 
   .reviewsBlocks {
     width: 100%;
+    height: auto;
     padding: 15px;
     margin-bottom: 10px;
   }
@@ -206,24 +208,24 @@ onMounted(() => {
     height: 110px;
   }
 
-  .name {
-    font-size: 18px;
+  /* .name {
+    font-size: 1.4rem;
   }
 
   .text {
-    font-size: 14px;
+    font-size: 1rem;
   }
 
   .date {
-    font-size: 14px;
-  }
+    font-size: 0.875rem;
+  } */
 
   .line {
     margin-top: 20px;
   }
 
   .btn {
-    width: 80%;
+    width: 100%;
     height: 60px;
   }
 }
@@ -238,41 +240,56 @@ onMounted(() => {
   .mainTitle {
     margin-top: 50px;
   }
-
+  .infoProf{
+    height: auto;
+    align-self:normal;
+  }
   .reviewsSection {
     width: 100%;
+    height: auto;
     margin-top: 50px;
   }
 
   .reviewsBlocks {
     width: 100%;
-    margin-bottom: 15px;
+    /* height: 300px; */
   }
 
   .flexDetails {
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
   }
 
   .profilImg {
     width: 100px;
     height: 100px;
   }
-
   .name {
-    font-size: 16px;
+    margin-top: 20px;
+  }
+  .text{
+    margin-top: 15px;
+  }
+  .date{
+    margin-top: 15px;
+  }
+
+  /* .name {
+    margin-top: 10px;
+    font-size: 1.4rem;
   }
 
   .text {
-    font-size: 14px;
+    font-size: 1rem;
+    margin-top: 10px;
   }
 
   .date {
-    font-size: 14px;
-  }
+    font-size: 1rem;
+  } */
 
   .btn {
-    width: 90%;
+    width: 100%;
     height: 50px;
   }
 }
@@ -285,23 +302,22 @@ onMounted(() => {
   .profilImg {
     width: 90px;
     height: 90px;
+
   }
 
-  .name {
-    font-size: 14px;
-  }
+/* 
 
   .text {
-    font-size: 12px;
+    font-size: 0.85rem;
   }
 
   .date {
-    font-size: 12px;
-  }
+    font-size: 0.75rem;
+  } */
 
   .btn {
     height: 50px;
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 </style>

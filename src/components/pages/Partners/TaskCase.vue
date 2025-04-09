@@ -8,121 +8,87 @@
           компании.
         </p>
       </div>
-      <div>
-        <button>
+      <div class="MainIcons">
+        <button class="navButton" ref="prevEl" @mousedown="isPrevPressed = true" @mouseup="isPrevPressed = false"
+          @mouseleave="isPrevPressed = false">
           <img :src="prevIcon" alt="Назад" />
         </button>
-        <button class="flexBtn">
+
+        <button class="navButton flexBtn" ref="nextEl" @mousedown="isNextPressed = true"
+          @mouseup="isNextPressed = false" @mouseleave="isNextPressed = false">
           <img :src="nextIcon" alt="Вперед" />
         </button>
       </div>
+
     </div>
-    <div class="sliderFlex">
-      <div class="slideBlock" v-for="(slide, index) in slides" :key="index">
-        <img class="imgSlide" :src="slide.img" alt="Слайд" />
-        <h3 class="titleImage">{{ slide.title }}</h3>
-        <p class="titleTxt">{{ slide.text }}</p>
-        <button class="btnCase">Посмотреть проект</button>
-      </div>
-    </div>
+
+    <Swiper :modules="[Navigation]" :slides-per-view="slidesPerView" :space-between="20"
+      :navigation="{ prevEl: prevEl, nextEl: nextEl }" class="sliderFlex">
+      <SwiperSlide v-for="(slide, index) in slides" :key="index">
+        <div class="slideBlock">
+          <img class="imgSlide" :src="slide.image" alt="" />
+          <h3 class="titleImage">Название проекта</h3>
+          <p class="titleTxt">
+            Кейс-менеджеры помогают сформулировать задачу, а дизайнеры оформляют ее в фирменном стиле
+            компании.
+          </p>
+          <button class="btnCase">Посмотреть проект</button>
+        </div>
+      </SwiperSlide>
+    </Swiper>
   </Container>
 </template>
 
+
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import { ref, onMounted } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+
 import prevIcon from '@/assets/media/icons/prevIcon.svg'
 import nextIcon from '@/assets/media/icons/nextIcon.svg'
 import Container from '@/components/common/Container.vue'
 import TitleSection from '@/components/common/TitleSection.vue'
 
+const prevEl = ref<HTMLElement | null>(null)
+const nextEl = ref<HTMLElement | null>(null)
+
+const isNextPressed = ref(false)
+const isPrevPressed = ref(false)
+
 const slides = [
   {
-    img: new URL('@/assets/media/img/oneSlide.png', import.meta.url).href,
-    title: 'Название проекта',
-    text: 'Кейс-менеджеры помогают сформулировать задачу, а дизайнеры оформляют ее в фирменном стиле компании.',
+    image: new URL('@/assets/media/img/oneSlide.png', import.meta.url).href,
   },
   {
-    img: new URL('@/assets/media/img/twoSlide.png', import.meta.url).href,
-    title: 'Название проекта',
-    text: 'Кейс-менеджеры помогают сформулировать задачу, а дизайнеры оформляют ее в фирменном стиле компании.',
+    image: new URL('@/assets/media/img/twoSlide.png', import.meta.url).href,
   },
+  {
+    image: new URL('@/assets/media/img/oneSlide.png', import.meta.url).href,
+  },
+  {
+    image: new URL('@/assets/media/img/twoSlide.png', import.meta.url).href,
+  }
 ]
 
+const slidesPerView = ref(2)
+
+const updateSlidesPerView = () => {
+  if (window.innerWidth <= 1000) {
+    slidesPerView.value = 1
+  } else {
+    slidesPerView.value = 2
+  }
+}
+
 onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger)
-
-  gsap.from('.slideBlock', {
-    opacity: 0,
-    y: 50,
-    duration: 1.5,
-    ease: 'power3.out',
-    stagger: 0.3,
-    scrollTrigger: {
-      trigger: '.sliderFlex',
-      start: 'top 80%',
-      end: 'bottom top',
-      toggleActions: 'play none none none',
-    }
-  });
-
-  gsap.from('.imgSlide', {
-    opacity: 0,
-    scale: 0.8,
-    duration: 1.5,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.sliderFlex',
-      start: 'top 80%',
-      end: 'bottom top',
-      toggleActions: 'play none none none',
-    }
-  });
-
-  gsap.from('.titleImage', {
-    opacity: 0,
-    y: 30,
-    duration: 1.5,
-    ease: 'power3.out',
-    stagger: 0.3,
-    scrollTrigger: {
-      trigger: '.slideBlock',
-      start: 'top 80%',
-      end: 'bottom top',
-      toggleActions: 'play none none none',
-    }
-  });
-
-  gsap.from('.titleTxt', {
-    opacity: 0,
-    y: 20,
-    duration: 1.5,
-    ease: 'power3.out',
-    stagger: 0.3,
-    scrollTrigger: {
-      trigger: '.slideBlock',
-      start: 'top 80%',
-      end: 'bottom top',
-      toggleActions: 'play none none none',
-    }
-  });
-
-  gsap.from('.btnCase', {
-    opacity: 0,
-    y: 50,
-    duration: 1.5,
-    ease: 'power3.out',
-    stagger: 0.3,
-    scrollTrigger: {
-      trigger: '.slideBlock',
-      start: 'top 80%',
-      end: 'bottom top',
-      toggleActions: 'play none none none',
-    }
-  });
+  updateSlidesPerView()
+  window.addEventListener('resize', updateSlidesPerView)
 })
 </script>
+
 
 <style scoped>
 .section {
@@ -133,6 +99,8 @@ onMounted(() => {
 .caseTitle {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .caseParag {
@@ -144,23 +112,52 @@ onMounted(() => {
   margin-top: 30px;
 }
 
-.flexBtn {
-  margin-left: 15px;
+.MainIcons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.navButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #00000033;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.navButton img {
+  width: 22px;
+  height: 24px;
+}
+
+
+.navButton:active {
+  background-color: #8857FF;
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(136, 87, 255, 0.2);
 }
 
 .imgSlide {
   width: 100%;
-  height: 336px;
+  height: 100%;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .slideBlock {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
   margin-top: 40px;
-  padding: 1.5%;
-  width: 770px;
+  padding: 30px;
   height: 614px;
   border-radius: 20px;
   background-color: #f3eeff;
@@ -175,7 +172,6 @@ onMounted(() => {
 .titleTxt {
   font-weight: 400;
   font-size: 16px;
-  line-height: 100%;
 }
 
 .btnCase {
@@ -187,53 +183,57 @@ onMounted(() => {
   font-weight: 600;
   font-size: 18px;
   line-height: 80%;
+  transition: background-color 0.2s ease;
+}
+
+.btnCase:hover {
+  background-color: #7641e6;
 }
 
 .sliderFlex {
   display: flex;
   gap: 40px;
+  margin-top: 30px;
 }
 
 @media (max-width: 1024px) {
+  .caseParag {
+    max-width: 100%;
+  }
+
+  .sliderFlex {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1117px) {
   .section {
-    padding: 60px 20px 0 20px;
+    padding: 60px 20px;
   }
 
   .caseTitle {
     flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
+    align-items: center;
+    text-align: start;
   }
 
-  .sliderFlex {
-    flex-direction: column;
-    gap: 30px;
+  .caseParag {
+    text-align: start;
+    max-width: 100%;
+    margin-top: 20px;
   }
 
-  .titleTxt {
-    margin-top: 10px
-  }
-
-  .btnCase {
-    height: 56px;
-    font-size: 16px;
-    margin-top: 10px
-
-  }
-  .slideBlock {
-    width: 100%;
-    height: auto;
+  .MainIcons {
+    margin-top: 20px;
   }
 
   .imgSlide {
-    height: auto;
+    height: 250px;
   }
-}
 
-@media (max-width: 768px) {
-  .caseParag {
-    font-size: 14px;
-    max-width: 100%;
+  .slideBlock {
+    height: auto;
+    padding: 20px;
   }
 
   .titleImage {
@@ -241,58 +241,42 @@ onMounted(() => {
   }
 
   .titleTxt {
-    font-size: 14px;
-    margin-top: 10px
+    font-size: 1rem;
   }
 
   .btnCase {
-    height: 56px;
+    height: 60px;
     font-size: 16px;
-    margin-top: 10px
-
-  }
-
-  .slideBlock {
-    padding: 20px;
-  }
-
-  .imgSlide {
-    border-radius: 8px;
   }
 }
 
 @media (max-width: 480px) {
-  .section {
-    padding: 40px 16px 0 16px;
+  .sliderFlex {
+    flex-direction: column;
   }
 
-  .btnCase {
-    height: 48px;
-    font-size: 14px;
+  .slideBlock {
+    width: 100%;
+    padding: 10px;
   }
 
   .titleImage {
-    font-size: 20px;
+    font-size: 1.4rem;
   }
 
-  .titleTxt {
-    font-size: 13px;
+  .btnCase {
+    font-size: 14px;
+    height: 50px;
   }
 
-  .caseTitle {
-    gap: 16px;
-  }
-
-  .flexBtn,
-  .caseTitle button {
+  .navButton {
     width: 40px;
     height: 40px;
-    padding: 0;
   }
 
-  .caseTitle img {
-    width: 100%;
-    height: auto;
+  .navButton img {
+    width: 16px;
+    height: 16px;
   }
 }
 </style>

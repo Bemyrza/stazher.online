@@ -15,8 +15,9 @@ export default defineConfig(({ mode }) => {
       port: 80
     },    
     server:{
-      allowedHosts: ['cd44-185-117-148-70.ngrok-free.app'],
+      allowedHosts: [],
     },
+    assetsInclude: ['**/*.mp4', '**/*.MP4'],
     css: {
       postcss: {
         plugins: [tailwind(), autoprefixer()]

@@ -1,6 +1,6 @@
 <template>
   <Container>
-    <TitleSection>Зачем компаниям Стажер.онлайн?</TitleSection>
+    <TitleSection class="Title-Company">Зачем компаниям Стажер.онлайн?</TitleSection>
     <div class="informationBlocks">
       <div class="blockInfo" v-for="(item, index) in infoBlocks" :key="index">
         <h2 class="count">{{ (index + 1).toString().padStart(2, '0') }}</h2>
@@ -117,7 +117,9 @@ const infoBlocks = [
   border-right: none;
   border-bottom: none;
 }
-
+.Title-Company{
+  margin-top: 120px;
+}
 .count {
   width: 52px;
   font-weight: 400;
@@ -154,13 +156,14 @@ const infoBlocks = [
 
   .blockInfo {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: start;
+    text-align: start;
     padding: 30px 0;
     border-top: 1px solid #00000099;
   }
 
   .count {
+    text-align: start;
     font-size: 2.5rem;
     margin-bottom: 15px;
   }
@@ -168,7 +171,6 @@ const infoBlocks = [
   .discriptions {
     margin-left: 0;
     max-width: 100%;
-    padding: 0 16px;
   }
 
   .theme {

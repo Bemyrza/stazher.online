@@ -1,5 +1,6 @@
 <template>
     <section class="form-section">
+        <Container>
         <div class="form-layout">
             <div class="form-info" data-aos="fade-up">
                 <TitleSection class="form-title">Выбирайте только самых <br> талантливых</TitleSection>
@@ -10,10 +11,11 @@
                 </p>
             </div>
 
-            <div class="form-block" data-aos="fade-up" data-aos-delay="200">
+            <div class="form-block-b" data-aos="fade-up" data-aos-delay="200">
                 <InputForm />
             </div>
         </div>
+    </Container>
     </section>
 </template>
 
@@ -21,6 +23,7 @@
 import { ref, onMounted } from 'vue'
 import InputForm from '@/components/common/InputForm.vue'
 import TitleSection from '@/components/common/TitleSection.vue'
+import Container from '@/components/common/Container.vue';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -50,7 +53,7 @@ const submitForm = () => {
 .form-section {
     width: 100%;
     background-color: #1E1E1E;
-    padding: 30px;
+    padding: 120px 0 120px 0;
     color: white;
 }
 
@@ -58,7 +61,6 @@ const submitForm = () => {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 30px;
     margin: 0 auto;
 
     @media (min-width: 900px) {
@@ -67,7 +69,7 @@ const submitForm = () => {
     }
 }
 
-.form-block {
+.form-block-b {
     background-color: #1E1E1E !important;
 }
 
