@@ -210,6 +210,16 @@ onMounted(() => {
     gap: 30px;
   }
 
+  .titleTxt {
+    margin-top: 10px
+  }
+
+  .btnCase {
+    height: 56px;
+    font-size: 16px;
+    margin-top: 10px
+
+  }
   .slideBlock {
     width: 100%;
     height: auto;
@@ -232,11 +242,14 @@ onMounted(() => {
 
   .titleTxt {
     font-size: 14px;
+    margin-top: 10px
   }
 
   .btnCase {
     height: 56px;
     font-size: 16px;
+    margin-top: 10px
+
   }
 
   .slideBlock {

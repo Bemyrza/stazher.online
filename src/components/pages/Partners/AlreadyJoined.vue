@@ -58,11 +58,11 @@ onMounted(() => {
 
 <style scoped>
 .joined-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 60px;
   margin-top: 75px;
+  justify-items: center;
 }
 
 .joined-item {
@@ -70,7 +70,6 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  transform: translateY(50px);
 
   img {
     width: 95px;
@@ -80,14 +79,11 @@ onMounted(() => {
   h3 {
     font-size: 2rem;
     font-weight: 700;
+    text-align: center;
   }
 }
 
 @media (max-width: 1024px) {
-  .joined-list {
-    gap: 60px;
-  }
-
   .joined-item h3 {
     font-size: 1.5rem;
   }
@@ -99,16 +95,6 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  .joined-list {
-    gap: 40px;
-    justify-content: center;
-  }
-
-  .joined-item {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .joined-item h3 {
     font-size: 1.3rem;
   }
