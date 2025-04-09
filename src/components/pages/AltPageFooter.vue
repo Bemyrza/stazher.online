@@ -1,5 +1,6 @@
 <template>
   <footer class="footer">
+
     <Container custom_class="footer-wrap">
       <div class="footer-container">
         <div class="footer-main-content">
@@ -40,6 +41,8 @@
               <p class="footer-text">PLATFORM: STAZHER.ONLINE</p>
               <p class="footer-text">ПОЧТА: INFO@STAZHER.ONLINE</p>
             </div>
+
+   
           </div>
           <div class="footer-divider"></div>
         </div>
@@ -47,10 +50,12 @@
         <div class="footer-bottom">
           <img src="../../assets/media/img/Стажер.онлайн.svg" alt="" />
         </div>
+
       </div>
     </Container>
   </footer>
 </template>
+
 
 <script setup lang="ts">
 import Container from '../common/Container.vue';
@@ -59,6 +64,7 @@ import IconLogo from '@/components/icons/IconLogo.vue';
 
 <style scoped lang="scss">
 .footer {
+
   width: 100%;
   background-color: #1e1e1e;
   color: white;
@@ -215,13 +221,14 @@ import IconLogo from '@/components/icons/IconLogo.vue';
   transition: 0.3s ease;
 
   &:hover {
-    color: #8857ff;
+
   }
 }
 
 .footer-bottom {
   width: 100%;
   text-align: center;
+
   color: #8857ff;
   font-family: 'Roboto Thin', sans-serif;
   margin-top: 30px;
@@ -240,5 +247,6 @@ import IconLogo from '@/components/icons/IconLogo.vue';
   .footer-links {
     grid-template-columns: 1fr;
   }
+
 }
 </style>

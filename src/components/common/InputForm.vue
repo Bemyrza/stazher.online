@@ -62,7 +62,7 @@
     width: 100%;
     max-width: 790px;
     background-color: #1E1E1E;
-    /* padding: 28px; */
+
     border-radius: 28px;
     color: white;
   }
