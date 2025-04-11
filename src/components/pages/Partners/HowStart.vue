@@ -100,7 +100,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
 .startImageWrapper {
     width: 100%;
     height: auto;
@@ -181,16 +180,11 @@ onMounted(() => {
     font-size: 30px;
     line-height: 120%;
     color: #000000;
-
     margin: 40px 0 0 0;
 }
 
 .columbStart {
     height: auto;
-
-}
-
-
     border-radius: 20px;
     background-color: #f3eeff;
     padding: 20px;
@@ -204,7 +198,6 @@ onMounted(() => {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-
     gap: 20px;
 }
 
