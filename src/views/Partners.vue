@@ -10,6 +10,7 @@ import ReviewsManager from '@/components/pages/Partners/ReviewsManager.vue';
 import BestCandidates from '@/components/pages/Partners/BestCandidates.vue';
 import ChoooseTalanter from '@/components/pages/Partners/ChoooseTalanter.vue';
 import ChooseInput from '@/components/pages/Partners/ChooseInput.vue';
+import HowStart from '@/components/pages/Partners/HowStart.vue';
 </script>
 
 <template>
@@ -22,6 +23,7 @@ import ChooseInput from '@/components/pages/Partners/ChooseInput.vue';
     <AlreadyJoined />
     <ReviewsManager />
     <BestCandidates />
+    <HowStart />
     <ChooseInput />
 </template>
 

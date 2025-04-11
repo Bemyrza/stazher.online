@@ -1,6 +1,6 @@
 <template>
   <Container>
-    <TitleSection align="center">Зачем компаниям Стажер.онлайн?</TitleSection>
+    <TitleSection align="left">Проведение кейс- <br> чемпионатов</TitleSection>
 
     <div class="flexChamp">
       <div class="video-wrap">
@@ -65,7 +65,7 @@ onMounted(() => {
   gsap.from('.video-player', {
     opacity: 0,
     scale: 0.5,
-    duration: 1.5,
+    duration: 1,
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.flexChamp',
@@ -83,7 +83,7 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   gap: 20px;
-  height: 658px;
+  height: 580px;
 }
 
 .txtChamp {
@@ -130,16 +130,18 @@ onMounted(() => {
 }
 
 .video-wrap {
-  height: 658px;
+  height: 580px;
   width: 50%;
   position: relative;
+  background: #000;
+  border-radius: 20px;
+  overflow:hidden ;
 }
 
 .video-wrap video {
   height: 100%;
   width: 100%;
-  object-fit: cover;
-  border-radius: 20px;
+  object-fit: contain;
   position: relative;
   z-index: 0;
 }
@@ -150,6 +152,7 @@ onMounted(() => {
   .txtChamp p {
     font-size: 24px;
   }
+
   .imgPhoto {
     height: 101px;
   }

@@ -62,32 +62,36 @@ const submitForm = () => {
 };
 </script>
 <style scoped>
-.form-container{
+.form-container {
+    max-width: 700px;
+    height: 600px;
     padding: 28px;
     background: #1E1E1E;
     border-radius: 30px;
+    margin-bottom: 50px;
+    
 }
+
 .container {
     position: relative;
     width: 100%;
-    min-height: 922px;
+    min-height: 850px;
     max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 80px;
     padding: 25px;
 }
 
 .main-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 600;
     color: white;
-    margin-top: 20px;
+
 }
 
 .back-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 600;
     color: black;
 }
@@ -98,6 +102,7 @@ const submitForm = () => {
     z-index: 0;
     background-size: cover;
     background-position: center;
+    height: 700px;
 }
 
 .title {
@@ -109,33 +114,56 @@ const submitForm = () => {
     font-weight: 400;
     font-size: 1rem;
     line-height: 120%;
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 .SmmDes {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 600;
     color: black;
 }
 
 .wave1 {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: -100%;
+    left: -100%;
     width: 70%;
     height: 70%;
     object-fit: cover;
     mix-blend-mode: luminosity;
+    animation: wave1 1s ease-in-out 0.6s 1 forwards;
 }
 
 .wave2 {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -100%;
+    right: -100%;
     width: 70%;
     height: 70%;
     object-fit: cover;
     mix-blend-mode: luminosity;
+    animation: wave2 1s ease-in-out 1s 1 forwards;
+}
+
+@keyframes wave1 {
+    0% {
+        bottom: -100%;
+        left: -100%;
+    }
+    100% {
+        bottom: 0;
+        left: 0;
+    }
+}
+@keyframes wave2 {
+    0% {
+        top: -100%;
+        right: -100%;
+    }
+    100% {
+        top: 0;
+        right: 0;
+    }
 }
 
 .content {
@@ -145,6 +173,7 @@ const submitForm = () => {
     width: 100%;
     background: transparent;
     min-height: 800px;
+    margin-top: 25px;
 }
 
 .text-block {
@@ -156,11 +185,10 @@ const submitForm = () => {
 
 .avatar-info-wrapper {
     position: absolute;
-    bottom: 0px;
+    bottom: 200px;
     left: 0;
     width: 600px;
     height: auto;
-    padding-top: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -170,9 +198,9 @@ const submitForm = () => {
 .avatar-floating {
     position: absolute;
     bottom: 90px;
-    transform: translateX(-40%);
-    width: 300px;
-    height: 300px;
+    transform: translateX(-80%);
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     background-color: white;
@@ -180,9 +208,11 @@ const submitForm = () => {
 }
 
 .info-box {
+    transform: translateX(-12%);
+
     position: relative;
     background-color: rgba(0, 0, 0, 0.7);
-    padding: 24px 20px;
+    padding: 20px 30px;
     border-radius: 16px;
     font-size: 14px;
     color: white;
@@ -190,16 +220,18 @@ const submitForm = () => {
 }
 
 .info-description {
-    padding: 20px 0 0 10px;
+    padding: 0px 0 0 10px;
     list-style: disc;
     line-height: 100%;
+    font-size: 1rem;
 }
 
 .info-title {
     color: #fff;
     font-weight: 700;
-    font-size: 1.25rem;
     line-height: 100%;
+    text-transform: uppercase;
+    text-align: start;
 }
 
 @keyframes fadeInUp {
@@ -246,105 +278,118 @@ const submitForm = () => {
     animation-delay: 0.7s;
     opacity: 0;
 }
-
-@media (max-width: 1224px) {
-    .form-container{
-        margin-top: 30px;
-    }
-    .container {
-
-        margin-top: 30px;
-    }
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .text-block {
-        max-width: 100%;
-        width: 100%;
-        text-align: center;
-        margin: 0 auto;
-        padding: 0 16px;
-    }
-
-    .main-title,
-    .back-title,
-    .description {
-        text-align: start;
-        margin: 0 auto;
-        margin-top: 20px;
-    }
-
-    .avatar-info-wrapper {
-        position: static;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding-top: 40px;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .avatar-floating {
-        position: relative;
-        transform: none;
-        bottom: -20px;
-        margin: 0 auto;
-    }
-
-    .info-box {
-        text-align: start;
-        margin: 0 auto;
-    }
-
-    .form-block {
-        margin-top: 40px;
-    }
-
-    :deep(.input-form) {
-        max-width: 600px;
-        margin: 0 auto;
-    }
+.info-title{
+    margin-top: 3px;
 }
 
+@media (max-width: 1224px) {
+  .container {
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+    margin-top: 30px;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: start;
+    margin-top: 0;
+  }
+  .background{
+    height: auto;
+  }
+  .text-block {
+    max-width: 100%;
+    padding: 0 16px;
+    text-align: start;
+  }
+
+  .main-title,
+  .back-title,
+  .description {
+    text-align: start;
+    margin: 20px auto 0;
+  }
+
+  .avatar-info-wrapper {
+    position: static;
+    max-width: 100%;
+    padding-top: 40px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .avatar-floating {
+    position: relative;
+    bottom: 0;
+    transform: none;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+  }
+
+  .info-box {
+    transform: none;
+    margin-top: 20px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .form-container {
+    height: auto;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 600px;
+  }
+  .wave1,
+  .wave2{
+    width: 100%;
+    height: 50%;
+  }
+}
 
 @media (max-width: 768px) {
-    .description {
+  .main-title,
+  .back-title {
+    font-size: 1.8rem;
+  }
 
-        text-align: start;
-        font-size: 0.95rem;
-        line-height: 140%;
-    }
+  .description {
+    font-size: 1rem;
+    line-height: 140%;
+    text-align: start;
+  }
 
-    .main-title,
-    .back-title {
-        text-align: start;
-        font-size: 2rem;
-    }
+  .info-description {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .main-title,
+  .back-title {
+    font-size: 1.5rem;
+  }
 
-    .main-title,
-    .back-title {
-        font-size: 1.5rem;
-    }
+  .description {
+    font-size: 0.9rem;
+  }
 
-    .avatar-info-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-top: 20px;
-    }
+  .avatar-floating {
+    width: 150px;
+    height: 150px;
+  }
 
-    .description {
-        font-size: 0.9rem;
-    }
+  .info-box {
+    padding: 12px;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
 }
+
 </style>
