@@ -75,7 +75,9 @@ const submitForm = () => {
 .container {
     position: relative;
     width: 100%;
+
     height: 800px;
+
     max-width: 100%;
     display: flex;  
     align-items: center;
@@ -173,7 +175,9 @@ const submitForm = () => {
     width: 100%;
     background: transparent;
     min-height: 800px;
+
     margin-top: 90px;
+
 }
 
 .text-block {

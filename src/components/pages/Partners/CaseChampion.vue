@@ -129,11 +129,13 @@ onMounted(() => {
 }
 
 .video-wrap {
+
   width: 30%;
   position: relative;
   border-radius: 20px;
   overflow: hidden;
   aspect-ratio: 9 / 16;
+
 }
 .video-wrap video {
   height: 100%;

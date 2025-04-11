@@ -1,9 +1,8 @@
 <template>
     <Container class="mainContainer">
 
+
         <TitleSection class="bestTitle">Как начать <br> сотрудничество?</TitleSection>
-
-
 
         <div class="startFlex">
             <div class="countStart" ref="firstStep">
@@ -22,10 +21,12 @@
                     <p class="startDis">Связаться с нами для разработки кейс-задачи.</p>
                 </div>
             </div>
+
             <div class="startImageWrapper" ref="startImage">
                 <img class="startImageTop" src="../../../assets/media/img/Платформа.png" alt="image" />
                 <button class="registerBtn">Регистрируйся</button>
             </div>
+
         </div>
     </Container>
 </template>
@@ -44,6 +45,8 @@ const startImage = ref(null)
 
 onMounted(() => {
     gsap.registerPlugin(ScrollTrigger)
+
+
 
     gsap.from(firstStep.value, {
         opacity: 0,
@@ -68,6 +71,7 @@ onMounted(() => {
             toggleActions: 'play none none none',
         }
     })
+
 
     gsap.from(thirdStep.value, {
         opacity: 0,
@@ -96,6 +100,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
 .startImageWrapper {
     width: 100%;
     height: auto;
@@ -176,11 +181,16 @@ onMounted(() => {
     font-size: 30px;
     line-height: 120%;
     color: #000000;
+
     margin: 40px 0 0 0;
 }
 
 .columbStart {
     height: auto;
+
+}
+
+
     border-radius: 20px;
     background-color: #f3eeff;
     padding: 20px;
@@ -194,8 +204,11 @@ onMounted(() => {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+
     gap: 20px;
 }
+
+
 
 
 .startImage {

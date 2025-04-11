@@ -22,6 +22,7 @@ import Container from '@/components/common/Container.vue'
 import TitleSection from '@/components/common/TitleSection.vue'
 
 onMounted(() => {
+
   gsap.registerPlugin(ScrollTrigger);
 
   const blocks = document.querySelectorAll('.blockInfo');
@@ -50,6 +51,7 @@ onMounted(() => {
         toggleActions: 'play none none none',
       }
     });
+
   });
 });
 
