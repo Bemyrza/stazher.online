@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 import '../assets/main.scss'
 import CompanyUS from '@/components/pages/Partners/CompanyUS.vue';
 import BenefitsBusiness from '@/components/pages/BenefitsBusiness.vue';
@@ -26,5 +27,6 @@ import HowStart from '@/components/pages/Partners/HowStart.vue';
     <HowStart />
     <ChooseInput />
 </template>
+
 
 <style scoped></style>

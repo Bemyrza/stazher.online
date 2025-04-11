@@ -62,6 +62,7 @@
     width: 100%;
     max-width: 600px;
     background-color: #1E1E1E;
+
     border-radius: 28px;
     color: white;
   }

@@ -22,50 +22,36 @@ import Container from '@/components/common/Container.vue'
 import TitleSection from '@/components/common/TitleSection.vue'
 
 onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('.blockInfo', {
-    opacity: 0,
-    y: 50,
-    duration: 1,
-    ease: 'power3.out',
-    stagger: 0.3,
-    scrollTrigger: {
-      trigger: '.informationBlocks',
-      start: 'top 80%',
-      end: 'bottom top',
-      toggleActions: 'play none none none',
-    }
-  });
+  const blocks = document.querySelectorAll('.blockInfo');
 
-  gsap.from('.count', {
-    opacity: 0,
-    x: -50,
-    duration: 1.5,
-    ease: 'power3.out',
-    stagger: 0.3,
-    scrollTrigger: {
-      trigger: '.blockInfo',
-      start: 'top 80%',
-      end: 'bottom top',
-      toggleActions: 'play none none none',
-    }
-  });
+  blocks.forEach((block, index) => {
+    gsap.from(block.querySelector('.count'), {
+      opacity: 0,
+      x: -50,
+      duration: 1.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: block,
+        start: 'top 80%',
+        toggleActions: 'play none none none',
+      }
+    });
 
-  gsap.from('.discriptions', {
-    opacity: 0,
-    y: 30,
-    duration: 1.5,
-    ease: 'power3.out',
-    stagger: 0.3,
-    scrollTrigger: {
-      trigger: '.blockInfo',
-      start: 'top 80%',
-      end: 'bottom top',
-      toggleActions: 'play none none none',
-    }
+    gsap.from(block.querySelector('.discriptions'), {
+      opacity: 0,
+      y: 30,
+      duration: 1.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: block,
+        start: 'top 80%',
+        toggleActions: 'play none none none',
+      }
+    });
   });
-})
+});
 
 const infoBlocks = [
   {
@@ -105,7 +91,7 @@ const infoBlocks = [
 }
 
 .informationBlocks {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .blockInfo {

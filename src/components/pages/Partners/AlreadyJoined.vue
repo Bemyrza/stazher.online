@@ -22,8 +22,8 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import Container from '@/components/common/Container.vue'
 import TitleSection from '@/components/common/TitleSection.vue'
 import sber from '@/assets/media/icons/SBER.svg'
-import five from '@/assets/media/icons/five.svg'
-import mask from '@/assets/media/icons/maskgroup.svg'
+import five from '@/assets/media/img/FIVE.png'
+import mask from '@/assets/media/img/Maskgroup.png'
 
 const baseData = [
   { image: sber, title: 'Sberbank' },
