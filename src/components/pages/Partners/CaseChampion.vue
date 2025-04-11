@@ -13,7 +13,7 @@
       <div class="flexdis">
         <div class="txtChamp">
           <p>Организация соревнований среди студентов для поиска талантов.</p>
-        </div>
+        </div>  
         <div class="txtChamp">
           <p>
             Возможность для компаний провести мастер-классы, лекции и познакомиться с
@@ -81,7 +81,7 @@ onMounted(() => {
 .flexChamp {
   margin-top: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   gap: 20px;
   height: 580px;
 }
@@ -97,9 +97,8 @@ onMounted(() => {
 }
 
 .txtChamp p {
-  max-width: 621px;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 2.5rem;
   line-height: 120%;
 }
 
@@ -108,7 +107,7 @@ onMounted(() => {
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-  width: 50%;
+  width: 100%;
 }
 
 .video-player {
@@ -130,14 +129,14 @@ onMounted(() => {
 }
 
 .video-wrap {
-  height: 580px;
-  width: 50%;
-  position: relative;
-  background: #000;
-  border-radius: 20px;
-  overflow:hidden ;
-}
 
+  width: 30%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 9 / 16;
+
+}
 .video-wrap video {
   height: 100%;
   width: 100%;

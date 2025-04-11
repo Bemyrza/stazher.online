@@ -1,6 +1,9 @@
 <template>
     <Container class="mainContainer">
+
+
         <TitleSection class="bestTitle">Как начать <br> сотрудничество?</TitleSection>
+
         <div class="startFlex">
             <div class="countStart" ref="firstStep">
                 <div class="firstStart">01</div>
@@ -18,7 +21,12 @@
                     <p class="startDis">Связаться с нами для разработки кейс-задачи.</p>
                 </div>
             </div>
-            <img class="startImage" src="../../../assets/media/img/Rectangle.png" alt="image" ref="startImage" />
+
+            <div class="startImageWrapper" ref="startImage">
+                <img class="startImageTop" src="../../../assets/media/img/Платформа.png" alt="image" />
+                <button class="registerBtn">Регистрируйся</button>
+            </div>
+
         </div>
     </Container>
 </template>
@@ -38,7 +46,8 @@ const startImage = ref(null)
 onMounted(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    // Анимация для первого шага
+
+
     gsap.from(firstStep.value, {
         opacity: 0,
         x: -100,
@@ -51,7 +60,6 @@ onMounted(() => {
         }
     })
 
-    // Анимация для второго шага
     gsap.from(secondStep.value, {
         opacity: 0,
         y: 50,
@@ -64,7 +72,7 @@ onMounted(() => {
         }
     })
 
-    // Анимация для третьего шага
+
     gsap.from(thirdStep.value, {
         opacity: 0,
         y: 50,
@@ -92,6 +100,49 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+.startImageWrapper {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bestTitle {
+    margin-bottom: 32px;
+}
+
+
+.startFlex {
+    margin-top: 48px;
+}
+
+.startImageTop {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.registerBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 14px 28px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background-color: #8857ff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registerBtn:hover {
+    background-color: #6f42c1;
+}
+
 .startFlex {
     display: flex;
     justify-content: space-between;
@@ -130,10 +181,16 @@ onMounted(() => {
     font-size: 30px;
     line-height: 120%;
     color: #000000;
+
+    margin: 40px 0 0 0;
 }
 
 .columbStart {
-    height: 248px;
+    height: auto;
+
+}
+
+
     border-radius: 20px;
     background-color: #f3eeff;
     padding: 20px;
@@ -147,7 +204,12 @@ onMounted(() => {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+
+    gap: 20px;
 }
+
+
+
 
 .startImage {
     border-radius: 20px;

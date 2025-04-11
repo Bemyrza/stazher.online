@@ -39,7 +39,6 @@ onMounted(() => {
 }
 @media (max-width: 768px) {
     .title {
-        margin-top: 20px;
         font-size: 2rem;
     }
 }
