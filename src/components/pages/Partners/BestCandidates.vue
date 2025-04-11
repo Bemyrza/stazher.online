@@ -1,7 +1,7 @@
 <template>
   <Container class="mainContainer">
     <TitleSection>
-      Готовы найти лучших кандидатов?
+      Готовы найти лучших <br> кандидатов?
     </TitleSection>
     <div class="bestPlans">
       <div class="bestBlock bestBlock-gsap">
@@ -9,46 +9,43 @@
           <h4 class="statusPlan">Базовый план</h4>
           <p class="conuntPublic">1 публикация</p>
         </div>
-        <h2 class="bestPrice">5 000 ₽</h2>
+        <h2 class="bestPrice">0 ₽</h2>
         <hr class="hrline" />
         <div class="bestList">
-          <p class="bestServise">— 30 решений на кейс</p>
-          <p class="bestServise">— Возможность продления кейса</p>
-          <p class="bestServise">— Более 30 решений на кейс задачу</p>
+          <p class="bestServise">— 5 решений на кейс</p>
+          <p class="bestServise">— 1 направление по кейсу</p>
+          <p class="bestServise">— до 15 дней длительность публикации </p>
           <p class="bestServise">— Коммуникация с участниками решений</p>
-          <p class="bestServise">— Что нибудь еще</p>
         </div>
         <button class="bestBtn">Выбрать тариф</button>
       </div>
       <div class="bestBlock bestBlock-gsap">
         <div class="topflex">
           <h4 class="statusPlan">Премиум план</h4>
-          <p class="conuntPublic">2 публикации</p>
+          <p class="conuntPublic">1 публикации</p>
         </div>
-        <h2 class="bestPrice">100 000 ₽</h2>
+        <h2 class="bestPrice">25 000 ₽</h2>
         <hr class="hrline" />
         <div class="bestList">
-          <p class="bestServise">— 30 решений на кейс</p>
-          <p class="bestServise">— Возможность продления кейса</p>
-          <p class="bestServise">— Более 30 решений на кейс задачу</p>
-          <p class="bestServise">— Коммуникация с участниками решений</p>
-          <p class="bestServise">— Что нибудь еще</p>
+          <p class="bestServise">—  ∞ кол-во решений на кейс</p>
+          <p class="bestServise">—  2 направления по кейсу</p>
+          <p class="bestServise">— до 45 дней длительность публикации </p>
+          <p class="bestServise">— Визуальное оформление кейс-задачи</p>
         </div>
         <button class="bestBtn">Выбрать тариф</button>
       </div>
       <div class="bestBlock bestBlock-gsap">
         <div class="topflex">
           <h4 class="statusPlan">Стандартный план</h4>
-          <p class="conuntPublic">3 публикации</p>
+          <p class="conuntPublic">1 публикации</p>
         </div>
         <h2 class="bestPrice">5 000 ₽</h2>
         <hr class="hrline" />
         <div class="bestList">
-          <p class="bestServise">— 30 решений на кейс</p>
-          <p class="bestServise">— Возможность продления кейса</p>
-          <p class="bestServise">— Более 30 решений на кейс задачу</p>
-          <p class="bestServise">— Коммуникация с участниками решений</p>
-          <p class="bestServise">— Что нибудь еще</p>
+          <p class="bestServise">— 12 решений на кейс</p>
+          <p class="bestServise">— 1 направление по кейсу</p>
+          <p class="bestServise">— до 30 дней длительность публикации </p>
+          <p class="bestServise">— Визуальное оформление кейс-задачи</p>
         </div>
         <button class="bestBtn">Выбрать тариф</button>
       </div>
@@ -93,23 +90,23 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  margin-top: 60px;
+  margin-top: 50px;
   margin-bottom: 40px;
 }
 
 .bestBlock {
   padding: 30px;
-  width: 507px;
-  height: 591px;
+  width: 500px;
+  height: 571px;
   border-radius: 20px;
   background-color: #f3eeff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .bestBlock:hover {
-  height: 607px;
-  transform: translateY(-10px);
-  box-shadow: 0 12px 40px rgba(136, 87, 255, 0.4);
+  height: 591px;
+  transform: translateY(-10px) !important;
+  box-shadow: 0 20px 40px rgba(136, 87, 255, 0.4);
 }
 
 
@@ -121,19 +118,19 @@ onMounted(() => {
 
 .statusPlan {
   font-weight: 500;
-  font-size: 32px;
+  font-size: 2rem;
   line-height: 100%;
 }
 
 .conuntPublic {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 120%;
 }
 
 .bestPrice {
   font-weight: 400;
-  font-size: 64px;
+  font-size: 4rem;
   line-height: 80%;
   color: #00000099;
   margin-top: 40px;
@@ -142,14 +139,14 @@ onMounted(() => {
 .hrline {
   margin-top: 40px;
   width: 100%;
-  height: 1px;
+  height: 2px;
   background-color: #00000066;
 }
 
 .bestList {
   margin-top: 60px;
   display: flex;
-  height: 180px;
+  height: 120px;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -162,7 +159,7 @@ onMounted(() => {
 }
 
 .bestBtn {
-  margin-top: 60px;
+  margin-top: 80px;
   width: 100%;
   height: 68px;
   background-color: #8857ff;
@@ -173,7 +170,7 @@ onMounted(() => {
   border-radius: 50px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1144px) {
   .bestPlans {
     flex-wrap: wrap;
     justify-content: center;
@@ -183,7 +180,7 @@ onMounted(() => {
   .bestBlock {
     width: 100%;
     height: auto;
-    padding: 20px;
+    padding: 30px;
     margin-bottom: 20px;
   }
 
@@ -192,9 +189,11 @@ onMounted(() => {
     transform: translateY(-10px);
     box-shadow: 0 12px 40px rgba(136, 87, 255, 0.4);
   }
-  .topflex{
+
+  .topflex {
     font-size: 2rem;
   }
+
   .bestPrice {
     font-size: 4rem;
   }
@@ -226,7 +225,7 @@ onMounted(() => {
 
   .bestBlock {
     width: 100%;
-    padding: 15px;
+    padding: 25px;
   }
 
   .statusPlan {
@@ -264,7 +263,7 @@ onMounted(() => {
 
   .bestBlock {
     width: 100%;
-    padding: 15px;
+    padding: 22px;
     margin-bottom: 15px;
   }
 

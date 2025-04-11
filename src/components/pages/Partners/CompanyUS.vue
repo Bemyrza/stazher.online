@@ -1,6 +1,6 @@
 <template>
   <Container>
-    <TitleSection class="Title-Company">Зачем компаниям Стажер.онлайн?</TitleSection>
+    <TitleSection class="Title-Company">Зачем компаниям <br> Стажер.онлайн?</TitleSection>
     <div class="informationBlocks">
       <div class="blockInfo" v-for="(item, index) in infoBlocks" :key="index">
         <h2 class="count">{{ (index + 1).toString().padStart(2, '0') }}</h2>
@@ -27,7 +27,7 @@ onMounted(() => {
   gsap.from('.blockInfo', {
     opacity: 0,
     y: 50,
-    duration: 1.5,
+    duration: 1,
     ease: 'power3.out',
     stagger: 0.3,
     scrollTrigger: {
@@ -117,9 +117,7 @@ const infoBlocks = [
   border-right: none;
   border-bottom: none;
 }
-.Title-Company{
-  margin-top: 120px;
-}
+
 .count {
   width: 52px;
   font-weight: 400;

@@ -60,7 +60,7 @@
   <style scoped>
   .form-block {
     width: 100%;
-    max-width: 790px;
+    max-width: 600px;
     background-color: #1E1E1E;
 
     border-radius: 28px;
@@ -68,12 +68,12 @@
   }
   
   .input-block {
-    margin-top: 15px;
+    margin-top: 5px;
   }
   
   .input {
     width: 100%;
-    padding: 20px;
+    padding: 12px;
     border-radius: 38px;
     background-color: #1E1E1E;
     border: 1px solid #FFFFFF66;
@@ -84,23 +84,22 @@
   .input::placeholder {
     color: #FFFFFF99;
     font-weight: 400;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .checkbox-form {
     border-radius: 20px;
     width: 100%;
     border: 1px solid #FFFFFF66;
-    margin-top: 20px;
   }
   
   .checkbox-block {
-    padding: 30px;
+    padding: 15px;
   }
   
   .checkbox-form legend {
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #fff;
     margin-bottom: 8px;
   }
@@ -109,7 +108,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 16px 32px;
-    margin-top: 16px;
   }
   
   .label-text {
@@ -117,15 +115,15 @@
     align-items: center;
     gap: 10px;
     font-weight: 400;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #fff;
     line-height: 130%;
   }
   
   input[type="radio"] {
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     border: 2px solid white;
     background-color: black;
     border-radius: 50%;
@@ -151,7 +149,7 @@
     line-height: 130%;
     display: flex;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 25px;
     color: #fff;
   }
   

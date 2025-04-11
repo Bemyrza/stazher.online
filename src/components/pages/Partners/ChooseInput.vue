@@ -52,8 +52,9 @@ const submitForm = () => {
 <style scoped>
 .form-section {
     width: 100%;
+    min-height: 450px;
     background-color: #1E1E1E;
-    padding: 120px 0 120px 0;
+    padding: 60px 0 10px;
     color: white;
 }
 
@@ -61,45 +62,86 @@ const submitForm = () => {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    padding: 30px;
     margin: 0 auto;
+    width: 100%;
 
     @media (min-width: 900px) {
         flex-direction: row;
         justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    @media (max-width: 768px) {
+        padding: 20px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 16px;
+        gap: 30px;
     }
 }
 
 .form-block-b {
-    background-color: #1E1E1E !important;
+    background-color: #1E1E1E;
+    width: 100%;
+
+    @media (min-width: 900px) {
+        max-width: 600px;
+    }
 }
 
 .input {
     width: 100%;
     padding: 20px;
     border-radius: 38px;
-    background-color: #1E1E1E !important;
+    background-color: #1E1E1E;
     border: 1px solid #FFFFFF66;
     color: white;
     margin-bottom: 8px;
+    font-size: 1rem;
 }
 
 .form-info {
     max-width: 700px;
+    width: 100%;
+    text-align: left;
+
+    @media (max-width: 768px) {
+        text-align: start;
+    }
 }
 
 .form-title {
     color: #fff;
     font-size: 3rem;
     font-weight: 600;
-    line-height: 100%;
+    line-height: 110%;
     margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+        font-size: 2.2rem;
+        line-height: 120%;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 1.8rem;
+    }
 }
 
 .form-description {
     font-size: 1rem;
     font-weight: 400;
     color: #FFFFFF99;
-    line-height: 120%;
+    line-height: 140%;
+
+    @media (max-width: 768px) {
+        font-size: 0.95rem;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 0.9rem;
+    }
 }
 
 [data-aos] {

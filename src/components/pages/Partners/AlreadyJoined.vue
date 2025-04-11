@@ -1,14 +1,19 @@
 <template>
   <Container>
     <TitleSection align="center">К нам уже присоединились</TitleSection>
-    <div class="joined-list">
-      <div class="joined-item" v-for="(item, index) in data" :key="index">
-        <img :src="item.image" alt="Company Logo" class="company-logo" />
-        <h3 class="company-title">{{ item.title }}</h3>
+    <div class="scroll-wrapper">
+      <div class="scroll-inner">
+        <div class="joined-list">
+          <div class="joined-item" v-for="(item, index) in dataExtended" :key="index">
+            <img :src="item.image" alt="Company Logo" />
+            <h3>{{ item.title }}</h3>
+          </div>
+        </div>
       </div>
     </div>
   </Container>
 </template>
+
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
@@ -17,7 +22,19 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import Container from '@/components/common/Container.vue'
 import TitleSection from '@/components/common/TitleSection.vue'
 import sber from '@/assets/media/icons/SBER.svg'
+import five from '@/assets/media/icons/five.svg'
+import mask from '@/assets/media/icons/maskgroup.svg'
 
+const baseData = [
+  { image: sber, title: 'Sberbank' },
+  { image: five, title: 'X5 Retail Group' },
+  { image: mask, title: "L'Oréal" },
+  { image: sber, title: 'Sberbank' },
+  { image: five, title: "L'Oréal" },
+  { image: mask, title: "L'Oréal" },
+]
+
+const dataExtended = [...baseData, ...baseData]
 const data = [
   {
     image: sber,
@@ -55,64 +72,52 @@ onMounted(() => {
   });
 });
 </script>
-
 <style scoped>
-.joined-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 60px;
+.scroll-wrapper {
+  overflow: hidden;
+  width: 100%;
   margin-top: 75px;
-  justify-items: center;
+}
+
+.scroll-inner {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+}
+
+.joined-list {
+  display: flex;
+  gap: 100px;
 }
 
 .joined-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 150px;
   gap: 20px;
-
-  img {
-    width: 95px;
-    height: 95px;
-  }
-
-  h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-  }
 }
 
-@media (max-width: 1024px) {
-  .joined-item h3 {
-    font-size: 1.5rem;
-  }
-
-  .joined-item img {
-    width: 80px;
-    height: 80px;
-  }
+.joined-item img {
+  width: 95px;
+  height: 95px;
+  object-fit: contain;
 }
 
-@media (max-width: 768px) {
-  .joined-item h3 {
-    font-size: 1.3rem;
-  }
-
-  .joined-item img {
-    width: 70px;
-    height: 70px;
-  }
+.joined-item h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
 }
 
-@media (max-width: 480px) {
-  .joined-item h3 {
-    font-size: 1rem;
+@keyframes scroll-left {
+  0% {
+    transform: translateX(-50%);
   }
 
-  .joined-item img {
-    width: 60px;
-    height: 60px;
+  100% {
+    transform: translateX(0);
   }
 }
 </style>

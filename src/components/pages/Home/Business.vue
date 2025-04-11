@@ -70,7 +70,7 @@ const cards = ref([
 onMounted(() => {
   gsap.from('.hero-container-gsap', {
     opacity: 0.5,
-    y: 250,
+    y: 30,
     filter: 'blur(10px)',
     duration: 1,
     ease: 'power2.out',
@@ -78,7 +78,6 @@ onMounted(() => {
       trigger: '.hero-container-gsap',
       start: 'top 140%',
       end: 'top -10%',
-      toggleActions: 'play none none none'
     }
   })
 })
