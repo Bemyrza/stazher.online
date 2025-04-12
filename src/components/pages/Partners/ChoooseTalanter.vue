@@ -76,7 +76,7 @@ const submitForm = () => {
     position: relative;
     width: 100%;
 
-    height: 800px;
+    height: auto;
 
     max-width: 100%;
     display: flex;  
@@ -127,8 +127,8 @@ const submitForm = () => {
 
 .wave1 {
     position: absolute;
-    bottom: -100%;
-    left: -100%;
+    bottom: 0;
+    left: 0;
     width: 70%;
     height: 70%;
     object-fit: cover;
@@ -138,8 +138,8 @@ const submitForm = () => {
 
 .wave2 {
     position: absolute;
-    top: -100%;
-    right: -100%;
+    top: 0;
+    right: 0;
     width: 70%;
     height: 70%;
     object-fit: cover;
@@ -147,26 +147,7 @@ const submitForm = () => {
     animation: wave2 1s ease-in-out 1s 1 forwards;
 }
 
-@keyframes wave1 {
-    0% {
-        bottom: -100%;
-        left: -100%;
-    }
-    100% {
-        bottom: 0;
-        left: 0;
-    }
-}
-@keyframes wave2 {
-    0% {
-        top: -100%;
-        right: -100%;
-    }
-    100% {
-        top: 0;
-        right: 0;
-    }
-}
+
 
 .content {
     position: relative;
@@ -176,7 +157,7 @@ const submitForm = () => {
     background: transparent;
     min-height: 800px;
 
-    margin-top: 90px;
+    margin-top: 20px;
 
 }
 
