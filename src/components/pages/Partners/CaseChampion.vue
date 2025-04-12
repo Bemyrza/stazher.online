@@ -129,22 +129,110 @@ onMounted(() => {
 }
 
 .video-wrap {
-
-  width: 30%;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 9 / 16;
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  aspect-ratio: 9 / 16;
-
+  margin: 0 auto;
 }
+
 .video-wrap video {
-  height: 100%;
   width: 100%;
-  object-fit: contain;
-  position: relative;
-  z-index: 0;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+  background: #000; 
 }
 
+/* Кнопка Play */
+.video-player {
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(255, 255, 255);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.imgPhoto {
+  width: 40px;
+  height: auto;
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+  .video-player {
+    width: 80px;
+    height: 80px;
+  }
+
+  .imgPhoto {
+    width: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .flexChamp {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .video-wrap {
+    width: auto;
+    height: 100vh; 
+    aspect-ratio: auto;
+    max-width: none;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-wrap video {
+    height: 100%;
+    width: auto; 
+    object-fit: contain; 
+    background: #000;
+  }
+
+  .video-player {
+    width: 70px;
+    height: 70px;
+  }
+
+  .imgPhoto {
+    width: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-player {
+    width: 60px;
+    height: 60px;
+  }
+
+  .imgPhoto {
+    width: 24px;
+  }
+}
+
+.hidden {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
 
 
 @media (max-width: 1024px) {
@@ -174,7 +262,6 @@ onMounted(() => {
 
   .video-wrap video {
     height: auto;
-    aspect-ratio: 16/9;
   }
 
   .flexdis {
