@@ -9,7 +9,7 @@
           <p class="text">{{ item.text }}</p>
         </div>
       </div>
-      <hr class="blockInfo" />
+      <hr class="lastInfo" />
     </div>
   </Container>
 </template>
@@ -105,7 +105,15 @@ const infoBlocks = [
   border-right: none;
   border-bottom: none;
 }
-
+.lastInfo{
+  display: flex;
+  padding: 0 0;
+  width: 100%;
+  border-top: 1px solid #00000099;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
 .count {
   width: 52px;
   font-weight: 400;
@@ -135,9 +143,17 @@ const infoBlocks = [
   margin-top: 20px;
 }
 
+.Title-Company {
+  text-align: start;
+
+  @media (max-width: 1224px) {
+    margin-top: 50px; 
+  }
+}
+
 @media (max-width: 1024px) {
   .informationBlocks {
-    margin-top: 30px;
+    margin-top: 50px;
   }
 
   .blockInfo {

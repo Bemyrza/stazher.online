@@ -155,7 +155,7 @@ const submitForm = () => {
     display: flex;
     width: 100%;
     background: transparent;
-    min-height: 800px;
+    min-height: 715px;
 
     margin-top: 20px;
 
@@ -170,7 +170,7 @@ const submitForm = () => {
 
 .avatar-info-wrapper {
     position: absolute;
-    bottom: 200px;
+    bottom: 115px;
     left: 0;
     width: 600px;
     height: auto;
@@ -347,7 +347,10 @@ const submitForm = () => {
     line-height: 140%;
     text-align: start;
   }
-
+  .wave1,
+  .wave2{
+    display: none;
+  }
   .info-description {
     font-size: 0.95rem;
   }
