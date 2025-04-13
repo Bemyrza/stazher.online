@@ -112,6 +112,85 @@ onMounted(() => {
   text-align: center;
   white-space: nowrap;
 }
+.joined-list {
+  display: flex;
+  gap: 100px;
+
+  @media (max-width: 1024px) {
+    gap: 70px;
+  }
+
+  @media (max-width: 768px) {
+    gap: 50px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 30px;
+  }
+}
+
+.joined-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 150px;
+  gap: 20px;
+
+  @media (max-width: 1024px) {
+    min-width: 120px;
+    gap: 16px;
+  }
+
+  @media (max-width: 768px) {
+    min-width: 100px;
+    gap: 14px;
+  }
+
+  @media (max-width: 480px) {
+    min-width: 80px;
+    gap: 10px;
+  }
+}
+
+.joined-item img {
+  width: 95px;
+  height: 95px;
+  object-fit: contain;
+
+  @media (max-width: 1024px) {
+    width: 80px;
+    height: 80px;
+  }
+
+  @media (max-width: 768px) {
+    width: 65px;
+    height: 65px;
+  }
+
+  @media (max-width: 480px) {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.joined-item h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+
+  @media (max-width: 1024px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
+}
 
 @keyframes scroll-left {
   0% {
@@ -122,4 +201,5 @@ onMounted(() => {
     transform: translateX(0);
   }
 }
+
 </style>

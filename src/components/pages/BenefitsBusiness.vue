@@ -1,6 +1,6 @@
 <template>
   <Container>
-    <TitleSection>Преимущества для <br> бизнеса</TitleSection>
+    <TitleSection class="title-main">Преимущества для <br> бизнеса</TitleSection>
     <div class="cards cards-gsap-5">
       <div class="card card-gsap-5" v-for="benefit in benefits" :key="benefit.id">
         <div class="text-wrapper">

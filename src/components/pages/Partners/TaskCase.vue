@@ -3,43 +3,58 @@
     <div class="caseTitle">
       <div class="flexCase">
         <TitleSection>Разработка кейс-задачи <br> под компанию</TitleSection>
-        <p class="caseParag">
+        <p class="caseParag" v-fade-in>
           Кейс-менеджеры помогают сформулировать задачу, а дизайнеры оформляют ее в фирменном стиле
           компании.
         </p>
       </div>
       <div class="MainIcons">
-        <button class="navButton" ref="prevEl" @mousedown="isPrevPressed = true" @mouseup="isPrevPressed = false"
-          @mouseleave="isPrevPressed = false">
+        <button
+          class="navButton"
+          ref="prevEl"
+          @mousedown="isPrevPressed = true"
+          @mouseup="isPrevPressed = false"
+          @mouseleave="isPrevPressed = false"
+          v-fade-in
+        >
           <img :src="prevIcon" alt="Назад" />
         </button>
 
-        <button class="navButton flexBtn" ref="nextEl" @mousedown="isNextPressed = true"
-          @mouseup="isNextPressed = false" @mouseleave="isNextPressed = false">
+        <button
+          class="navButton flexBtn"
+          ref="nextEl"
+          @mousedown="isNextPressed = true"
+          @mouseup="isNextPressed = false"
+          @mouseleave="isNextPressed = false"
+          v-fade-in
+        >
           <img :src="nextIcon" alt="Вперед" />
         </button>
       </div>
-
     </div>
 
-    <Swiper :modules="[Navigation]" :slides-per-view="slidesPerView" :space-between="20"
-      :navigation="{ prevEl: prevEl, nextEl: nextEl }" class="sliderFlex">
+    <Swiper
+      :modules="[Navigation]"
+      :slides-per-view="slidesPerView"
+      :space-between="20"
+      :navigation="{ prevEl: prevEl, nextEl: nextEl }"
+      class="sliderFlex"
+      v-fade-in
+    >
       <SwiperSlide v-for="(slide, index) in slides" :key="index">
-        <div class="slideBlock">
-          <img class="imgSlide" :src="slide.image" alt="" />
-          <h3 class="titleImage">{{ slide.title }}</h3>
-          <p class="titleTxt">{{ slide.description }}</p>
+        <div class="slideBlock" v-slide-in>
+          <img class="imgSlide" :src="slide.image" alt="" v-fade-in />
+          <h3 class="titleImage" v-fade-in>{{ slide.title }}</h3>
+          <p class="titleTxt" v-fade-in>{{ slide.description }}</p>
           <button class="btnCase">Посмотреть проект</button>
         </div>
       </SwiperSlide>
-
     </Swiper>
   </Container>
 </template>
 
-
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, Directive } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
@@ -82,19 +97,71 @@ const slides = [
 const slidesPerView = ref(2)
 
 const updateSlidesPerView = () => {
-  if (window.innerWidth <= 1000) {
-    slidesPerView.value = 1
-  } else {
-    slidesPerView.value = 2
-  }
+  slidesPerView.value = window.innerWidth <= 1000 ? 1 : 2
 }
 
 onMounted(() => {
   updateSlidesPerView()
   window.addEventListener('resize', updateSlidesPerView)
 })
+
+// Intersection Observer Directives
+const createObserverDirective = (animationClass: string): Directive => ({
+  mounted(el) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add(animationClass)
+          observer.unobserve(el)
+        }
+      },
+      { threshold: 0.1 }
+    )
+    observer.observe(el)
+  }
+})
+
+const fadeInDirective = createObserverDirective('fade-in')
+const slideInDirective = createObserverDirective('slide-in')
+
+// Register custom directives
+defineExpose({})
 </script>
 
+<script lang="ts">
+export default {
+  directives: {
+    fadeIn: {
+      mounted(el: HTMLElement) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              el.classList.add('fade-in')
+              observer.unobserve(el)
+            }
+          },
+          { threshold: 0.1 }
+        )
+        observer.observe(el)
+      }
+    },
+    slideIn: {
+      mounted(el: HTMLElement) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              el.classList.add('slide-in')
+              observer.unobserve(el)
+            }
+          },
+          { threshold: 0.1 }
+        )
+        observer.observe(el)
+      }
+    }
+  }
+}
+</script>
 
 <style scoped>
 .section {
@@ -117,7 +184,8 @@ onMounted(() => {
   color: #00000099;
   margin-top: 20px;
   opacity: 0;
-  animation: fadeIn 1s forwards;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 
 .MainIcons {
@@ -138,7 +206,8 @@ onMounted(() => {
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   opacity: 0;
-  animation: fadeIn 1.5s forwards;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 
 .navButton img {
@@ -156,9 +225,9 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  object-fit: cover;
   opacity: 0;
-  animation: fadeIn 2s forwards;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 
 .slideBlock {
@@ -170,22 +239,15 @@ onMounted(() => {
   border-radius: 20px;
   background-color: #f3eeff;
   opacity: 0;
-  animation: slideIn 0.8s forwards;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 
-.titleImage {
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 100%;
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-}
-
+.titleImage,
 .titleTxt {
-  font-weight: 400;
-  font-size: 16px;
   opacity: 0;
-  animation: fadeIn 2s forwards;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 
 .btnCase {
@@ -207,7 +269,19 @@ onMounted(() => {
   display: flex;
   gap: 40px;
   margin-top: 15px;
-  animation: fadeIn 2s forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.slide-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 @media (max-width: 1024px) {
@@ -291,28 +365,6 @@ onMounted(() => {
   .navButton img {
     width: 16px;
     height: 16px;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
   }
 }
 </style>

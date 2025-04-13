@@ -23,7 +23,7 @@
             </div>
 
             <div class="startImageWrapper" ref="startImage">
-                <img class="startImageTop" src="../../../assets/media/img/Платформа.png" alt="image" />
+                <img class="startImageTop" src="../../../assets/media/img/Платформа.jpg" alt="image" />
                 <button class="registerBtn">Регистрируйся</button>
             </div>
 
@@ -124,10 +124,10 @@ onMounted(() => {
 
 .registerBtn {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 14px 28px;
+    bottom: 0;
+    right: 0;
+    transform: translate(-10%, -29%);
+    padding: 15px 40px;
     font-size: 20px;
     font-weight: 600;
     color: white;
@@ -212,6 +212,12 @@ onMounted(() => {
 }
 
 @media (max-width: 1250px) {
+    .registerBtn {
+        font-size: 18px;
+        padding: 12px 32px;
+        transform: translate(-10%, -20%);
+    }
+
     .startFlex {
         display: flex;
         flex-direction: column;
@@ -255,6 +261,12 @@ onMounted(() => {
 
 
 @media (max-width: 768px) {
+    .registerBtn {
+        font-size: 16px;
+        padding: 10px 28px;
+        transform: translate(-10%, -20%);
+    }
+
     .startFlex {
         flex-direction: column;
         height: auto;
@@ -288,6 +300,12 @@ onMounted(() => {
 }
 
 @media (max-width: 480px) {
+    .registerBtn {
+        font-size: 14px;
+        padding: 8px 24px;
+        transform: translate(-10%, -10%);
+    }
+
     .startDis {
         font-size: 20px;
     }
