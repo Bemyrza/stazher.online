@@ -217,7 +217,7 @@ onMounted(() => {
     .registerBtn {
         font-size: 18px;
         padding: 12px 32px;
-        transform: translate(-10%, -20%);
+        transform: translate(-10%, -35%);
     }
 
     .startFlex {
@@ -266,7 +266,7 @@ onMounted(() => {
     .registerBtn {
         font-size: 16px;
         padding: 10px 28px;
-        transform: translate(-10%, -20%);
+        transform: translate(-10%, -35%);
     }
 
     .startFlex {
@@ -305,7 +305,7 @@ onMounted(() => {
     .registerBtn {
         font-size: 14px;
         padding: 10px 25px;
-        transform: translate(-10%, -10%);
+        transform: translate(-10%, -25%);
     }
 
     .startDis {
@@ -322,4 +322,4 @@ onMounted(() => {
         height: 250px;
     }
 }
-</style>
+</style>    
