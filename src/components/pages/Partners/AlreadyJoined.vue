@@ -58,21 +58,7 @@ const data = [
 
 gsap.registerPlugin(ScrollTrigger);
 
-onMounted(() => {
-  gsap.from('.joined-item', {
-    opacity: 0,
-    y: 50,
-    duration: 1.5,
-    ease: 'power3.out',
-    stagger: 0.3,
-    scrollTrigger: {
-      trigger: '.joined-list',
-      start: 'top 80%',
-      end: 'bottom top',
-      toggleActions: 'play none none none',
-    }
-  });
-});
+
 </script>
 <style scoped>
 .scroll-wrapper {

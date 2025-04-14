@@ -136,10 +136,12 @@ onMounted(() => {
     border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 0 0 20px rgba(136, 87, 255, 0.8);
 }
 
 .registerBtn:hover {
-    background-color: #6f42c1;
+    background-color: #6f42c1;  
+    box-shadow: 0 0 25px rgba(111, 66, 193, 1);
 }
 
 .startFlex {
@@ -302,7 +304,7 @@ onMounted(() => {
 @media (max-width: 480px) {
     .registerBtn {
         font-size: 14px;
-        padding: 8px 24px;
+        padding: 10px 25px;
         transform: translate(-10%, -10%);
     }
 
