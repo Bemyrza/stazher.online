@@ -19,9 +19,8 @@
                 <div class="rocket-wrapper">
                     <img :src="raketa" alt="Step 3" class="rocket-img" />
                 </div>
-                <p class="step-text white-text">Принять участие в кейс-чемпионате.</p>
+                <p class="step-text white-text">Принять участие в кейс- <br>чемпионате.</p>
             </div>
-
         </div>
 
         <div class="button-wrapper">
@@ -63,14 +62,13 @@ onMounted(() => {
             start: "top 80%",
             toggleActions: "play none none none",
         },
-        scale: 0.5,
+        transform: "translate(30px, 20px) scale(0.5)",
         opacity: 0,
         duration: 1,
         ease: "back.out(1.7)",
     })
 })
 </script>
-
 
 <style scoped>
 .title {
@@ -95,7 +93,6 @@ onMounted(() => {
 
 .step {
     width: 100%;
-    height: auto;
     min-height: 500px;
     background-color: #F3EEFF;
     border-radius: 20px;
@@ -104,16 +101,13 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    min-width: 0;
 }
 
 .purple-step {
-    position: relative;
     background-color: #8857FF;
     color: white;
     flex: 1.5;
     border-radius: 20px;
-    overflow: hidden;
     padding: 24px;
     min-height: 360px;
     display: flex;
@@ -123,37 +117,18 @@ onMounted(() => {
 
 .rocket-wrapper {
     position: absolute;
-    right: 20px;
-    bottom: 40px;
-    width: 60%;
-    max-width: 350px;
-    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .rocket-img {
     width: 100%;
-    height: auto;
-}
-
-.purple-step .step-text {
-    position: relative;
-    z-index: 2;
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-top: auto;
-}
-
-.purple-step .step-number {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    z-index: 3;
-}
-
-
-.step-image .rocket-img {
-    display: flex;
-    justify-content: end;
+    height: 510px;
+    margin-left: 30%;
+    object-fit: contain;
 }
 
 .step-number {
@@ -167,7 +142,22 @@ onMounted(() => {
     width: 48px;
     height: 48px;
     border-radius: 9999px;
-    margin-bottom: 12px;
+}
+
+.purple-step .step-number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: white;
+    color: #7e22ce;
+    font-weight: 400;
+    font-size: 1.3rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .white-bg {
@@ -184,18 +174,10 @@ onMounted(() => {
     margin-bottom: 52px;
 }
 
-.rocket-img {
-    width: 100%;
-    height: auto;
-    margin: 0 auto 12px auto;
-}
-
 .step-text {
     font-size: 2rem;
     font-weight: 500;
     line-height: 120%;
-    word-break: break-word;
-    overflow-wrap: break-word;
     text-align: left;
 }
 
@@ -243,7 +225,7 @@ onMounted(() => {
     }
 
     .step-text {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .purple-step .step-text {
@@ -251,9 +233,7 @@ onMounted(() => {
     }
 
     .rocket-wrapper {
-        position: static;
         width: 100%;
-        max-width: 240px;
         margin: 0 auto 16px auto;
         text-align: center;
     }
@@ -261,22 +241,6 @@ onMounted(() => {
     .rocket-img {
         max-width: 100%;
         height: auto;
-    }
-
-    .rocket-wrapper {
-        position: static;
-        width: 100%;
-        max-width: 240px;
-        margin: 0 auto 16px auto;
-    }
-
-    .purple-step {
-        padding-top: 40px;
-    }
-
-    .purple-step .step-number {
-        position: static;
-        margin-bottom: 16px;
     }
 }
 
@@ -290,7 +254,6 @@ onMounted(() => {
         gap: 32px;
         max-width: 100%;
         flex-direction: column;
-
     }
 
     .step,
@@ -305,26 +268,6 @@ onMounted(() => {
     .purple-step .step-text {
         font-size: 1.2rem;
     }
-}
-
-.purple-step .step-text {
-    font-size: 1.3rem;
-}
-
-.rocket-wrapper {
-    position: static;
-    width: 100%;
-    max-width: 240px;
-    margin: 0 auto 16px auto;
-}
-
-.purple-step {
-    padding-top: 40px;
-}
-
-.purple-step .step-number {
-    position: static;
-    margin-bottom: 16px;
 }
 
 @media (max-width: 480px) {
