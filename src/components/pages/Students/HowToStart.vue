@@ -116,20 +116,21 @@ onMounted(() => {
 }
 
 .rocket-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    position: relative;
 }
 
 .rocket-img {
-    width: 100%;
-    height: 510px;
+    max-width: 100%;
+    height: 370px;
     margin-left: 30%;
     object-fit: contain;
 }
+
 
 .step-number {
     display: flex;
@@ -171,7 +172,7 @@ onMounted(() => {
     max-width: 260px;
     height: 270px;
     border-radius: 16px;
-    margin-bottom: 52px;
+    margin-bottom: 62px;
 }
 
 .step-text {
@@ -229,13 +230,15 @@ onMounted(() => {
     }
 
     .purple-step .step-text {
-        font-size: 1.3rem;
+        font-size: 2.3rem;
     }
 
     .rocket-wrapper {
         width: 100%;
         margin: 0 auto 16px auto;
         text-align: center;
+        max-width: 350px;
+
     }
 
     .rocket-img {
@@ -273,6 +276,10 @@ onMounted(() => {
 @media (max-width: 480px) {
     .step-text {
         font-size: 1.1rem;
+    }
+
+    .rocket-img {
+        max-width: 200px;
     }
 
     .purple-step .step-text {
