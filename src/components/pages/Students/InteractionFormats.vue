@@ -116,7 +116,7 @@ const formatsBlocks = [
 .bg-right {
     position: absolute;
     top: 0;
-    height: 100%;
+        height: 100%;
     z-index: -1;
     object-fit: contain;
 }
@@ -126,7 +126,7 @@ const formatsBlocks = [
 }
 
 .bg-right {
-    right: 0;
+        right: 0;
 }
 
 .content-wrapper {
