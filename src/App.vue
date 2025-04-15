@@ -19,7 +19,7 @@ const isLogin = ref<boolean>(false)
 
 const disabledHeader = ['/login', '/develop', '/ui-kit', '/registration', '/terms', '/policy']
 
-const mainRoutes = ['/', '/partners', '/Students']
+const mainRoutes = ['/', '/partners', '/students']
 
 watch(
   () => route.params,
