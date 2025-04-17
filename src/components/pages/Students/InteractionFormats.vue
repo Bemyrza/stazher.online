@@ -116,7 +116,7 @@ const formatsBlocks = [
 .bg-right {
     position: absolute;
     top: 0;
-        height: 100%;
+    height: 100%;
     z-index: -1;
     object-fit: contain;
 }
@@ -126,7 +126,7 @@ const formatsBlocks = [
 }
 
 .bg-right {
-        right: 0;
+    right: 0;
 }
 
 .content-wrapper {
@@ -138,12 +138,12 @@ const formatsBlocks = [
 
 .character-overlay {
     width: 100%;
-    max-width: 700px;
+    max-width: 650px;
 
     max-height: 580px;
     position: absolute;
     bottom: 0;
-    right: 45%;
+    right: 48%;
     z-index: 2;
     pointer-events: none;
 }
