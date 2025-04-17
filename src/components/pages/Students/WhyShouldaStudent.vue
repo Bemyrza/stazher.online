@@ -66,6 +66,7 @@ onMounted(() => {
             toggleActions: 'play none none none',
         },
     });
+
     gsap.from('.description', {
         opacity: 0,
         x: 50,
@@ -78,8 +79,23 @@ onMounted(() => {
             toggleActions: 'play none none none',
         },
     });
+
+    gsap.from('.trophy', {
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+        duration: 1.5,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '.trophies',
+            start: 'top 80%',
+            end: 'bottom top',
+            toggleActions: 'play none none none',
+        },
+    });
 });
 </script>
+
 
 <style scoped>
 .case-section {
