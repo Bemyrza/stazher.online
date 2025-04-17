@@ -206,7 +206,10 @@ onMounted(() => {
         display: flex;
         justify-content: center;
         width: 450px;
+        height: 450px;
+        object-fit: contain;
         margin: 0 auto;
+        
     }
 
     .background-img {
@@ -225,6 +228,7 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
+
     .case-section {
         flex-direction: column;
         gap: 30px;
@@ -237,6 +241,7 @@ onMounted(() => {
 
     .trophy {
         width: 80%;
+        height: 330px;
     }
 
     .background-img {
