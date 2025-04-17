@@ -43,31 +43,37 @@ import raketa from "../../../assets/media/img/raceta.png"
 gsap.registerPlugin(ScrollTrigger)
 
 onMounted(() => {
-    gsap.from(".step", {
-        scrollTrigger: {
-            trigger: ".steps",
-            start: "top 80%",
-            toggleActions: "play none none none",
-        },
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.3,
-        ease: "power2.out",
+    document.querySelectorAll(".step").forEach((stepEl) => {
+        gsap.from(stepEl, {
+            scrollTrigger: {
+                trigger: stepEl,
+                start: "top 60%",
+                toggleActions: "play none none none",
+                once: true, 
+            },
+            y: 30,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power2.out",
+        })
     })
 
     gsap.from(".rocket-img", {
         scrollTrigger: {
             trigger: ".purple-step",
-            start: "top 80%",
+            start: "top 60%",
             toggleActions: "play none none none",
+            once: true,
         },
-        transform: "translate(30px, 20px) scale(0.5)",
+        x: 30,
+        y: 20,
+        scale: 0.5,
         opacity: 0,
-        duration: 1,
+        duration: 1.5,
         ease: "back.out(1.7)",
     })
 })
+
 </script>
 
 <style scoped>

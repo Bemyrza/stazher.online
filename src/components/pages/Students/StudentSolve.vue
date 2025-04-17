@@ -73,43 +73,49 @@ import TitleSection from '@/components/common/TitleSection.vue'
 gsap.registerPlugin(ScrollTrigger)
 
 onMounted(() => {
-    gsap.from('.left .purple-card', {
-        scrollTrigger: {
-            trigger: '.left',
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-        },
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.3,
-        ease: 'power2.out',
+    const cards = document.querySelectorAll('.left .purple-card')
+    cards.forEach((card, index) => {
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 70%',
+                toggleActions: 'play none none none',
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power2.out',
+        })
     })
 
-    gsap.from('.right .step', {
-        scrollTrigger: {
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-        },
-        x: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power2.out',
+    const steps = document.querySelectorAll('.right .step')
+    steps.forEach((step, index) => {
+        gsap.from(step, {
+            scrollTrigger: {
+                trigger: step,
+                start: 'top 65%',
+                toggleActions: 'play none none none',
+            },
+            x: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power2.out',
+        })
     })
 
     gsap.from('.right-title', {
         scrollTrigger: {
-            trigger: '.right',
-            start: 'top 90%',
+            trigger: '.right-title',
+            start: 'top 60%',
             toggleActions: 'play none none none',
         },
         y: -20,
         opacity: 0,
-        duration: 0.8,
+        duration: 1.2,
         ease: 'power2.out',
     })
 })
+
 </script>
 
 
@@ -336,8 +342,10 @@ onMounted(() => {
     .card {
         padding: 16px;
     }
+    .title{
+        font-size: 1.9rem;
+    }
 
- 
 
     .card-number {
         font-size: 4rem;
