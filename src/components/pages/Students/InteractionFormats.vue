@@ -12,9 +12,9 @@
 
                     <div class="info-list">
                         <div class="blockInfo" v-for="(item, index) in formatsBlocks" :key="index">
-                            <h2 class="count">{{ (index + 1).toString().padStart(2, '0') }}</h2>
+                            <span class="count">{{ (index + 1).toString().padStart(2, '0') }}</span>
                             <div class="descriptions">
-                                <h4 class="theme">{{ item.title }}</h4>
+                                <h3 class="theme">{{ item.title }}</h3>
                                 <p class="text">{{ item.text }}</p>
                             </div>
                         </div>
@@ -22,8 +22,6 @@
                     </div>
                 </div>
             </div>
-
-
         </Container>
     </div>
 </template>
@@ -41,16 +39,16 @@ import dude2 from '../../../assets/media/img/dude2.png'
 onMounted(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const blocks = document.querySelectorAll('.blockInfo');
+    const blocks = gsap.utils.toArray<HTMLElement>('.blockInfo');
     blocks.forEach((block) => {
         gsap.from(block.querySelector('.count'), {
             opacity: 0,
             x: -50,
-            duration: 1.2,
+            duration: 1.5,
             ease: 'power3.out',
             scrollTrigger: {
                 trigger: block,
-                start: 'top 80%',
+                start: 'top 60%',
                 toggleActions: 'play none none none',
             }
         });
@@ -58,11 +56,11 @@ onMounted(() => {
         gsap.from(block.querySelector('.descriptions'), {
             opacity: 0,
             y: 30,
-            duration: 1.2,
+            duration: 1.5,
             ease: 'power3.out',
             scrollTrigger: {
                 trigger: block,
-                start: 'top 80%',
+                start: 'top 60%',
                 toggleActions: 'play none none none',
             }
         });
@@ -77,33 +75,35 @@ onMounted(() => {
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: character,
-                start: 'top 85%',
+                start: 'top 65%',
                 toggleActions: 'play none none none',
             }
         });
     }
-});
 
+    ScrollTrigger.refresh();
+});
 
 const formatsBlocks = [
     {
         title: "Форматы взаимодействия",
-        text: `Возможность публиковать кейсы и получать решения от студентов.\nКак работает процесс (создание кейса → публикация → получение решений → отбор кандидатов).`,
+        text: `Возможность публиковать кейсы и получать решения от студентов. Как работает процесс (создание кейса → публикация → получение решений → отбор кандидатов).`,
     },
     {
-        title: "Решение отдельных кейсов.",
-        text: `Кейс-менеджеры помогают сформулировать задачу, а дизайнеры оформляют её в фирменном стиле компании.\nПримеры уже разработанных кейсов.`,
+        title: "Решение отдельных кейсов",
+        text: `Кейс-менеджеры помогают сформулировать задачу, а дизайнеры оформляют её в фирменном стиле компании. Примеры уже разработанных кейсов.`,
     },
     {
-        title: "Участие в кейс-чемпионатах.",
-        text: `Организация соревнований среди студентов для поиска талантов.\nВозможность для компаний провести мастер-классы, лекции и познакомиться с будущими специалистами.`,
+        title: "Участие в кейс-чемпионатах",
+        text: `Организация соревнований среди студентов для поиска талантов. Возможность для компаний провести мастер-классы, лекции и познакомиться с будущими специалистами.`,
     },
     {
-        title: "Возможность попасть в команды компаний для работы над реальными проектами.",
-        text: `Организация соревнований среди студентов для поиска талантов.\nВозможность для компаний провести мастер-классы, лекции и познакомиться с будущими специалистами.`,
+        title: "Работа над реальными проектами",
+        text: `Студенты могут попасть в реальные проектные команды компаний. Это даёт опыт, а компаниям — готовых специалистов.`,
     },
 ];
 </script>
+
 
 <style scoped>
 .interaction-section {
@@ -139,11 +139,11 @@ const formatsBlocks = [
 .character-overlay {
     width: 100%;
     max-width: 650px;
-
     max-height: 580px;
     position: absolute;
     bottom: 0;
-    right: 48%;
+    right: 50%;
+    transform: translateX(50%);
     z-index: 2;
     pointer-events: none;
 }
@@ -151,12 +151,6 @@ const formatsBlocks = [
 .info-list {
     position: relative;
     z-index: 1;
-}
-
-
-
-.informationBlocks {
-    margin-top: 50px;
 }
 
 .blockInfo {
@@ -200,22 +194,18 @@ const formatsBlocks = [
 .Title-Company {
     text-align: start;
     margin-bottom: 50px;
+    max-width: 100%;
+    word-break: break-word;
 }
 
-
-
 @media (max-width: 1224px) {
-
     .character-overlay {
         position: static;
         width: 100%;
         max-width: 500px;
-        right: 30%;
-
         margin: 0 auto 40px;
+        transform: none;
     }
-
-
 }
 
 @media (max-width: 1024px) {
@@ -226,10 +216,7 @@ const formatsBlocks = [
     }
 
     .character-overlay {
-        position: static;
-        width: 100%;
         max-width: 400px;
-        margin: 0 auto 40px;
     }
 
     .info-list {
@@ -246,7 +233,6 @@ const formatsBlocks = [
     }
 
     .blockInfo {
-        width: 100%;
         flex-direction: column;
         align-items: flex-start;
     }
@@ -295,11 +281,6 @@ const formatsBlocks = [
 
     .text {
         font-size: 12px;
-    }
-
-    .bg-left,
-    .bg-right {
-        display: none;
     }
 
     .count {

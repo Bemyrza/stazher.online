@@ -64,22 +64,23 @@ const steps = ref([
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-
-    gsap.from(".step-card", {
-        opacity: 0,
-        y: 50,
-        filter: "blur(10px)",
-        duration: 1.5,
-        ease: "power3.out",
-        stagger: 0.3,
-        scrollTrigger: {
-            trigger: ".steps-container",
-            start: "top 70%",
-            end: "bottom top",
-            toggleActions: "play none none none",
-        }
+  document.querySelectorAll(".step-card").forEach((card) => {
+    gsap.from(card, {
+      opacity: 0,
+      y: 30,
+      filter: "blur(10px)",
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: card,
+        start: "top 60%",
+        toggleActions: "play none none none",
+        once: true,
+      },
     });
+  });
 });
+
 </script>
 
 <style scoped>
